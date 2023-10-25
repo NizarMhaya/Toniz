@@ -4,6 +4,7 @@ define('_MYSQL_PORT', 3306);
 define('_MYSQL_DBNAME', 'dbtest');
 define('_MYSQL_USER', 'root');
 define('_MYSQL_PASSWORD', '');
+define('_API_URL', 'http://localhost/Toniz/backend/api_aliments.php');
 
 $connectionString = "mysql:host=" . _MYSQL_HOST;
 

@@ -1,7 +1,8 @@
+
 function getAllDataFromServer() {
     $.ajax({
         type: "GET", // Utilisez la méthode GET pour récupérer des données
-        url: "http://localhost/Toniz/backend/api_aliments.php", // URL de votre API pour récupérer tous les éléments
+        url: apiUrl, // URL de votre API qui est définie dans le fichier html
         success: function (response) {
             // Traitez la réponse du serveur ici
             console.log("Réponse du serveur :", response);
@@ -31,7 +32,7 @@ function sendDataToServer(name) {
 
     $.ajax({
         type: "POST", // Utilisez la méthode POST pour envoyer des données
-        url: "http://localhost/Toniz/backend/api_aliments.php", // URL de votre API
+        url: apiUrl, // URL de votre API
         data: JSON.stringify({
             name: name,
         }),
