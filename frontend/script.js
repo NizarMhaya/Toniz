@@ -1,50 +1,106 @@
-
-function getAllDataFromServer() {
-    $.ajax({
-        type: "GET", // Utilisez la méthode GET pour récupérer des données
-        url: apiUrl, // URL de votre API qui est définie dans le fichier html
-        success: function (response) {
-            // Traitez la réponse du serveur ici
-            console.log("Réponse du serveur :", response);
-
-            // Mettez à jour votre interface utilisateur avec les données reçues du serveur
-            // Par exemple, si response est un tableau d'objets, vous pouvez les afficher dans un tableau HTML
-            // Utilisez la boucle pour parcourir la réponse et mettre à jour votre interface utilisateur
-            // Exemple d'affichage dans une table HTML (supposons que #data-table est l'ID de votre élément de tableau dans HTML) :
-            for (let i = 0; i < response.length; i++) {
-                $("#studentsTableBody").append(`<tr>
-                        <td>${response[i].id}</td>
-                        <td>${response[i].name}</td>
-                        <td><button class="btn btn-info btn-sm editBtn">Éditer</button></td>
-            <td><button class="btn btn-danger btn-sm deleteBtn">Supprimer</button></td>
-                    </tr>`);
-            }
+$(document).ready(function () {
+    console.log(apiUrl);
+    let table = $('#myTable').DataTable({
+        ajax: {
+            url: apiUrl,
+            dataSrc: ''
         },
-        error: function (error) {
-            // Traitez les erreurs ici 
-            console.error("Erreur :", error);
-        }
-    });
-}
-
-
-function sendDataToServer(name) {
-
-    $.ajax({
-        type: "POST", // Utilisez la méthode POST pour envoyer des données
-        url: apiUrl, // URL de votre API
-        data: JSON.stringify({
-            name: name,
-        }),
-        dataType: "json",
-        success: function (response) {
-            // Traitez la réponse du serveur si nécessaire
-            console.log("Réponse du serveur :" + response);
+        columns: [{
+            data: 'id'
         },
-        error: function (error) {
-            // Traitez les erreurs
-            console.error("Erreur :" + error);
+        {
+            data: 'name'
         }
+        ]
+        // ,
+        // columnDefs: [{
+        //     orderable: false,
+        //     targets: 10,
+        //     data: null,
+        //     defaultContent: '<button id=edit>Edit</button>'
+        // },
+        // {
+        //     orderable: false,
+        //     targets: 11,
+        //     data: null,
+        //     defaultContent: '<button id=delete>Delete</button>'
+        // }]
     });
-}
+});
+
+
+// $("#submitButton").click(function (event) {
+//     // Empêche l'envoi du formulaire au serveur
+//     event.preventDefault();
+
+//     // Récupère la valeur des champs
+//     let id = $("#inputid").val();
+//     let name = $("#inputname").val();
+//     // Appelle la fonction pour envoyer les données au serveur
+//     sendDataToServer(name);
+//     // Ajoute une nouvelle ligne à la table en utilisant .row.add()
+//     table.row.add([
+//         id,
+//         name,
+//         '<button class="btn btn-info btn-sm editBtn">Éditer</button>',
+//         '<button class="btn btn-danger btn-sm deleteBtn">Supprimer</button>'
+//     ]).draw(false); // Redessine la table après l'ajout de la ligne
+
+
+//     // Réinitialise le champ id et le champs Name après l'ajout
+//     $("#inputid").val("");
+//     $("#inputname").val("");
+// });
+
+
+
+
+// function getAllDataFromServer() {
+
+//     $.ajax({
+//         type: "GET",
+//         url: apiUrl,
+//         success: function (response) {
+//             console.log("Réponse du serveur :", response);
+
+//             // Effacer le contenu de la table DataTables avant d'ajouter de nouvelles données
+//             table.clear();
+
+//             // Ajouter les données de la réponse à la table DataTables en utilisant .row.add()
+//             for (let i = 0; i < response.length; i++) {
+//                 table.row.add([
+//                     response[i].id,
+//                     response[i].name,
+//                     '<button class="btn btn-info btn-sm editBtn">Éditer</button>',
+//                     '<button class="btn btn-danger btn-sm deleteBtn">Supprimer</button>'
+//                 ]).draw(false); // Redessiner la table après chaque ajout de ligne
+//             }
+//         },
+//         error: function (error) {
+//             console.error("Erreur :", error);
+//         }
+//     });
+// }
+
+
+
+// function sendDataToServer(name) {
+
+//     $.ajax({
+//         type: "POST", // Utilisez la méthode POST pour envoyer des données
+//         url: apiUrl, // URL de votre API
+//         data: JSON.stringify({
+//             name: name,
+//         }),
+//         dataType: "json",
+//         success: function (response) {
+//             // Traitez la réponse du serveur si nécessaire
+//             console.log("Réponse du serveur :" + response);
+//         },
+//         error: function (error) {
+//             // Traitez les erreurs
+//             console.error("Erreur :" + error);
+//         }
+//     });
+// }
 
