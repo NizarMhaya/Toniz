@@ -10,21 +10,15 @@ $(document).ready(function () {
         },
         {
             data: 'name'
-        }
-        ]
-        // ,
-        // columnDefs: [{
-        //     orderable: false,
-        //     targets: 10,
-        //     data: null,
-        //     defaultContent: '<button id=edit>Edit</button>'
-        // },
-        // {
-        //     orderable: false,
-        //     targets: 11,
-        //     data: null,
-        //     defaultContent: '<button id=delete>Delete</button>'
-        // }]
+        }],
+        columnDefs: [{
+            target: 2,
+            render: function (data, type, row) {
+                return `
+                    <button class="btn btn-sm btn-outline-dark" onclick="editResource(${data})">Edit</button>
+                `;
+            }
+        }]
     });
 });
 
