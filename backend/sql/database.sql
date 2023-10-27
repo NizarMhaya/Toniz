@@ -1,10 +1,7 @@
 /*==============================================================*/
 /* Nom de SGBD :  MySQL 5.0                                     */
-/* Date de cr�ation :  27/10/2023 09:53:52                      */
+/* Date de cr�ation :  27/10/2023 15:10:58                      */
 /*==============================================================*/
-
-
-drop table if exists ALIMENT;
 
 
 /*==============================================================*/
@@ -112,11 +109,12 @@ alter table ELEMENT_DE add constraint FK_ELEMENT__ELEMENT_D_ALIMENT foreign key 
 alter table ELEMENT_DE add constraint FK_ELEMENT__ELEMENT_D_REPAS foreign key (ID_REPAS)
       references REPAS (ID_REPAS) on delete restrict on update restrict;
 
-alter table INGREDIENT_DE add constraint FK_INGREDIE_INGREDIEN_ALIMENT foreign key (CODE_BARRES)
-      references ALIMENT (CODE_BARRES) on delete restrict on update restrict;
+alter table INGREDIENT_DE add constraint FK_INGREDIE_INGREDIEN_ALIMENT1 foreign key (CODE_BARRES)
+  references ALIMENT (CODE_BARRES) on delete restrict on update restrict;
 
-alter table INGREDIENT_DE add constraint FK_INGREDIE_INGREDIEN_ALIMENT foreign key (ALI_CODE_BARRES)
-      references ALIMENT (CODE_BARRES) on delete restrict on update restrict;
+alter table INGREDIENT_DE add constraint FK_INGREDIE_INGREDIEN_ALIMENT2 foreign key (ALI_CODE_BARRES)
+  references ALIMENT (CODE_BARRES) on delete restrict on update restrict;
+
 
 alter table PRESENT_DANS add constraint FK_PRESENT__PRESENT_D_ALIMENT foreign key (CODE_BARRES)
       references ALIMENT (CODE_BARRES) on delete restrict on update restrict;
