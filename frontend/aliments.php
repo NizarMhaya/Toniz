@@ -12,6 +12,9 @@
         <!-- Contenu de la page "profil.php" -->
         <h1>Aliments</h1>
         <p>Ceci est la page listant les aliments</p>
+
+
+
     </main>
 
     <!-- Autres sections ou contenu ici -->
