@@ -28,8 +28,8 @@
     <table id="myTable">
         <thead>
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Name</th>
+                <th scope="col">id</th>
+                <th scope="col">name</th>
             </tr>
         </thead>
         <tbody id="studentsTableBody">
@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="form-group row">
-            <label for="inputname" class="col-sm-2 col-form-label">Name*</label>
+            <label for="inputname" class="col-sm-2 col-form-label">name*</label>
             <div class="col-sm-3">
                 <input type="text" class="form-control" id="inputname">
             </div>

@@ -1,26 +1,22 @@
 $(document).ready(function () {
-    console.log(apiUrl);
-    let table = $('#myTable').DataTable({
+    $('#myTable').DataTable({
         ajax: {
-            url: apiUrl,
-            dataSrc: ''
+            url: apiUrl, // Spécifiez l'URL de votre API
+            dataSrc: '' // Si les données directes sont retournées dans le tableau JSON (pas de clé de propriété pour les données)
         },
-        columns: [{
-            data: 'id'
-        },
-        {
-            data: 'name'
-        }],
-        columnDefs: [{
-            target: 2,
-            render: function (data, type, row) {
-                return `
-                    <button class="btn btn-sm btn-outline-dark" onclick="editResource(${data})">Edit</button>
-                `;
+        columns: [
+            {
+                "data": "id"
+            },
+            {
+                "data": "name"
             }
-        }]
+        ]
     });
 });
+
+
+
 
 
 // $("#submitButton").click(function (event) {
