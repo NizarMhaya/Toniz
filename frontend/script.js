@@ -58,8 +58,15 @@ $(document).ready(function () {
             type: 'DELETE',
             dataType: 'json',
             success: function () {
+                // Obtenez les données actuelles de la première colonne (colonne des ID)
+                var firstColumnData = table.column(0).data().toArray();
+
+                // Recherchez l'indice de la ligne à mettre à jour
+                var rowIndex = firstColumnData.indexOf(id);
+
                 // Si la suppression est réussie, supprimez la ligne du DataTable
-                table.row($(this).parents('tr')).remove().draw();
+                table.row(rowIndex).remove().draw();
+
             },
             error: function (error) {
                 // Gérez les erreurs si la suppression échoue
