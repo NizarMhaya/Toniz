@@ -115,3 +115,50 @@ function delete_user($pdo, $data)
         return array('error' => 'Erreur lors de la suppression de l\'utilisateur : ' . $e->getMessage());
     }
 }
+
+if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
+    $inputData = json_decode(file_get_contents('php://input'), true);
+    $result = update_user($pdo, $inputData);
+
+    // Vérifiez le résultat de la mise à jour
+    if (isset($result['message'])) {
+        http_response_code(200); // OK
+        echo json_encode($result);
+    } elseif (isset($result['error'])) {
+        http_response_code(400); // Bad Request ou tout autre code d'erreur approprié
+        echo json_encode($result);
+    } else {
+        http_response_code(500); // Erreur interne du serveur
+        echo json_encode(array("error" => "Une erreur inattendue s'est produite lors de la mise à jour de l'utilisateur."));
+    }
+}
+
+function update_user($pdo, $data)
+{
+    $id = $data['id']; // Récupération de l'ID depuis les données d'entrée
+    $name = $data['name']; // Récupération du nom depuis les données d'entrée
+
+    try {
+        // Préparez la requête SQL de mise à jour avec les champs "name" et "email"
+        $stmt = $pdo->prepare("UPDATE aliments SET name = :name WHERE id = :id");
+
+        // Liez les valeurs des paramètres
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT); // Assurez-vous que l'ID est traité comme un entier
+
+        // Exécutez la requête
+        $stmt->execute();
+
+        // Vérifiez si la mise à jour a affecté des lignes (au moins une ligne a été mise à jour)
+        if ($stmt->rowCount() > 0) {
+            // La mise à jour a réussi, retournez un message de succès
+            return array('message' => 'Utilisateur mis à jour avec succès.');
+        } else {
+            // Aucune ligne n'a été mise à jour, l'utilisateur avec l'ID spécifié n'a pas été trouvé
+            return array('error' => 'Utilisateur non trouvé ou aucune mise à jour nécessaire.'); // remarque : ce message est renvoyé également si l'utilisateur existe mais que l'on met à jour avec le même mail et name
+        }
+    } catch (PDOException $e) {
+        // En cas d'erreur, retournez un message d'erreur
+        return array('error' => 'Erreur lors de la mise à jour de l\'utilisateur : ' . $e->getMessage());
+    }
+}

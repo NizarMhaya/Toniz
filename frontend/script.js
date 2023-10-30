@@ -7,7 +7,7 @@ $(document).ready(function () {
         columns: [
             { "data": "id" },
             { "data": "name" },
-            { "data": null, "defaultContent": '<button class="btn btn-info btn-sm editBtn">Edit</button>' },
+            { "data": null, "defaultContent": '<button class="btn btn-info btn-sm editBtn" id="edit">Edit</button>' },
             { "data": null, "defaultContent": '<button class="btn btn-danger btn-sm deleteBtn" id="delete">Delete</button>' }
         ]
     });
@@ -67,6 +67,79 @@ $(document).ready(function () {
             }
         });
     });
+
+    $('#myTable').on('click', '#edit', function () {
+        var data = table.row($(this).parents('tr')).data(); // Obtenez les données de la ligne associée au bouton "Modifier"
+        var id = data.id; // Supposons que l'ID à modifier est stocké dans la propriété "id" des données
+
+        // Remplissez votre formulaire de modification avec les données récupérées
+        $('#idInput').val(data.id);
+        $('#nameInput').val(data.name);
+
+        // Affichez le bouton "Enregistrer" et masquez le bouton "Soumettre"
+        $('#saveButton').show();
+        $('#submitButton').hide();
+
+        // Attachez un gestionnaire d'événements au bouton "Enregistrer" pour appliquer les modifications
+        $('#saveButton').on('click', function () {
+            var newId = $('#idInput').val();
+            var newName = $('#nameInput').val();
+
+            var formData = {
+                id: newId,
+                name: newName
+            }
+
+            // Envoyez une requête PUT à votre API pour appliquer les modifications
+            $.ajax({
+                type: "PUT",
+                url: apiUrl,
+                contentType: "application/json",
+                data: JSON.stringify(formData),
+                success: function (data) {
+                    console.log("Utilisateur mis à jour avec succès :", data);
+
+                    // Obtenez les données actuelles de la première colonne (colonne des ID)
+                    var firstColumnData = table.column(0).data().toArray();
+
+                    // Recherchez l'indice de la ligne à mettre à jour
+                    var rowIndex = firstColumnData.indexOf(newId);
+
+                    // Obtenez la ligne à mettre à jour
+                    var rowToUpdate = table.row(rowIndex);
+
+                    // Mettez à jour les données de la ligne
+                    rowToUpdate.data({
+                        "id": newId,
+                        "name": newName
+                    });
+
+                    // Redessinez la table pour refléter les modifications
+                    rowToUpdate.draw();
+
+                    // Réinitialisez les champs du formulaire de modification et masquez le bouton "Enregistrer"
+                    $('#idInput').val('');
+                    $('#nameInput').val('');
+                    $('#saveButton').hide();
+                    $('#submitButton').show();
+                },
+                error: function (error) {
+                    // Gérez les erreurs si la modification échoue
+                    console.error('Erreur lors de la modification de la ligne : ', error);
+                }
+            });
+        });
+
+    });
+
+
+
+
+
+
+
+
+
 });
 
 
