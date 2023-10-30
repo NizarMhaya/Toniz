@@ -30,6 +30,8 @@
             <tr>
                 <th scope="col">id</th>
                 <th scope="col">name</th>
+                <th scope="col">Edit</th> <!-- Colonne pour le bouton Edit -->
+                <th scope="col">Delete</th> <!-- Colonne pour le bouton Delete -->
             </tr>
         </thead>
         <tbody id="studentsTableBody">
@@ -37,15 +39,15 @@
     </table>
     <form id="addStudentForm">
         <div class="form-group row">
-            <label for="inputid" class="col-sm-2 col-form-label">id*</label>
+            <label for="idInput" class="col-sm-2 col-form-label">id*</label>
             <div class="col-sm-3">
-                <input type="text" class="form-control" id="inputid">
+                <input type="text" class="form-control" id="idInput">
             </div>
         </div>
         <div class="form-group row">
-            <label for="inputname" class="col-sm-2 col-form-label">name*</label>
+            <label for="nameInput" class="col-sm-2 col-form-label">name*</label>
             <div class="col-sm-3">
-                <input type="text" class="form-control" id="inputname">
+                <input type="text" class="form-control" id="nameInput">
             </div>
         </div>
         <div class="form-group row">

@@ -1,17 +1,50 @@
 $(document).ready(function () {
-    $('#myTable').DataTable({
+    var table = $('#myTable').DataTable({
         ajax: {
-            url: apiUrl, // Spécifiez l'URL de votre API
-            dataSrc: '' // Si les données directes sont retournées dans le tableau JSON (pas de clé de propriété pour les données)
+            url: apiUrl,
+            dataSrc: ''
         },
         columns: [
-            {
-                "data": "id"
-            },
-            {
-                "data": "name"
-            }
+            { "data": "id" },
+            { "data": "name" },
+            { "data": null, "defaultContent": '<button class="edit">Edit</button>' },
+            { "data": null, "defaultContent": '<button class="delete">Delete</button>' }
         ]
+    });
+
+    // Action lorsque le bouton submit est cliqué
+    $('#submitButton').on('click', function (e) {
+        e.preventDefault();
+
+        // Récupérer les valeurs des champs du formulaire (remplacez avec les vrais ID des champs)
+        var id = $('#idInput').val();
+        var name = $('#nameInput').val();
+
+        // Créer un nouvel objet avec les données du formulaire
+        var newData = {
+            "id": id,
+            "name": name
+        };
+
+        // Envoyer les données à votre API (remplacez avec votre méthode d'envoi de données)
+        $.ajax({
+            url: apiUrl, // Spécifiez l'URL de votre API pour ajouter des données
+            type: 'POST', // Méthode HTTP à utiliser (peut varier selon votre API)
+            data: JSON.stringify(newData), // Les données que vous voulez envoyer à l'API
+            dataType: 'json',
+            success: function (response) {
+                // Si l'ajout est réussi, ajoutez la nouvelle ligne à votre DataTable et redessinez-le
+                table.row.add(newData).draw();
+
+                // Réinitialisez les champs du formulaire si nécessaire
+                $('#idInput').val('');
+                $('#nameInput').val('');
+            },
+            error: function (error) {
+                // Gérez les erreurs si l'ajout échoue
+                console.error('Erreur lors de l\'ajout de la nouvelle ligne : ', error);
+            }
+        });
     });
 });
 
