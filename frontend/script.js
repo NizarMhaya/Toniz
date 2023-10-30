@@ -58,14 +58,14 @@ $(document).ready(function () {
             type: 'DELETE',
             dataType: 'json',
             success: function () {
-                // Obtenez les données actuelles de la première colonne (colonne des ID)
-                var firstColumnData = table.column(0).data().toArray();
+                console.log("Utilisateur supprimé avec succès :", data);
+                // Recherchez l'indice de la ligne dans les données du DataTable
+                var index = table.rows().data().toArray().findIndex(function (item) {
+                    return item.id === id;
+                });
 
-                // Recherchez l'indice de la ligne à mettre à jour
-                var rowIndex = firstColumnData.indexOf(id);
-
-                // Si la suppression est réussie, supprimez la ligne du DataTable
-                table.row(rowIndex).remove().draw();
+                // Supprimez la ligne du DataTable
+                table.row(index).remove().draw();
 
             },
             error: function (error) {
