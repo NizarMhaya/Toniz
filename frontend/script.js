@@ -7,8 +7,8 @@ $(document).ready(function () {
         columns: [
             { "data": "id" },
             { "data": "name" },
-            { "data": null, "defaultContent": '<button class="edit">Edit</button>' },
-            { "data": null, "defaultContent": '<button class="delete">Delete</button>' }
+            { "data": null, "defaultContent": '<button class="btn btn-info btn-sm editBtn">Edit</button>' },
+            { "data": null, "defaultContent": '<button class="btn btn-danger btn-sm deleteBtn" id="delete">Delete</button>' }
         ]
     });
 
@@ -46,7 +46,29 @@ $(document).ready(function () {
             }
         });
     });
+
+
+    $('#myTable').on('click', '#delete', function () {
+        var data = table.row($(this).parents('tr')).data(); // Obtenez les données de la ligne associée au bouton "Delete"
+        var id = data.id; // Supposons que l'ID à supprimer est stocké dans la propriété "id" des données
+
+        // Envoyez une requête DELETE à votre API pour supprimer l'entrée avec l'ID spécifié
+        $.ajax({
+            url: apiUrl + '?id=' + id, // Ajoutez l'ID à l'URL de l'API
+            type: 'DELETE',
+            dataType: 'json',
+            success: function () {
+                // Si la suppression est réussie, supprimez la ligne du DataTable
+                table.row($(this).parents('tr')).remove().draw();
+            },
+            error: function (error) {
+                // Gérez les erreurs si la suppression échoue
+                console.error('Erreur lors de la suppression de la ligne : ', error);
+            }
+        });
+    });
 });
+
 
 
 

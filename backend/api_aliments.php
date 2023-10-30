@@ -68,3 +68,50 @@ function create_user($pdo, $data)
         return array('error' => 'Erreur lors de la création de l\'utilisateur : ' . $e->getMessage());
     }
 }
+
+
+// Gérer la méthode DELETE pour supprimer un utilisateur
+if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+    // $inputData = json_decode(file_get_contents('php://input'), true); // Comme il n'y a pas cette ligne, on ne prend pas de json de l'utilisateur de l'utilisateurs, tout est dans l'url en GET
+    $result = delete_user($pdo, $_GET);
+    // Vérifiez le résultat de la mise à jour
+    if (isset($result['message'])) {
+        http_response_code(200); // OK
+        echo json_encode($result);
+    } elseif (isset($result['error'])) {
+        http_response_code(400); // Bad Request ou tout autre code d'erreur approprié
+        echo json_encode($result);
+    } else {
+        http_response_code(500); // Erreur interne du serveur
+        echo json_encode(array("error" => "Une erreur inattendue s'est produite lors de la mise à jour de l'utilisateur."));
+    }
+}
+
+// Fonction pour supprimer un utilisateur
+function delete_user($pdo, $data)
+{
+    $user_id = $data['id']; // Récupération de l'ID de l'utilisateur depuis les données d'entrée
+
+    try {
+        // Préparez la requête SQL de suppression en utilisant l'ID de l'utilisateur
+        $stmt = $pdo->prepare("DELETE FROM aliments WHERE id = :id");
+
+        // Liez la valeur de l'ID en tant que paramètre
+        $stmt->bindParam(':id', $user_id);
+
+        // Exécutez la requête
+        $stmt->execute();
+
+        // Vérifiez combien de lignes ont été affectées (si aucune ligne n'est affectée, l'utilisateur n'existe peut-être pas)
+        if ($stmt->rowCount() > 0) {
+            // Retournez un message de succès si l'utilisateur a été supprimé
+            return array('message' => 'Utilisateur supprimé avec succès.');
+        } else {
+            // Retournez un message d'erreur si l'utilisateur n'existe pas ou n'a pas pu être supprimé
+            return array('error' => 'Utilisateur non trouvé ou impossible de le supprimer.');
+        }
+    } catch (PDOException $e) {
+        // En cas d'erreur, retournez un message d'erreur
+        return array('error' => 'Erreur lors de la suppression de l\'utilisateur : ' . $e->getMessage());
+    }
+}
