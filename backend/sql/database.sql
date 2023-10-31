@@ -4,7 +4,7 @@
 create table ALIMENT
 (
    CODE_BARRES          BIGINT NOT NULL,
-   NOM                VARCHAR(80),
+   NOM                  VARCHAR(80),
    MARQUE               VARCHAR(80),
    CATEGORIE            VARCHAR(160),
    ENERGIE_100G         INT,
@@ -83,7 +83,8 @@ create table REPAS
 create table UTILISATEUR
 (
    ID_USER              INT NOT NULL AUTO_INCREMENT,
-   NOM                VARCHAR(30),
+   LOGIN                VARCHAR(50) NOT NULL,
+   MDP                  VARCHAR(50) NOT NULL,
    AGE                  INT,
    SEXE                 INT,
    SPORT                VARCHAR(30),
