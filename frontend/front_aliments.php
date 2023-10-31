@@ -56,7 +56,7 @@ gi<!doctype html>
     <button type="button" id="saveButton" class="btn btn-primary " style="display: none;">Enregistrer</button>
     <script>
         var apiUrl = "<?php require_once '../backend/config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
-                        echo _API_URL; ?>"; // utilisation de la variable définie dans config
+                        // echo _API_URL; ?>"; // utilisation de la variable définie dans config
     </script>
     <script src="script.js"></script>
 

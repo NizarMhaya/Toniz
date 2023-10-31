@@ -34,4 +34,4 @@ function renderMenuToHTML($currentPageId)
     ';
 }
 ?>
-</html>>
+</html>

@@ -39,7 +39,7 @@ function get_aliment($pdo, $aliment_code)
             return array('error' => 'Le code barres de l\'aliment n\'est pas valide.');
         }
 
-        $selectQuery = "SELECT login, marque, categorie, energie_100g FROM aliment WHERE code_barres = :code_barres";
+        $selectQuery = "SELECT nom, marque, categorie, energie_100g FROM aliment WHERE code_barres = :code_barres";
         $selectStatement = $pdo->prepare($selectQuery);
         $selectStatement->bindParam(':code_barres', $aliment_code, PDO::PARAM_INT);
         $selectStatement->execute();
@@ -58,19 +58,19 @@ function get_aliment($pdo, $aliment_code)
 function create_aliment($pdo, $data)
 {
     try {
-        if (!isset($data['login'])) {
+        if (!isset($data['nom'])) {
             return array('error' => 'Un nom d\'aliment est requis.');
             http_response_code(400); // Bad Request
         }
 
-        $login = $data['login'];
+        $nom = $data['nom'];
         $marque = $data['marque'];
         $categorie = $data['categorie'];
         $energie_100g = $data['energie_100g'];
 
-        $insertQuery = "INSERT INTO aliments (login, marque, categorie, energie_100g) VALUES (:login, :marque, :categorie, :energie_100g)";
+        $insertQuery = "INSERT INTO aliments (nom, marque, categorie, energie_100g) VALUES (:nom, :marque, :categorie, :energie_100g)";
         $insertStatement = $pdo->prepare($insertQuery);
-        $insertStatement->bindParam(':login', $login);
+        $insertStatement->bindParam(':nom', $nom);
         $insertStatement->bindParam(':marque', $marque);
         $insertStatement->bindParam(':categorie', $categorie);
         $insertStatement->bindParam(':energie_100g', $energie_100g);

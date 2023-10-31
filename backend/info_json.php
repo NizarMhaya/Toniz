@@ -1,35 +1,34 @@
 <?php
-// Code-barres du produit que vous souhaitez récupérer (ex : Nutella)
-$code_barre = "3017620422003";
+$url = "https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=stores&tag_contains_0=contains&tag_0=intermarch%C3%A9&sort_by=unique_scans_n&page_size=20";
 
-// Construisez l'URL de l'API pour le produit spécifique
-$api_url = "https://world.openfoodfacts.org/api/v0/product/{$code_barre}.json";
+// Récupérez le contenu JSON depuis l'URL
+$jsonData = file_get_contents($url);
 
-// Récupérez les données JSON du produit depuis l'API
-$json_data = file_get_contents($api_url);
+// Vérifiez si les données JSON ont été récupérées avec succès
+if ($jsonData !== false) {
+    // Convertissez les données JSON en un tableau PHP
+    $data = json_decode($jsonData, true);
 
-// Vérifiez si la récupération des données a réussi
-if ($json_data === false) {
-    die("Échec de la récupération des données depuis l'API");
+    // Vérifiez si la conversion a réussi
+    if ($data !== null) {
+        // Vous pouvez maintenant accéder aux données que vous souhaitez
+        foreach ($data['products'] as $product) {
+            $barcode = $product['code'];
+            $name = $product['product_name'];
+            $brand = $product['brands'];
+            $categories = $product['categories'];
+            $energy = $product['nutriments']['energy-kcal_100g'];
+
+            echo "Code Barres : $barcode\n";
+            echo "Nom du Produit : $name\n";
+            echo "Marque : $brand\n";
+            echo "Catégories : $categories\n";
+            echo "Énergie (kcal) pour 100g : $energy\n\n";
+        }
+    } else {
+        echo "Erreur lors de la conversion des données JSON.";
+    }
+} else {
+    echo "Erreur lors de la récupération des données depuis l'URL.";
 }
-
-// Décodez les données JSON en tableau associatif
-$data = json_decode($json_data, true);
-
-// Vérifiez si le décodage JSON a réussi
-if ($data === null) {
-    die("Échec du décodage des données JSON");
-}
-
-// Accédez aux informations spécifiques du produit
-$nom_aliment = $data['product']['product_name'];
-$marque = $data['product']['brands'];
-$categories = $data['product']['categories'];
-$calories_100g = $data['product']['nutriments']['energy-kcal_100g'];
-
-// Affichez les informations spécifiques
-echo "Nom de l'aliment : " . $nom_aliment . "<br>";
-echo "Marque : " . $marque . "<br>";
-echo "Catégorie(s) : " . $categories . "<br>";
-echo "Calories pour 100g : " . $calories_100g . " kcal<br>";
 ?>
