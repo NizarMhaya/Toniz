@@ -86,8 +86,10 @@ create table UTILISATEUR
    LOGIN                VARCHAR(50) NOT NULL,
    MDP                  VARCHAR(50) NOT NULL,
    AGE                  INT,
+   TAILLE               INT,
+   POIDS                INT,
    SEXE                 INT,
-   SPORT                VARCHAR(30),
+   ACTIVITE             INT,
    KCAL_JOUR            INT,
    PRIMARY KEY (ID_USER)
 );

@@ -1,31 +1,82 @@
 <?php
-require_once('init_pdo.php'); // Inclut le fichier qui configure la connexion PDO
+header('Content-Type: application/json');
 
-header("Content-Type: application/json");
+require_once('init_pdo.php');
 
-// Vérifie que la requête est une requête POST
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Récupération des données JSON
-    $json = file_get_contents("php://input");
-    $data = json_decode($json);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $inputData = json_decode(file_get_contents('php://input'), true);
 
-    // Vérification des données
-    if (isset($data->nom) && isset($data->mdp)) {
-        // Préparation de la requête SQL
-        $query = "INSERT INTO UTILISATEUR (LOGIN, MDP) VALUES (:nom, :mdp)";
-        $stmt = $pdo->prepare($query);
-        $stmt->bindParam(':nom', $data->nom);
-        $stmt->bindParam(':mdp', $data->mdp);
+    if (isset($inputData['login']) && isset($inputData['mdp']) && isset($inputData['age']) && isset($inputData['taille']) && isset($inputData['poids']) && isset($inputData['sexe']) && isset($inputData['activite'])) {
+        // Tous les champs requis sont présents, il s'agit d'une inscription
+        $login = $inputData['login'];
+        $mdp = $inputData['mdp'];
+        $age = $inputData['age'];
+        $taille = $inputData['taille'];
+        $poids = $inputData['poids'];
+        $sexe = $inputData['sexe'];
+        $activite = $inputData['activite'];
 
-        // Exécution de la requête
-        if ($stmt->execute()) {
-            echo json_encode(["success" => true]);
+        $result = create_user($pdo, $login, $mdp, $age, $taille, $poids, $sexe, $activite);
+
+        if ($result['success']) {
+            http_response_code(201); // Created
+            echo json_encode(array('message' => 'Utilisateur inscrit avec succès.'));
         } else {
-            echo json_encode(["success" => false, "message" => "Erreur lors de l'inscription."]);
+            http_response_code(400); // Bad Request
+            echo json_encode(array('error' => 'Erreur lors de l\'inscription.'));
+        }
+    } elseif (isset($inputData['login']) && isset($inputData['mdp'])) {
+        // Seuls les champs login et mdp sont présents, il s'agit d'une connexion
+        $login = $inputData['login'];
+        $mdp = $inputData['mdp'];
+
+        if (user_exists($pdo, $login, $mdp)) {
+            http_response_code(200); // OK
+            echo json_encode(array('message' => 'Connexion réussie.'));
+        } else {
+            http_response_code(401); // Unauthorized
+            echo json_encode(array('error' => 'Identifiants incorrects.'));
         }
     } else {
-        echo json_encode(["success" => false, "message" => "Données manquantes."]);
+        http_response_code(400); // Bad Request
+        echo json_encode(array('error' => 'Données manquantes.'));
     }
-} else {
-    echo json_encode(["success" => false, "message" => "Requête non autorisée."]);
 }
+
+function user_exists($pdo, $login, $mdp)
+{
+    $query = "SELECT MDP FROM UTILISATEUR WHERE LOGIN = :login";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':login', $login);
+    $stmt->execute();
+    $row = $stmt->fetch();
+
+    if ($row) {
+        $mdpHash = $row['MDP'];
+        return password_verify($mdp, $mdpHash);
+    } else {
+        return false;
+    }
+}
+
+
+function create_user($pdo, $login, $mdp, $age, $taille, $poids, $sexe, $activite)
+{
+    $mdpHash = password_hash($mdp, PASSWORD_BCRYPT);
+    $insertQuery = "INSERT INTO UTILISATEUR (LOGIN, MDP, AGE, TAILLE, POIDS, SEXE, ACTIVITE) VALUES (:login, :mdp, :age, :taille, :poids, :sexe, :activite)";
+    $insertStatement = $pdo->prepare($insertQuery);
+    $insertStatement->bindParam(':login', $login);
+    $insertStatement->bindParam(':mdp', $mdpHash);
+    $insertStatement->bindParam(':age', $age);
+    $insertStatement->bindParam(':taille', $taille);
+    $insertStatement->bindParam(':poids', $poids);
+    $insertStatement->bindParam(':sexe', $sexe);
+    $insertStatement->bindParam(':activite', $activite);
+
+    if ($insertStatement->execute()) {
+        return array('success' => true);
+    } else {
+        return array('success' => false);
+    }
+}
+?>
