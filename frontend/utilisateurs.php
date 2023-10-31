@@ -28,11 +28,12 @@
     <table id="myTable">
         <thead>
             <tr>
-                <th scope="col">CODE BARRES</th>
+                <th scope="col">ID_USER</th>
                 <th scope="col">NOM</th>
-                <th scope="col">MARQUE</th>
-                <th scope="col">CATEGORIE</th>
-                <th scope="col">ENERGIE_100G</th>
+                <th scope="col">AGE</th>
+                <th scope="col">SEXE</th>
+                <th scope="col">SPORT</th>
+                <th scope="col">KCAL_JOUR</th>
                 <th scope="col">Edit</th> <!-- Colonne pour le bouton Edit -->
                 <th scope="col">Delete</th> <!-- Colonne pour le bouton Delete -->
             </tr>
@@ -43,9 +44,9 @@
     <form id="addStudentForm">
         <div class="form-group row">
             <div class="form-group row">
-                <label for="codeBarresInput" class="col-sm-2 col-form-label">CODE BARRES*</label>
+                <label for="idInput" class="col-sm-2 col-form-label">ID_USER*</label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control" id="codeBarresInput">
+                    <input type="text" class="form-control" id="idInput">
                 </div>
             </div>
             <div class="form-group row">
@@ -55,21 +56,27 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="idInput" class="col-sm-2 col-form-label">MARQUE*</label>
+                <label for="ageInput" class="col-sm-2 col-form-label">AGE*</label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control" id="marqueInput">
+                    <input type="text" class="form-control" id="ageInput">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="nameInput" class="col-sm-2 col-form-label">CATEGORIE*</label>
+                <label for="sexeInput" class="col-sm-2 col-form-label">SEXE*</label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control" id="categorieInput">
+                    <input type="text" class="form-control" id="sexeInput">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="nameInput" class="col-sm-2 col-form-label">ENERGIE_100G*</label>
+                <label for="sportInput" class="col-sm-2 col-form-label">SPORT*</label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control" id="energieInput">
+                    <input type="text" class="form-control" id="sportInput">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="kcalInput" class="col-sm-2 col-form-label">KCAL_JOUR*</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="kcalInput">
                 </div>
             </div>
             <div class="form-group row">
@@ -85,9 +92,9 @@
 
     <script>
         let apiUrl = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
-                        echo _API_URL_ALIMENT; ?> "; // utilisation de la variable définie dans config
+                        echo _API_URL_UTILISATEURS; ?> "; // utilisation de la variable définie dans config
     </script>
-    <script src="JS/script_aliments.js" defer></script>
+    <script src="JS/script_utilisateurs.js" defer></script>
 
 </body>
 
