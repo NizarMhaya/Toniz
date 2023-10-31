@@ -86,7 +86,7 @@
         let apiUrl = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
                         echo _API_URL_ALIMENT; ?> "; // utilisation de la variable définie dans config
     </script>
-    <script src="script_aliments.js" defer></script>
+    <script src="JS/script_aliments.js" defer></script>
 
 </body>
 
