@@ -49,35 +49,29 @@ $(document).ready(function () {
 
 
     $('#myTable').on('click', '#delete', function () {
-        var data = table.row($(this).parents('tr')).data(); // Obtenez les données de la ligne associée au bouton "Delete"
-        var id = data.id; // Supposons que l'ID à supprimer est stocké dans la propriété "id" des données
+        var row = $(this).closest('tr'); // Obtenez l'élément DOM de la ligne à supprimer
+        var data = table.row(row).data(); // Obtenez les données de la ligne
 
-        // Envoyez une requête DELETE à votre API pour supprimer l'entrée avec l'ID spécifié
         $.ajax({
-            url: apiUrl + '?id=' + id, // Ajoutez l'ID à l'URL de l'API
+            url: apiUrl + '?id=' + data.id,
             type: 'DELETE',
             dataType: 'json',
             success: function () {
                 console.log("Utilisateur supprimé avec succès :", data);
-                // Recherchez l'indice de la ligne dans les données du DataTable
-                var index = table.rows().data().toArray().findIndex(function (item) {
-                    return item.id === id;
-                });
 
-                // Supprimez la ligne du DataTable
-                table.row(index).remove().draw();
-
+                // Supprimez la ligne du DataTable en utilisant l'élément DOM de la ligne
+                table.row(row).remove().draw();
             },
             error: function (error) {
-                // Gérez les erreurs si la suppression échoue
                 console.error('Erreur lors de la suppression de la ligne : ', error);
             }
         });
     });
 
+
     $('#myTable').on('click', '#edit', function () {
-        var data = table.row($(this).parents('tr')).data(); // Obtenez les données de la ligne associée au bouton "Modifier"
-        var id = data.id; // Supposons que l'ID à modifier est stocké dans la propriété "id" des données
+        var row = $(this).closest('tr'); // Obtenez l'élément DOM de la ligne à éditer
+        var data = table.row(row).data(); // Obtenez les données de la ligne
 
         // Remplissez votre formulaire de modification avec les données récupérées
         $('#idInput').val(data.id);
@@ -88,7 +82,7 @@ $(document).ready(function () {
         $('#submitButton').hide();
 
         // Attachez un gestionnaire d'événements au bouton "Enregistrer" pour appliquer les modifications
-        $('#saveButton').on('click', function () {
+        $('#saveButton').off('click').on('click', function () {
             var newId = $('#idInput').val();
             var newName = $('#nameInput').val();
 
@@ -106,23 +100,10 @@ $(document).ready(function () {
                 success: function (data) {
                     console.log("Utilisateur mis à jour avec succès :", data);
 
-                    // Obtenez les données actuelles de la première colonne (colonne des ID)
-                    var firstColumnData = table.column(0).data().toArray();
-
-                    // Recherchez l'indice de la ligne à mettre à jour
-                    var rowIndex = firstColumnData.indexOf(newId);
-
-                    // Obtenez la ligne à mettre à jour
-                    var rowToUpdate = table.row(rowIndex);
-
-                    // Mettez à jour les données de la ligne
-                    rowToUpdate.data({
-                        "id": newId,
-                        "name": newName
-                    });
-
-                    // Redessinez la table pour refléter les modifications
-                    rowToUpdate.draw();
+                    // Mettez à jour les données de la ligne dans le DataTable
+                    data.id = newId;
+                    data.name = newName;
+                    table.row(row).data(data).draw();
 
                     // Réinitialisez les champs du formulaire de modification et masquez le bouton "Enregistrer"
                     $('#idInput').val('');
@@ -136,8 +117,8 @@ $(document).ready(function () {
                 }
             });
         });
-
     });
+
 
 
 
