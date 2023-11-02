@@ -24,4 +24,7 @@ Voici une brève explication de chaque table et de son rôle :
 8. **Table `utilisateur` :**
    - Stocke les informations sur les utilisateurs, y compris un identifiant unique, le nom de l'utilisateur, l'âge, le sexe, le niveau d'activité sportive et le nombre de calories nécessaires par jour.
 
-Chaque table a un rôle spécifique dans la base de données pour stocker les informations relatives aux aliments, aux nutriments, aux utilisateurs et à leurs interactions. Ces tables constituent la base de votre application de suivi nutritionnel, permettant aux utilisateurs d'entrer des données sur les aliments consommés, les repas, et d'obtenir des informations sur leurs besoins nutritionnels.
+9. **Table `aliments_favoris` :**
+   Dans cette table, ID_USER est l'identifiant de l'utilisateur et CODE_BARRES est l'identifiant unique du produit (code-barres de l'aliment). La combinaison de ces deux champs forme une clé primaire composite, ce qui signifie qu'une paire utilisateur-code-barres ne peut apparaître qu'une seule fois dans la table, évitant ainsi les doublons.
+
+   Lorsqu'un utilisateur ajoute un produit aux favoris, vous insérez simplement une nouvelle ligne avec son identifiant utilisateur et le code-barres du produit dans la table aliments_favoris. Ensuite, lorsque vous devez récupérer les autres informations sur cet aliment, vous pouvez utiliser le code-barres pour faire correspondre l'enregistrement dans la table principale des aliments. Cela réduit la redondance des données tout en vous permettant de récupérer toutes les informations nécessaires quand c'est nécessaire.
