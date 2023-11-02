@@ -18,7 +18,7 @@
         <div class="form-group">
             <label for="sexe">Sexe :</label>
             <select id="sexe">
-                <option value="homme">Homme</option>
+                <option value="homme">Homme</option> <!-- Attention ici on considère le champs sexe comme du texte -->
                 <option value="femme">Femme</option>
             </select>
         </div>
@@ -31,7 +31,7 @@
             <input type="number" id="taille" placeholder="Entrez votre taille">
         </div>
         <div class="form-group">
-            <label for="niveauActivite">Niveau d'activité :</label>
+            <label for="niveauActivite">Niveau d'activité :</label> <!-- Attention ici on les valeurs possibles du champs niveauActivite ne sont pas eleve, moyen, bas -->
             <select id="niveauActivite">
                 <option value="sedentaire">Sédentaire</option>
                 <option value="legerement_actif">Légèrement Actif</option>
@@ -42,7 +42,7 @@
         </div>
         <div id="resultat"></div>
     </div>
-    <script src="JS/script_utilisateurs.js"></script>
+    <script src="JS/script_calculateur.js"></script>
 </body>
 
 </html>

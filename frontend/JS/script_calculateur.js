@@ -19,14 +19,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (age && poids && taille) {
             let bmr;
-            if (sexe === 'homme') {
+            if (sexe === 'homme') {  // Attention ici on considère le champs sexe comme du texte
                 bmr = 88.362 + (13.397 * poids) + (4.799 * taille) - (5.677 * age);
             } else {
                 bmr = 447.593 + (9.247 * poids) + (3.098 * taille) - (4.330 * age);
             }
 
             let tdee;
-            switch (niveauActivite) {
+            switch (niveauActivite) { // Attention ici on les valeurs possibles du champs niveauActivite ne sont pas eleve, moyen, bas
                 case 'sedentaire':
                     tdee = bmr * 1.2;
                     break;
