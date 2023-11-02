@@ -25,6 +25,7 @@
 </head>
 
 <body>
+    Cette page vous permet de visulaiser l'ensemble des aliments disponibles dans notre base de données et d'en ajouter à votre liste d'aliments favoris.
     <table id="myTable">
         <thead>
             <tr>
