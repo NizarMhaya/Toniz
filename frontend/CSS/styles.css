@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    width: 300px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+#resultat {
+    font-weight: bold;
+    margin-top: 20px;
+}
