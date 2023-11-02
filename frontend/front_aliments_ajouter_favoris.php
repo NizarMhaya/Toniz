@@ -25,7 +25,7 @@
 </head>
 
 <body>
-    Cette page vous permet de visulaiser l'ensemble des aliments disponibles dans notre base de données et d'en ajouter à votre liste d'aliments favoris.
+    Cette page vous permet de visualiser l'ensemble des aliments disponibles dans notre base de données et d'en ajouter à votre liste d'aliments favoris.
     <table id="myTable">
         <thead>
             <tr>
@@ -87,7 +87,7 @@
         let apiUrl = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
                         echo _API_URL_ALIMENT_FAVORIS; ?> "; // utilisation de la variable définie dans config
     </script>
-    <script src="JS/ajouter_aliments.js" defer></script>
+    <script src="JS/script_aliments_ajouter_favoris.js" defer></script>
 
 </body>
 
