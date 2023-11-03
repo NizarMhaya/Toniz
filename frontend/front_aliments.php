@@ -25,6 +25,8 @@
 </head>
 
 <body>
+    <h1>Gestionnaire de la base de données de test qui fonctionne sur la dbtest</h1>
+    <h2>Cette page vous permet de visualiser l'ensemble des aliments disponibles dans notre base de données de la table aliment avec toutes les actions CRUD associées. Il est normal qu'elle ne fonctione pas sur database</h2>
     <table id="myTable">
         <thead>
             <tr>

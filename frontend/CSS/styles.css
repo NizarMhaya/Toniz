@@ -20,3 +20,69 @@ body {
     font-weight: bold;
     margin-top: 20px;
 }
+
+
+
+
+
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    background: linear-gradient(180deg, #00ff99, transparent);
+    border-radius: 10px;
+
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#resultat {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 20px;
+    background: linear-gradient(1deg, #0000ff, transparent);
+    border-radius: 10px;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #00ff99, #0000ff);
+    /* Rouge à Bleu */
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+}
