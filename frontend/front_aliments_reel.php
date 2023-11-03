@@ -13,16 +13,12 @@
     <link rel="stylesheet" href="CSS/styles.css">
 
 
-    <style>
-        body {
-            margin-top: 5em;
-        }
+    <?php require_once('template_menu.php'); ?>
+    <header class="bg-dark py-1">
+        <?php renderMenuToHTML('aliments'); ?>
+    </header>
 
-        .table {
-            margin-top: 100px;
-            margin-bottom: 100px;
-        }
-    </style>
+</head>
 </head>
 
 <h1>Gestionnaire de la base de données des aliments</h1>
