@@ -12,17 +12,10 @@
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" href="CSS/styles.css">
 
-
-    <style>
-        body {
-            margin-top: 5em;
-        }
-
-        .table {
-            margin-top: 100px;
-            margin-bottom: 100px;
-        }
-    </style>
+    <?php require_once('template_menu.php'); ?>
+    <header class="bg-dark py-1">
+        <?php renderMenuToHTML('ajouter_favoris'); ?>
+    </header>
 </head>
 
 <body>

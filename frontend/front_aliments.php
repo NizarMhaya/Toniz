@@ -13,16 +13,6 @@
     <link rel="stylesheet" href="CSS/styles.css">
 
 
-    <style>
-        body {
-            margin-top: 5em;
-        }
-
-        .table {
-            margin-top: 100px;
-            margin-bottom: 100px;
-        }
-    </style>
 </head>
 
 <body>

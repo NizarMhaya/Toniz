@@ -18,7 +18,7 @@
         <?php renderMenuToHTML('aliments'); ?>
     </header>
 
-</head>
+
 </head>
 
 <h1>Gestionnaire de la base de données des aliments</h1>
