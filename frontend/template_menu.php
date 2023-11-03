@@ -5,9 +5,9 @@ function renderMenuToHTML($currentPageId)
 {
     $mymenu = array(
         'index' => array('Accueil', 'index.php'),
-        'profil' => array('Favoris', 'front_favoris.php'),
+        'favoris' => array('Favoris', 'front_favoris.php'),
         'aliments' => array('Aliments', 'front_aliments_reel.php'),
-        'journal' => array('Calculateur KCAL', 'calculateur.php'),
+        'calculateur' => array('Calculateur KCAL', 'calculateur.php'),
     );
 
 
