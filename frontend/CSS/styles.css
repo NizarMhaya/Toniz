@@ -22,3 +22,20 @@ body {
     background-color: #ffffff;
     /* Couleur de fond pour les lignes impaires */
 }
+
+.my-custom-h1 {
+    margin-top: 30PX;
+    font-size: 36px;
+    font-weight: bolder;
+    color: #198754;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#custom-description {
+    font-size: 20px;
+    color: #666;
+    font-weight: lighter;
+    text-align: center;
+    margin-bottom: 30px;
+}

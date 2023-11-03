@@ -7,7 +7,7 @@ function renderMenuToHTML($currentPageId)
         'index' => array('Accueil', 'index.php'),
         'ajouter_favoris' => array('Ajouter des favoris', 'front_aliments_ajouter_favoris.php'),
         'favoris' => array('Favoris', 'front_favoris.php'),
-        'aliments' => array('Aliments', 'front_aliments_reel.php'),
+        'aliments' => array('Gestionnaire des aliments', 'front_aliments_reel.php'),
         'calculateur' => array('Calculateur KCAL', 'calculateur.php'),
     );
 

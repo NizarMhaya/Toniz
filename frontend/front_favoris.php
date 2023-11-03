@@ -20,8 +20,8 @@
 </head>
 
 <body>
-    <h1>Vos favoris</h1>
-    <h2>Voici l'ensemble des aliments que vous avez mis en favoris</h2>
+    <h1 class="my-custom-h1">Vos favoris</h1>
+    <h2 id="custom-description">Voici l'ensemble des aliments que vous avez mis en favoris</h2>
     <table id="myTable">
         <thead>
             <tr>

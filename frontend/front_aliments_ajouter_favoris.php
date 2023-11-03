@@ -19,8 +19,8 @@
 </head>
 
 <body>
-    <h1>Ajout de favoris</h1>
-    <h2>Cette page vous permet de visualiser l'ensemble des aliments disponibles dans notre base de données et d'en ajouter à votre liste d'aliments favoris.</h2>
+    <h1 class="my-custom-h1">Ajout de favoris</h1>
+    <h2 id="custom-description">Cette page vous permet de visualiser l'ensemble des aliments disponibles dans notre base de données et d'en ajouter à votre liste d'aliments favoris.</h2>
     <table id="myTable">
         <thead>
             <tr>
