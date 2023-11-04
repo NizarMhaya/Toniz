@@ -1,35 +1,21 @@
 $(document).ready(function () {
-    var table = $('#myTable').DataTable({
-        ajax: {
-            url: apiUrlProfil,
-            dataSrc: ''
-        },
-        columns: [
-            { "data": "id" },
-            { "data": "login" },
-            { "data": "mdp" },
-            { "data": "age" }, // Champ âge ajouté
-            { "data": "taille" }, // Champ taille ajouté
-            { "data": "poids" }, // Champ poids ajouté
-            { "data": "sexe" }, // Champ sexe ajouté
-            { "data": "activite" }, // Champ activité ajouté
-            { "data": null, "defaultContent": '<button class="btn btn-info btn-sm editBtn" id="edit">Edit</button>' },
-            { "data": null, "defaultContent": '<button class="btn btn-danger btn-sm deleteBtn" id="delete">Delete</button>' }
-        ]
-    });
-    // Gestionnaire de clic pour le bouton de connexion
+
+// Gestionnaire de clic pour le bouton de connexion
 $('#connexion-button').on('click', function (e) {
     e.preventDefault();
 
     // Récupérer les valeurs des champs du formulaire de connexion
-    var login = $('#login').val();
-    var mdp = $('#mdp').val();
+    var connexionLogin = $('#connexion-login').val();
+    var connexionMdp = $('#connexion-mdp').val();
 
     // Créer un objet avec les données du formulaire de connexion
     var loginData = {
-        "login": login,
-        "mdp": mdp
+        "login": connexionLogin,
+        "mdp": connexionMdp
     };
+
+    // Afficher les données à des fins de débogage
+    console.log('Données de connexion envoyées :', loginData);
 
     // Envoyer les données de connexion à votre API (utilisez une URL différente pour la connexion)
     $.ajax({
@@ -40,15 +26,22 @@ $('#connexion-button').on('click', function (e) {
         success: function (response) {
             // Gérez la réponse de la connexion, par exemple, redirigez l'utilisateur ou affichez un message
             // Vous pouvez également ajouter des vérifications supplémentaires ici
+            console.log('Réponse de la connexion :', response);
             $('#message').text('Connexion réussie'); // Affichez un message de connexion réussie
+
+            if (response.message === 'Connexion réussie') {
+                $('#session-status').text('Connecté : ' + connexionLogin);
+                window.location.href = 'index.php'; // Remplacez 'index.php' par l'URL de votre page d'accueil
+            }
         },
         error: function (error) {
-            // Gérez les erreurs de connexion, par exemple, affichez un message d'erreur
             console.error('Erreur de connexion : ', error);
+            console.log('Réponse de la requête :', error.responseText); // Affichez la réponse du serveur
             $('#message').text('Erreur de connexion : ' + error.responseText);
         }
     });
 });
+
 
     // Action lorsque le bouton submit est cliqué
     $('#inscription-button').on('click', function (e) {

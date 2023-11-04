@@ -84,7 +84,7 @@ create table UTILISATEUR
 (
    ID_USER              INT NOT NULL AUTO_INCREMENT,
    LOGIN                VARCHAR(50) NOT NULL,
-   MDP                  VARCHAR(50) NOT NULL,
+   MDP                  VARCHAR(100) NOT NULL,
    AGE                  INT,
    TAILLE               INT,
    POIDS                INT,

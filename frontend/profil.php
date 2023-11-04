@@ -4,7 +4,7 @@
 <meta charset='utf-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" crossorigin="anonymous"></script>
-    <title>tabletest</title>
+    <title>Profil</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
@@ -13,8 +13,12 @@
 </head>
 <body>
     <?php require_once('template_menu.php'); 
-    renderMenuToHTML('profil'); ?>
+    renderMenuToHTML('profil'); 
 
+                echo '<pre>';
+                var_dump($_SESSION);
+                echo '</pre>';
+                ?>
     <h2>Inscription</h2>
     <form id="inscription-form">
     <label for="login">Nom :</label>
@@ -52,10 +56,10 @@
 <form id="connexion-form">
     <!-- Formulaire de connexion -->
     <label for="login">Nom :</label>
-    <input type="text" id="login" name="login" required><br><br>
+    <input type="text" id="connexion-login" name="login" required><br><br>
 
     <label for="mdp">Mot de passe :</label>
-    <input type="password" id="mdp" name="mdp" required><br><br>
+    <input type="password" id="connexion-mdp" name="mdp" required><br><br>
 
     <button type="button" id="connexion-button">Se connecter</button>
 </form>

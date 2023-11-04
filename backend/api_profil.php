@@ -1,12 +1,40 @@
 <?php
 header('Content-Type: application/json');
-
 require_once('init_pdo.php');
+
+
+if (isset($_COOKIE['login'])) {
+    // Si le cookie 'login' est présent, restaurez la session de l'utilisateur
+    session_start(); // Démarrez la session
+
+    // Assurez-vous que la session est initialisée avec la valeur du cookie
+    $_SESSION['login'] = $_COOKIE['login'];
+    echo 'Contenu du cookie login : ' . $_COOKIE['login'];
+}
+else {
+    session_start(); // Démarrer la session
+}
+
+$successfullyLogged = false; // Définir l'état de connexion par défaut
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $inputData = json_decode(file_get_contents('php://input'), true);
 
-    if (isset($inputData['login']) && isset($inputData['mdp']) && isset($inputData['age']) && isset($inputData['taille']) && isset($inputData['poids']) && isset($inputData['sexe']) && isset($inputData['activite'])) {
+    if (isset($inputData['login']) && isset($inputData['mdp'])) {
+        $login = $inputData['login'];
+        $mdp = $inputData['mdp'];
+    
+        if (user_exists($pdo, $login, $mdp)) {
+            $successfullyLogged = true;
+            $_SESSION['login'] = $login; // Stocker le login de l'utilisateur dans la session
+            http_response_code(200); // OK
+            echo json_encode(array('message' => 'Connexion réussie.'));
+            setcookie('login', $login, time() + 3600 * 24 * 30, '/'); 
+        } else {
+            http_response_code(401); // Unauthorized
+            echo json_encode(array('error' => 'Identifiants incorrects.'));
+        }
+    } elseif (isset($inputData['login']) && isset($inputData['mdp']) && isset($inputData['age']) && isset($inputData['taille']) && isset($inputData['poids']) && isset($inputData['sexe']) && isset($inputData['activite'])) {
         // Tous les champs requis sont présents, il s'agit d'une inscription
         $login = $inputData['login'];
         $mdp = $inputData['mdp'];
@@ -24,18 +52,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             http_response_code(400); // Bad Request
             echo json_encode(array('error' => 'Erreur lors de l\'inscription.'));
-        }
-    } elseif (isset($inputData['login']) && isset($inputData['mdp'])) {
-        // Seuls les champs login et mdp sont présents, il s'agit d'une connexion
-        $login = $inputData['login'];
-        $mdp = $inputData['mdp'];
-
-        if (user_exists($pdo, $login, $mdp)) {
-            http_response_code(200); // OK
-            echo json_encode(array('message' => 'Connexion réussie.'));
-        } else {
-            http_response_code(401); // Unauthorized
-            echo json_encode(array('error' => 'Identifiants incorrects.'));
         }
     } else {
         http_response_code(400); // Bad Request
@@ -58,7 +74,6 @@ function user_exists($pdo, $login, $mdp)
         return false;
     }
 }
-
 
 function create_user($pdo, $login, $mdp, $age, $taille, $poids, $sexe, $activite)
 {
