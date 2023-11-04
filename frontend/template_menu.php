@@ -24,17 +24,14 @@ echo '
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <a class="navbar-brand" id="session-status" href="#!">';
 
-                if (isset($_SESSION['login'])) {
+                if (isset($_COOKIE['login'])) {
                     // Utilisateur est connecté grâce à la session
-                    echo "Connecté : " . $_SESSION['login'];
+                    echo "Connecté : " . $_COOKIE['login'];
                 } else {
                     // Utilisateur non connecté
                     echo "Non connecté";
                 }
-                // Ajoutez le code de débogage pour afficher la session
-                echo '<pre>';
-                var_dump($_SESSION);
-                echo '</pre>';
+
 
 echo '</a>';
 foreach ($mymenu as $pageId => list($text, $link)) {

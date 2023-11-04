@@ -2,20 +2,21 @@
 header('Content-Type: application/json');
 require_once('init_pdo.php');
 
-
-if (isset($_COOKIE['login'])) {
-    // Si le cookie 'login' est présent, restaurez la session de l'utilisateur
-    session_start(); // Démarrez la session
-
-    // Assurez-vous que la session est initialisée avec la valeur du cookie
-    $_SESSION['login'] = $_COOKIE['login'];
-    echo 'Contenu du cookie login : ' . $_COOKIE['login'];
-}
-else {
-    session_start(); // Démarrer la session
-}
+session_start(); // Démarrez la session
 
 $successfullyLogged = false; // Définir l'état de connexion par défaut
+
+// Vérifie si le cookie 'login' existe
+if (isset($_COOKIE['login'])) {
+    $login = $_COOKIE['login'];
+    $mdp = ''; // Vous pouvez initialiser cela comme vous le souhaitez
+
+    if (user_exists($pdo, $login, $mdp)) {
+        // L'utilisateur est connecté avec succès
+        $successfullyLogged = true;
+        $_SESSION['login'] = $login; // Stocker le login de l'utilisateur dans la session
+    }
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $inputData = json_decode(file_get_contents('php://input'), true);

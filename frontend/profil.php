@@ -14,11 +14,8 @@
 <body>
     <?php require_once('template_menu.php'); 
     renderMenuToHTML('profil'); 
+    ?>
 
-                echo '<pre>';
-                var_dump($_SESSION);
-                echo '</pre>';
-                ?>
     <h2>Inscription</h2>
     <form id="inscription-form">
     <label for="login">Nom :</label>
