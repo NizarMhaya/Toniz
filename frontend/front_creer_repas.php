@@ -65,8 +65,8 @@
                         data: JSON.stringify(newData), // Les données que vous voulez envoyer à l'API
                         dataType: 'json',
                         success: function(response) {
-                            // Si l'ajout est réussi, ajoutez la nouvelle ligne à votre DataTable et redessinez-le
-                            table.row.add(newData).draw();
+                            // Affichez la boîte de dialogue modale de confirmation
+                            $('#confirmationModal').modal('show');
 
                             // Réinitialisez les champs du formulaire
                             $('#nomInput').val('');
@@ -84,6 +84,23 @@
         let apiUrl = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
                         echo _API_URL_REPAS; ?> "; // utilisation de la variable définie dans config
     </script>
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmationModalLabel">Confirmation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Votre repas a été ajouté avec succès !
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
