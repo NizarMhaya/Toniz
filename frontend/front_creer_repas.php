@@ -41,6 +41,7 @@
 
             <input type="submit" id="submitButton" value="Enregistrer le Repas">
             <script>
+                // il n'y a pas de fichier JS à part pour frontçcreer_repas
                 // Action lorsque le bouton submit est cliqué
                 $('#submitButton').on('click', function(e) {
                     e.preventDefault();
@@ -84,6 +85,77 @@
         let apiUrl = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
                         echo _API_URL_REPAS; ?> "; // utilisation de la variable définie dans config
     </script>
+    <h1 class="my-custom-h1">Vos Repas</h1>
+
+    <body>
+        <h2 id="custom-description">Voici l'ensemble des repas que vous avez mis créés</h2>
+        <table id="myTable">
+            <thead>
+                <tr>
+                    <th scope="col">ID_REPAS</th>
+                    <th scope="col">NOM_REPAS</th>
+                    <th scope="col">DATE</th>
+                    <th scope="col">ALIMENTS</th>
+                    <th scope="col">MARQUES</th>
+                    <th scope="col">QUANTITE_TOTAL </th>
+                    <th scope="col">Delete</th> <!-- Colonne pour le bouton Delete -->
+                </tr>
+            </thead>
+            <tbody id="studentsTableBody">
+            </tbody>
+        </table>
+
+        <button type="button" id="saveButton" class="btn btn-primary " style="display: none;">Enregistrer</button>
+
+        <script>
+            let apiUrl = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
+                            echo _API_URL_FAVORIS; ?> "; // utilisation de la variable définie dans config
+        </script>
+        <!-- <script src="JS/script_favoris.js" defer></script> -->
+        <script>
+            $(document).ready(function() {
+                var table = $('#myTable').DataTable({
+                    ajax: {
+                        url: apiUrl,
+                        dataSrc: ''
+                    },
+                    columns: [{
+                            "data": "ID_REPAS"
+                        },
+                        {
+                            "data": "NOM_REPAS"
+                        },
+                        {
+                            "data": "DATE"
+                        },
+                        {
+                            "data": "ALIMENTS"
+                        },
+                        {
+                            "data": "MARQUES"
+                        },
+                        {
+                            "data": "QUANTITE_TOTAL "
+                        },
+                        {
+                            "data": null,
+                            "defaultContent": '<button class="btn btn-info btn-sm editBtn" id="edit">Edit</button>'
+                        },
+                        {
+                            "data": null,
+                            "defaultContent": '<button class="btn btn-danger btn-sm deleteBtn" id="delete">Delete</button>'
+                        }
+                    ]
+                });
+
+
+
+
+            });
+        </script>
+
+
+    </body>
 </body>
 
 </html>

@@ -8,7 +8,7 @@ require_once('config.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     // Vérifiez l'ID de l'utilisateur à partir des données de la session ou du token d'authentification
-    $userID = 2; // Remplacez ceci par la méthode appropriée pour obtenir l'ID de l'utilisateur
+    $userID = 1; // Remplacez ceci par la méthode appropriée pour obtenir l'ID de l'utilisateur
 
     // Utilisez la fonction get_repas_utilisateur pour obtenir les repas de l'utilisateur
     $repasUtilisateur = get_repas_utilisateur($pdo, $userID);
