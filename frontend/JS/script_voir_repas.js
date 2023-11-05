@@ -10,7 +10,9 @@ $(document).ready(function () {
             { "data": "DATE" },
             { "data": "ALIMENTS" },
             { "data": "MARQUES" },
-            { "data": "QUANTITE_TOTAL" }
+            { "data": "QUANTITE_TOTAL" },
+            { "data": null, "defaultContent": '<button class="btn btn-info btn-sm editBtn" id="edit">Edit</button>' },
+
         ]
     });
 

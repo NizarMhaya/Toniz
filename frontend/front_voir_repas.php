@@ -21,7 +21,7 @@
 
 <body>
     <h1 class="my-custom-h1">Vos repas</h1>
-    <h2 id="custom-description">Voici l'ensemble des aliments que vous avez mis en favoris</h2>
+    <h2 id="custom-description">Voici l'ensemble des repas que vous avez créés.</h2>
     <table id="myTable">
         <thead>
             <tr>
@@ -30,7 +30,8 @@
                 <th scope="col">DATE</th>
                 <th scope="col">ALIMENTS</th>
                 <th scope="col">MARQUES</th>
-                <th scope="col">QUANTITE_TOTAL</th> <!-- Colonne pour le bouton Delete -->
+                <th scope="col">QUANTITE_TOTAL</th>
+                <th scope="col">Modifier repas</th> <!-- Colonne pour le bouton Delete -->
             </tr>
         </thead>
         <tbody id="studentsTableBody">
