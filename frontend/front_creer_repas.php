@@ -109,7 +109,7 @@
 
         <script>
             let apiUrl = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
-                            echo _API_URL_FAVORIS; ?> "; // utilisation de la variable définie dans config
+                            echo _API_URL_MODIF_REPAS; ?> "; // utilisation de la variable définie dans config
         </script>
         <!-- <script src="JS/script_favoris.js" defer></script> -->
         <script>
