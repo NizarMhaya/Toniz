@@ -41,6 +41,7 @@
 
             <input type="submit" id="submitButton" value="Enregistrer le Repas">
             <script>
+                // il n'y a pas de fichier JS à part pour frontçcreer_repas
                 // Action lorsque le bouton submit est cliqué
                 $('#submitButton').on('click', function(e) {
                     e.preventDefault();
