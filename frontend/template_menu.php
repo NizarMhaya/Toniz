@@ -8,6 +8,7 @@ function renderMenuToHTML($currentPageId)
         'ajouter_favoris' => array('Ajouter des favoris', 'front_aliments_ajouter_favoris.php'),
         'favoris' => array('Favoris', 'front_favoris.php'),
         'aliments' => array('Gestionnaire des aliments', 'front_aliments_reel.php'),
+        'repas' => array('Créer un repas', 'front_creer_repas.php'),
         'calculateur' => array('Calculateur KCAL', 'calculateur.php'),
     );
 
