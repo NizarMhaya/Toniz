@@ -1,20 +1,26 @@
 $(document).ready(function () {
-
-    // Gestionnaire de clic pour le bouton d'inscription
+    // Action lorsque le bouton submit est cliqué
     $('#inscription-button').on('click', function (e) {
         e.preventDefault();
 
-        // Récupérer les valeurs des champs du formulaire d'inscription
+        // Récupérer les valeurs des champs du formulaire
         var login = $('#login').val();
         var mdp = $('#mdp').val();
         var age = $('#age').val();
         var taille = $('#taille').val();
         var poids = $('#poids').val();
-        var sexe = $('input[name="sexe"]:checked').val();
+        var sexe = $('#sexe').val();
         var activite = $('#activite').val();
 
-        // Créer un objet avec les données du formulaire d'inscription
-        var inscriptionData = {
+        // Vérifier si les champs "mdp" et "login" sont vides
+        if (login.trim() === '' || mdp.trim() === '') {
+            $('#success-message').text(''); // Réinitialisez le message de succès
+            $('#error-message').text('Les champs "Nom" et "Mot de passe" sont obligatoires.'); // Affichez un message d'erreur
+            return; // Arrêtez la soumission du formulaire
+        }
+
+        // Créer un nouvel objet avec les données du formulaire
+        var newData = {
             "login": login,
             "mdp": mdp,
             "age": age,
@@ -24,31 +30,32 @@ $(document).ready(function () {
             "activite": activite
         };
 
-        // Afficher les données à des fins de débogage
-        console.log('Données d\'inscription envoyées :', inscriptionData);
-
-        // Envoyer les données d'inscription à votre API (utilisez une URL différente pour l'inscription)
+        // Envoyer les données à votre API (remplacez avec votre méthode d'envoi de données)
         $.ajax({
-            url: apiUrlProfil, // Remplacez par l'URL de votre API d'inscription
+            url: apiUrlSignIn,
             type: 'POST',
-            data: JSON.stringify(inscriptionData),
+            data: JSON.stringify(newData),
             dataType: 'json',
             success: function (response) {
-                // Gérez la réponse de l'inscription, par exemple, redirigez l'utilisateur ou affichez un message
-                // Vous pouvez également ajouter des vérifications supplémentaires ici
-                console.log('Réponse de l\'inscription :', response);
-                $('#message').text('Inscription réussie'); // Affichez un message d'inscription réussie
+                // Réinitialisez les champs du formulaire
+                $('#login').val('');
+                $('#mdp').val('');
+                $('#age').val('');
+                $('#taille').val('');
+                $('#poids').val('');
+                $('#sexe').val('');
+                $('#activite').val('');
 
-                if (response.message === 'Inscription réussie') {
-                    window.location.href = 'profil.php'; // Redirigez l'utilisateur vers la page de profil
-                }
+                // Réinitialisez les messages d'erreur
+                $('#success-message').text('Inscription réussie');
+                $('#error-message').text('');
             },
             error: function (error) {
-                console.error('Erreur d\'inscription :', error);
-                console.log('Réponse de la requête :', error.responseText); // Affichez la réponse du serveur
-                $('#message').text('Erreur d\'inscription : ' + error.responseText);
+                // Gérez les erreurs si l'ajout échoue
+                console.error('Erreur lors de l\'inscription : ', error);
+                $('#success-message').text('');
+                $('#error-message').text('Erreur lors de l\'inscription : ' + error.responseText);
             }
         });
     });
-
 });

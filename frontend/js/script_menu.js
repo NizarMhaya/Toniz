@@ -19,4 +19,14 @@ $(document).ready(function () {
             }
         });
     });
+
+    // Gestionnaire de clic pour le bouton "Se connecter"
+    $('#login-button').on('click', function () {
+        window.location.href = 'profil.php'; // Redirigez vers la page profil.php
+    });
+
+    // Gestionnaire de clic pour le bouton "S'inscrire"
+    $('#signup-button').on('click', function () {
+        window.location.href = 'inscription.php'; // Redirigez vers la page inscription.php
+    });
 });

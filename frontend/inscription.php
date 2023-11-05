@@ -6,10 +6,13 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" crossorigin="anonymous"></script>
     <title>Profil</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+    <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles_perso.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 </head>
+<!-- Reste du code -->
+
 <body>
     <?php require_once('template_menu.php'); 
     renderMenuToHTML('profil'); 
@@ -32,8 +35,11 @@
         <input type="number" id="poids" name="poids" required><br><br>
 
         <label for="sexe">Sexe :</label>
-        <input type="radio" id="sexe" name="sexe" value="Homme" required> Homme
-        <input type="radio" id="sexe" name="sexe" value="Femme" required> Femme<br><br>
+        <select id="sexe" name="sexe" required>
+            <option value="1">Homme</option>
+            <option value="2">Femme</option>
+        </select><br><br>
+
 
         <label for="activite">Activité sportive :</label>
         <select id="activite" name="activite" required>
@@ -46,6 +52,9 @@
 
         <button type="button" id="inscription-button">S'inscrire</button>
     </form>
+    <div id="success-message" style="color: green;"></div>
+<div id="error-message" style="color: red;"></div>
+
 
     <footer>
         <!-- Pied de page -->
@@ -53,9 +62,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        let apiUrlProfil = "<?php require_once 'config.php';
-                        echo _API_URL_PROFIL; ?> ";
+        let apiUrlSignIn = "<?php require_once 'config.php';
+                        echo _API_URL_SIGNIN; ?> ";
     </script>
-    <script src="JS/script_inscription.js" defer></script>
+        <script src="JS/script_inscription.js" defer></script>
+
 </body>
 </html>
