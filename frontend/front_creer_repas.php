@@ -39,7 +39,7 @@
 
 
 
-            <input type="submit" value="Enregistrer le Repas">
+            <input type="submit" id="submitButton" value="Enregistrer le Repas">
             <script>
                 // Action lorsque le bouton submit est cliqué
                 $('#submitButton').on('click', function(e) {
