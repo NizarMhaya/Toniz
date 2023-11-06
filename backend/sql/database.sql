@@ -1,10 +1,10 @@
 /*==============================================================*/
 /* Table : ALIMENT                                              */
 /*==============================================================*/
-create table IF NOT EXISTS ALIMENT /*IF NOT EXISTS rajouté résout l'erreur La table 'aliment' existe déjà in C:\wamp64\www\Toniz\backend\init_db.php on line 8*/
+create table ALIMENT
 (
    CODE_BARRES          BIGINT NOT NULL,
-   NOM                VARCHAR(80),
+   NOM                  VARCHAR(80),
    MARQUE               VARCHAR(80),
    CATEGORIE            VARCHAR(160),
    ENERGIE_100G         INT,
@@ -83,10 +83,13 @@ create table REPAS
 create table UTILISATEUR
 (
    ID_USER              INT NOT NULL AUTO_INCREMENT,
-   NOM                VARCHAR(30),
+   LOGIN                VARCHAR(50) NOT NULL,
+   MDP                  VARCHAR(100) NOT NULL,
    AGE                  INT,
+   TAILLE               INT,
+   POIDS                INT,
    SEXE                 INT,
-   SPORT                VARCHAR(30),
+   ACTIVITE             INT,
    KCAL_JOUR            INT,
    PRIMARY KEY (ID_USER)
 );
@@ -135,3 +138,4 @@ VALUES
   (4002536541230, 'Barre de chocolat', 'Nestlé', 'Snacks, Chocolats, Barres de chocolat', 530.0),
   (8718901156309, "Jus d'orange", 'Tropicana', "Boissons, Jus de fruits, Jus d'orange", 43.0),
   (2054345678123, 'Pâtes spaghetti', 'Barilla', 'Céréales, Pâtes, Pâtes spaghetti', 350.0);
+
