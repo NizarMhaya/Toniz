@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <?php require_once('template_settings.php'); ?>
 </head>
 
 <body>
-    <?php 
-    require_once('template_menu.php'); 
-    renderMenuToHTML('profil'); 
+    <?php
+    require_once('template_menu.php');
+    renderMenuToHTML('profil');
     ?>
-    <h2>Profil</h2>
+    <h1 class="my-custom-h1">Profil </h1>
+    <h2 id="custom-description">Voici votre profil avec l'ensemble de vos données personnelles</h2>
 
     <?php if (!isset($_SESSION['login']) && !isset($_COOKIE['login'])) : ?>
         <p>Veuillez vous connecter ci-dessous pour voir vos informations personnelles.</p>
@@ -40,8 +42,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         let apiUrlProfil = "<?php require_once 'config.php';
-                        echo _API_URL_PROFIL; ?> ";
+                            echo _API_URL_PROFIL; ?> ";
     </script>
     <script src="JS/script_profil.js" defer></script>
 </body>
+
 </html>
