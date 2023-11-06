@@ -62,7 +62,8 @@
     </form>
     <button type="button" id="saveButton" class="btn btn-primary" style="display: none;">Enregistrer</button>
     <script>
-        let apiUrl = "<?php require_once 'config.php'; echo _API_URL_ALIMENT; ?>";
+        let apiUrl = "<?php require_once 'config.php'; 
+        echo _API_URL; ?>";
     </script>
     <script src="JS/script_aliments.js" defer></script>
 </body>

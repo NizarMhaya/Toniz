@@ -65,7 +65,7 @@ require_once('template_settings.php');
     </footer>
     <!-- Bootstrap core JS-->
     <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+    <script src="js/script.js"></script>
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <!-- * *                               SB Forms JS                               * *-->
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->

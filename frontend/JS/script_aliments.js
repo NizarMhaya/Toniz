@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    var apiUrl = "<?php require_once 'config.php'; echo _API_URL_ALIMENT; ?>";
 
     var table = $('#myTable').DataTable({
         ajax: {

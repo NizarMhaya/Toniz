@@ -5,7 +5,7 @@
 
 header('Content-Type: application/json'); // Définir le type de contenu JSON
 
-require_once('config.php');
+require_once('init_pdo.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     // Utilisez la fonction get_aliment pour obtenir tous les aliment

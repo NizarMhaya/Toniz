@@ -4,7 +4,7 @@
 
 header('Content-Type: application/json'); // Définir le type de contenu JSON
 
-require_once('config.php');
+require_once('init_pdo.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     // Vérifiez l'ID de l'utilisateur à partir des données de la session ou du token d'authentification
