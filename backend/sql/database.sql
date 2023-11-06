@@ -6,6 +6,10 @@
 /*==============================================================*/
 /* Table : ALIMENT                                              */
 /*==============================================================*/
+
+
+
+
 create table ALIMENT
 (
    CODE_BARRES          bigint not null  comment '',
@@ -92,7 +96,7 @@ create table REPAS
    ID_USER              int not null comment '',
    NOM_REPAS            varchar(80)  comment '',
    DATE                 timestamp  comment '',
-   primary key (ID_REPAS),
+   primary key (ID_REPAS)
       -- KEY FK_REPAS_MANGE_UTILISAT (ID_USER)
 );
 
@@ -101,16 +105,16 @@ create table REPAS
 /*==============================================================*/
 create table UTILISATEUR
 (
-   ID_USER              int not null  comment '',
-   LOGIN                varchar(50)  comment '',
-   MDP                  varchar(100)  comment '',
-   AGE                  int  comment '',
-   TAILLE               int  comment '',
-   POIDS                int  comment '',
-   SEXE                 int  comment '',
-   ACTIVITE             int  comment '',
-   KCAL_JOUR            int  comment '',
-   primary key (ID_USER)
+   ID_USER              INT NOT NULL AUTO_INCREMENT,
+   LOGIN                VARCHAR(50) NOT NULL,
+   MDP                  VARCHAR(100) NOT NULL,
+   AGE                  INT,
+   TAILLE               INT,
+   POIDS                INT,
+   SEXE                 INT,
+   ACTIVITE             INT,
+   KCAL_JOUR            INT,
+   PRIMARY KEY (ID_USER)
 );
 
 alter table ALIMENTS_FAVORIS add constraint FK_ALIMENTS_ALIMENTS__UTILISAT foreign key (ID_USER)
