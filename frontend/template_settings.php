@@ -8,12 +8,13 @@
     <title>Toniz'Food</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/logo_gros.ico" />
-    <!-- Bootstrap icons-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles_boostrap.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="css/styles_bootstrap.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+
 </head>
-<body>
-    <!-- Votre contenu ici -->
-</body>
+
 </html>

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-<script src="https://code.jquery.com/jquery-3.7.0.min.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/styles_menu.css">
 <?php
 session_start(); // Démarrer la session
 

@@ -1,0 +1,20 @@
+.yellow-link {
+  color: rgb(255, 213, 0); /* Texte jaune */
+}
+
+.green-link {
+  color: rgb(50, 202, 50); /* Texte vert */
+  margin-right: 10px; /* Ajouter de la marge à droite */
+}
+
+.red-link {
+  background: none; /* Supprimer l'arrière-plan du bouton */
+  border: none; /* Supprimer la bordure du bouton */
+  color: red; /* Texte en rouge */
+  text-decoration: underline; /* Souligner le texte */
+  cursor: pointer; /* Curseur de souris comme pointeur */
+  font-family: Calibri, Arial, sans-serif; /* Police "Arial" avec des polices de secours génériques */
+  font-size: 16px; /* Taille de police de 16 pixels */
+  margin-left: 10px; /* Ajouter de la marge à gauche */
+
+}
