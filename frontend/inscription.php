@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-<?php
-require_once('template_settings.php');
-?>
+<head>
+    <?php require_once('template_settings.php'); ?>
+</head>
+
 <body>
     <?php require_once('template_menu.php'); 
     renderMenuToHTML('profil'); 

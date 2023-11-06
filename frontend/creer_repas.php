@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html>
 
 <head>
     <meta charset='utf-8'>
@@ -13,15 +13,17 @@
     <link rel="stylesheet" href="CSS/styles.css">
     <link rel="icon" type="image/x-icon" href="assets/faviconV2.png" />
 
-    <?php require_once('template_menu.php'); ?>
-    <header class="bg-dark py-1">
-        <?php renderMenuToHTML('repas'); ?>
-    </header>
+
 
 
 </head>
 
 <body>
+    <?php require_once('template_menu.php'); ?>
+    <header class="bg-dark py-1">
+        <?php renderMenuToHTML('creer_repas'); ?>
+    </header>
+
     <h1 class="my-custom-h1">Créer un Repas</h1>
     <h2 id="custom-description">Cette page vous permet simplement d'ajouter dans la table repas une ligne</h2>
 

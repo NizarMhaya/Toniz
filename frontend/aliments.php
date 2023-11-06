@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html lang="fr">
-<?php require_once('template_settings.php'); ?>
+<html>
+<head>
+    <?php require_once('template_settings.php'); ?>
+</head>
 <body>
     <?php require_once('template_menu.php'); ?>
     <header class="bg-dark py-1">

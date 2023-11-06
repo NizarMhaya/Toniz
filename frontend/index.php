@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-<?php
-require_once('template_settings.php');
-?>
+<html>
+<head>
+    <?php require_once('template_settings.php'); ?>
+</head>
+
 
 <body>
 
