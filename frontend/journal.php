@@ -5,7 +5,6 @@ require_once('template_settings.php');
 ?>
 <body>
     <?php 
-    require_once('template_settings.php');
     require_once('template_menu.php'); 
     renderMenuToHTML('repas'); ?>
 
