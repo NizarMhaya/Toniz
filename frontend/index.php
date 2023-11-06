@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Business Frontpage - Start Bootstrap Template</title>
+        <title>Toniz'Food</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="assets/logo_gros.ico" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -37,8 +37,8 @@
             <div class="container px-5 my-5">
                 <div class="row gx-5">
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
-                        <h2 class="h4 fw-bolder">Un objectif adapté</h2>
+                    <img src="assets/icon1.png" alt="icon1" />
+                        <h2 class="h4 fw-bolder mt-3">Un objectif adapté</h2>
                         <p>Inscrivez-vous. Rentrez vos informations (âge, sexe, activités sportives...) permettant de fixer votre propre norme d'alimentation quotidienne.</p>
                         <a class="text-decoration-none" href="#!">
                             Voir la page Profil
@@ -46,8 +46,8 @@
                         </a>
                     </div>
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
-                        <h2 class="h4 fw-bolder">Des milliers d'aliments</h2>
+                        <img src="assets/icon2.png" alt="icon2" />
+                        <h2 class="h4 fw-bolder mt-3">Des milliers d'aliments</h2>
                         <p>Notre base de données contient plus de 100 000 aliments. Vous pouvez retrouver les informations sur tout ce que vous mangez dans la page dédiée.</p>
                         <a class="text-decoration-none" href="#!">
                             Voir la page Aliments
@@ -55,8 +55,8 @@
                         </a>
                     </div>
                     <div class="col-lg-4">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
-                        <h2 class="h4 fw-bolder">Un historique de vos repas</h2>
+                        <img src="assets/icon3.png" alt="icon3" />
+                        <h2 class="h4 fw-bolder mt-3">Un historique de vos repas</h2>
                         <p>Recréez les repas que vous mangez chaque jour et consultez les nutriments que vous absorbez quotidiennement.</p>
                         <a class="text-decoration-none" href="#!">
                             Voir la page Journal
