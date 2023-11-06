@@ -11,18 +11,28 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="icon" type="image/x-icon" href="assets/faviconV2.png" />
+
+    <?php require_once('template_menu.php'); ?>
+    <header class="bg-dark py-1">
+        <?php renderMenuToHTML('aliments'); ?>
+    </header>
 
 
 </head>
 
+<h1 class="my-custom-h1">Gestionnaire de la base de données des aliments</h1>
+<h2 id="custom-description">Cette page vous permet de visualiser l'ensemble des aliments disponibles dans notre base de données de la table aliment avec toutes les actions CRUD associées</h2>
+
 <body>
-    <h1>Gestionnaire de la base de données de test qui fonctionne sur la dbtest</h1>
-    <h2>Cette page vous permet de visualiser l'ensemble des aliments disponibles dans notre base de données de la table aliment avec toutes les actions CRUD associées. Il est normal qu'elle ne fonctione pas sur database</h2>
     <table id="myTable">
         <thead>
             <tr>
-                <th scope="col">id</th>
-                <th scope="col">name</th>
+                <th scope="col">CODE BARRES</th>
+                <th scope="col">NOM</th>
+                <th scope="col">MARQUE</th>
+                <th scope="col">CATEGORIE</th>
+                <th scope="col">ENERGIE_100G</th>
                 <th scope="col">Edit</th> <!-- Colonne pour le bouton Edit -->
                 <th scope="col">Delete</th> <!-- Colonne pour le bouton Delete -->
             </tr>
@@ -32,33 +42,52 @@
     </table>
     <form id="addStudentForm">
         <div class="form-group row">
-            <label for="idInput" class="col-sm-2 col-form-label">id*</label>
-            <div class="col-sm-3">
-                <input type="text" class="form-control" id="idInput">
+            <div class="form-group row">
+                <label for="codeBarresInput" class="col-sm-2 col-form-label">CODE BARRES*</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="codeBarresInput">
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="nameInput" class="col-sm-2 col-form-label">name*</label>
-            <div class="col-sm-3">
-                <input type="text" class="form-control" id="nameInput">
+            <div class="form-group row">
+                <label for="nomInput" class="col-sm-2 col-form-label">NOM*</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="nomInput">
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <span class="col-sm-2"></span>
-            <div class="col-sm-2">
-                <button type="button" class="btn btn-primary form-control" id="submitButton" style="display: block;">Submit</button>
-                <!--type="submit" : Lorsque ce bouton est cliqué à l'intérieur d'un formulaire, le formulaire est soumis au serveur pour traitement. Cela signifie que les données du formulaire sont envoyées au serveur pour être traitées par un script ou un programme. -->
-                <!--type="button" : Cela signifie que le bouton est un bouton ordinaire. Il n'a pas de comportement par défaut lorsqu'il est cliqué. Vous pouvez définir un comportement personnalisé en utilisant JavaScript-->
+            <div class="form-group row">
+                <label for="idInput" class="col-sm-2 col-form-label">MARQUE*</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="marqueInput">
+                </div>
             </div>
-        </div>
+            <div class="form-group row">
+                <label for="nameInput" class="col-sm-2 col-form-label">CATEGORIE*</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="categorieInput">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="nameInput" class="col-sm-2 col-form-label">ENERGIE_100G*</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="energieInput">
+                </div>
+            </div>
+            <div class="form-group row">
+                <span class="col-sm-2"></span>
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-primary form-control" id="submitButton" style="display: block;">Submit</button>
+                    <!--type="submit" : Lorsque ce bouton est cliqué à l'intérieur d'un formulaire, le formulaire est soumis au serveur pour traitement. Cela signifie que les données du formulaire sont envoyées au serveur pour être traitées par un script ou un programme. -->
+                    <!--type="button" : Cela signifie que le bouton est un bouton ordinaire. Il n'a pas de comportement par défaut lorsqu'il est cliqué. Vous pouvez définir un comportement personnalisé en utilisant JavaScript-->
+                </div>
+            </div>
     </form>
     <button type="button" id="saveButton" class="btn btn-primary " style="display: none;">Enregistrer</button>
 
     <script>
         let apiUrl = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
-                        echo _API_URL; ?> "; // utilisation de la variable définie dans config
+                        echo _API_URL_ALIMENT; ?> "; // utilisation de la variable définie dans config
     </script>
-    <script src="JS/script.js" defer></script>
+    <script src="JS/script_aliments.js" defer></script>
 
 </body>
 
