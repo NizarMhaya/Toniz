@@ -19,8 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         http_response_code(200); // OK
         echo json_encode($alimentsFavoris);
     } else {
-        http_response_code(404); // Not Found
-        echo json_encode(array('error' => 'Aucun aliment favori trouvé.'));
+        http_response_code(200); // OK (ou 204 No Content selon le cas)
+        echo json_encode(array()); // Renvoyer un tableau vide si aucune donnée n'est disponible
     }
 }
 
