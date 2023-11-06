@@ -3,20 +3,20 @@ $(document).ready(function () {
     // Gestionnaire de clic pour le bouton de connexion
     $('#connexion-button').on('click', function (e) {
         e.preventDefault();
-    
+
         // Récupérer les valeurs des champs du formulaire de connexion
         var connexionLogin = $('#connexion-login').val();
         var connexionMdp = $('#connexion-mdp').val();
-    
+
         // Créer un objet avec les données du formulaire de connexion
         var loginData = {
             "login": connexionLogin,
             "mdp": connexionMdp
         };
-    
+
         // Afficher les données à des fins de débogage
         console.log('Données de connexion envoyées :', loginData);
-    
+
         // Envoyer les données de connexion à votre API (utilisez une URL différente pour la connexion)
         $.ajax({
             url: apiUrlProfil,
@@ -28,7 +28,7 @@ $(document).ready(function () {
                 // Vous pouvez également ajouter des vérifications supplémentaires ici
                 console.log('Réponse de la connexion :', response);
                 $('#message').text('Connexion réussie'); // Affichez un message de connexion réussie
-    
+
                 if (response.message === 'Connexion réussie') {
                     $('#session-status').text('Connecté : ' + connexionLogin);
                     window.location.href = 'index.php'; // Remplacez 'index.php' par l'URL de votre page d'accueil
@@ -41,7 +41,25 @@ $(document).ready(function () {
             }
         });
     });
-    
-    
-    
+
+    var table = $('#myTable').DataTable({
+        ajax: {
+            url: apiUrlProfil,
+            dataSrc: ''
+        },
+        columns: [
+            { "data": "ID_USER " },
+            { "data": "LOGIN" },
+            { "data": "MDP" },
+            { "data": "AGE" },
+            { "data": "TAILLE" },
+            { "data": "POIDS" },
+            { "data": "SEXE" },
+            { "data": "ACTIVITE" },
+            { "data": "KCAL_JOUR" }
+        ]
     });
+
+
+
+});

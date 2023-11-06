@@ -30,6 +30,22 @@
         </form>
     <?php else : ?>
         <p>Vos informations personnelles :</p>
+        <table id="myTable">
+            <thead>
+                <tr>
+                    <th scope="col">ID_USER</th>
+                    <th scope="col">LOGIN</th>
+                    <th scope="col">MDP</th>
+                    <th scope="col">AGE</th>
+                    <th scope="col">TAILLE</th>
+                    <th scope="col">POIDS</th>
+                    <th scope="col">SEXE</th>
+                    <th scope="col">ACTIVITE</th>
+                    <th scope="col">KCAL_JOUR</th>
+                </tr>
+            </thead>
+            <tbody id="studentsTableBody"></tbody>
+        </table>
         <!-- Afficher les informations personnelles de l'utilisateur ici -->
     <?php endif; ?>
 
