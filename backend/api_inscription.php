@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: application/json');
+header('Content-Type: application/json; charset=utf-8');
 require_once('init_pdo.php');
 
 
@@ -15,6 +15,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ) {
         // Tous les champs requis sont présents, il s'agit d'une inscription
         $login = $inputData['login'];
+
+        // Vérifier si le login existe déjà
+        if (is_login_taken($pdo, $login)) {
+            http_response_code(400); // Bad Request
+            echo json_encode(array('error' => 'Déjà existant. Veuillez rentrer un autre nom d\'utilisateur.'), JSON_UNESCAPED_UNICODE);
+            exit; // Arrête le script
+        }
+
         $mdp = $inputData['mdp'];
         $age = $inputData['age'];
         $taille = $inputData['taille'];
@@ -55,5 +63,16 @@ function create_user($pdo, $login, $mdp, $age, $taille, $poids, $sexe, $activite
     } else {
         return array('success' => false);
     }
+}
+
+function is_login_taken($pdo, $login)
+{
+    $query = "SELECT COUNT(*) FROM UTILISATEUR WHERE LOGIN = :login";
+    $statement = $pdo->prepare($query);
+    $statement->bindParam(':login', $login);
+    $statement->execute();
+    $count = $statement->fetchColumn();
+
+    return $count > 0;
 }
 ?>

@@ -42,7 +42,10 @@
                         echo _API_URL_ALIMENT_FAVORIS; ?> "; // utilisation de la variable définie dans config
     </script>
     <script src="JS/script_aliments_ajouter_favoris.js" defer></script>
+    <footer class="py-4 bg-dark">
+        <?php require_once('template_footer.php'); ?>
 
+    </footer>
 </body>
 
 </html>

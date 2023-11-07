@@ -10,26 +10,28 @@
     require_once('template_menu.php');
     renderMenuToHTML('profil');
     ?>
-    <h1 class="my-custom-h1">Profil </h1>
-    <h2 id="custom-description">Voici votre profil avec l'ensemble de vos données personnelles</h2>
+    <h1 class="my-custom-h1">Profil</h1>
+
 
     <?php if (!isset($_SESSION['login']) && !isset($_COOKIE['login'])) : ?>
-        <p>Veuillez vous connecter ci-dessous pour voir vos informations personnelles.</p>
-        <p>Pas encore de compte ? Rendez-vous sur la page <a href="inscription.php">Inscription</a> pour nous rejoindre.</p>
-
+        <p class="p-text">Veuillez vous connecter ci-dessous pour voir vos informations personnelles.</p>
+        <p class="p-text">Pas encore de compte ? Rendez-vous sur la page <a href="inscription.php">Inscription</a> pour nous rejoindre.</p>
+    <div class="connexion-form">
         <h2>Connexion</h2>
         <form id="connexion-form">
             <!-- Formulaire de connexion -->
             <label for="login">Nom :</label>
-            <input type="text" id="connexion-login" name="login" required><br><br>
+            <input type="text" id="connexion-login" name="login" required><br>
 
             <label for "mdp">Mot de passe :</label>
-            <input type="password" id="connexion-mdp" name="mdp" required><br><br>
+            <input type="password" id="connexion-mdp" name="mdp" required><br>
 
             <button type="button" id="connexion-button">Se connecter</button>
         </form>
+    </div>
     <?php else : ?>
-        <p>Vos informations personnelles :</p>
+
+        <p class="p-text">Vos informations personnelles :</p>
         <table id="myTable">
             <thead>
                 <tr>
@@ -51,8 +53,9 @@
 
     <div id="message"></div>
 
-    <footer>
-        <!-- Pied de page -->
+    <footer class="py-4 bg-dark">
+        <?php require_once('template_footer.php'); ?>
+
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

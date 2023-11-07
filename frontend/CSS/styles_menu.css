@@ -18,3 +18,85 @@
   margin-left: 10px; /* Ajouter de la marge à gauche */
 
 }
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+#menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#menu .navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f4f4f4;
+  padding: 10px;
+}
+
+#menu .navbar li {
+  margin: 0 10px;
+}
+
+#menu .navbar a.active {
+  font-weight: bold;
+}
+/* CSS pour supprimer le point du début de chaque élément du menu déroulant */
+.dropdown-menu ul {
+  list-style: none; /* Supprime le point au début de chaque élément */
+}
+
+
+
+/* CSS pour mettre le texte en vert lorsque survolé */
+.dropdown-menu a:hover {
+  color: green; /* Texte en vert au survol */
+  font-weight: bold; /* Texte en gras pour l'élément actif */
+}
+
+
+/* CSS pour désactiver le surlignage et mettre en gras et en vert le texte de l'élément actif */
+.dropdown-menu a.active {
+  background-color: transparent !important; /* Désactive le surlignage */
+  font-weight: bold; /* Texte en gras pour l'élément actif */
+  color: green !important; /* Texte en vert pour l'élément actif */
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f4f4f4;
+}
+
+.navbar-nav .nav-item {
+  position: relative;
+}
+
+.navbar-nav .nav-item:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+}
+
+.dropdown-menu a:hover {
+  background-color: transparent;
+}
+/* CSS pour limiter la largeur de la fenêtre du menu déroulant */
+.dropdown-menu {
+  max-width: 200px; /* Ajustez cette valeur selon vos besoins */
+}
+/* Réduire la marge intérieure de gauche pour les éléments du menu déroulant */
+.dropdown-menu .dropdown-item {
+  padding-left: 0px; /* Ajustez cette valeur selon vos besoins */
+  padding-right: 20px; /* Ajustez cette valeur selon vos besoins */
+
+}
+
+
