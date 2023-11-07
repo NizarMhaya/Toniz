@@ -48,7 +48,7 @@ $(document).ready(function () {
             dataSrc: ''
         },
         columns: [
-            { "data": "ID_USER " },
+            { "data": "ID_USER" },
             { "data": "LOGIN" },
             { "data": "MDP" },
             { "data": "AGE" },
