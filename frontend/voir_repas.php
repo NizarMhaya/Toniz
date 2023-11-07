@@ -8,7 +8,7 @@
 <body>
     <?php require_once('template_menu.php'); ?>
     <header class="bg-dark py-1">
-        <?php renderMenuToHTML('favoris'); ?>
+        <?php renderMenuToHTML('voir_repas'); ?>
     </header>
     <h1 class="my-custom-h1">Vos repas</h1>
     <h2 id="custom-description">Voici l'ensemble des repas que vous avez créés.</h2>

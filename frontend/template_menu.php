@@ -18,6 +18,7 @@ function renderMenuToHTML($currentPageId)
         'ajouter_favoris' => array('Ajouter des favoris', 'aliments_ajouter_favoris.php'),
         'favoris' => array('Favoris', 'favoris.php'),
         'repas' => array('Créer un repas', 'creer_repas.php'),
+        'voir_repas' => array('Vos repas', 'voir_repas.php'),
         'calculateur' => array('Calculateur KCAL', 'calculateur.php'),
         'voir_repas' => array('Mes repas', 'voir_repas.php'),
 
