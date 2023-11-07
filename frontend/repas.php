@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <form id="repas-form">
+    <form id="formulaire-repas">
         <label for="nom-repas">Nom du repas :</label>
         <input type="text" id="nom-repas" name="nom-repas" required><br><br>
 
@@ -30,17 +30,18 @@
         ajouterAlimentButton.addEventListener("click", function() {
             const nouvelAlimentDiv = document.createElement("div");
             nouvelAlimentDiv.innerHTML = `
-        <label for="aliment-${alimentIndex}">Aliment (code barres) :</label>
-        <input type="number" id="aliment-${alimentIndex}" name="aliment-${alimentIndex}" required><br><br>
+            <label for="aliment-${alimentIndex}">Aliment (code barres) :</label>
+            <input type="number" class="aliment-input" id="aliment-${alimentIndex}" name="aliment-${alimentIndex}" required><br><br>
 
-        <label for="quantite-${alimentIndex}">Quantité (g) :</label>
-        <input type="number" id="quantite-${alimentIndex}" name="quantite-${alimentIndex}" required><br><br>
-    `;
+            <label for="quantite-${alimentIndex}">Quantité (g) :</label>
+            <input type="number" class="quantite-input" id="quantite-${alimentIndex}" name="quantite-${alimentIndex}" required><br><br>
+        `;
 
             alimentsContainer.appendChild(nouvelAlimentDiv);
             alimentIndex++;
         });
     </script>
+
 
     <body>
         <h1 class="my-custom-h1">Tableau des aliments</h1>
@@ -66,6 +67,11 @@
                             echo _API_URL_ALIMENT_FAVORIS; ?> "; // utilisation de la variable définie dans config
         </script>
         <script src="JS/script_aliments_ajouter_favoris.js" defer></script>
+        <script src="JS/script_repas.js" defer></script>
+        <script>
+            let apiUrlRepas = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
+                                echo _API_URL_NEW_REPAS; ?> "; // utilisation de la variable définie dans config
+        </script>
 
 
     </body>
