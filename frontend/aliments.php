@@ -72,9 +72,6 @@
         echo _API_URL; ?>";
     </script>
     <script src="JS/script_aliments.js" defer></script>
-    <footer class="py-4 bg-dark">
-        <?php require_once('template_footer.php'); ?>
 
-    </footer>
 </body>
 </html>
