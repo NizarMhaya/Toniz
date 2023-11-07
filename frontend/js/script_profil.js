@@ -42,23 +42,23 @@ $(document).ready(function () {
         });
     });
 
-    var table = $('#myTable').DataTable({
-        ajax: {
-            url: apiUrlProfil,
-            dataSrc: ''
-        },
-        columns: [
-            // { "data": "ID_USER" },
-            { "data": "LOGIN" },
-            // { "data": "MDP" },
-            { "data": "AGE" },
-            { "data": "TAILLE" },
-            { "data": "POIDS" },
-            { "data": "SEXE" },
-            { "data": "ACTIVITE" },
-            { "data": "KCAL_JOUR" }
-        ]
-    });
+    // var table = $('#myTable').DataTable({
+    //     ajax: {
+    //         url: apiUrlProfil,
+    //         dataSrc: ''
+    //     },
+    //     columns: [
+    //         // { "data": "ID_USER" },
+    //         { "data": "LOGIN" },
+    //         // { "data": "MDP" },
+    //         { "data": "AGE" },
+    //         { "data": "TAILLE" },
+    //         { "data": "POIDS" },
+    //         { "data": "SEXE" },
+    //         { "data": "ACTIVITE" },
+    //         { "data": "KCAL_JOUR" }
+    //     ]
+    // });
 
 
 
