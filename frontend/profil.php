@@ -33,9 +33,9 @@
         <table id="myTable">
             <thead>
                 <tr>
-                    <th scope="col">ID_USER</th>
+                    <!-- <th scope="col">ID_USER</th> -->
                     <th scope="col">LOGIN</th>
-                    <th scope="col">MDP</th>
+                    <!-- <th scope="col">MDP</th> -->
                     <th scope="col">AGE</th>
                     <th scope="col">TAILLE</th>
                     <th scope="col">POIDS</th>

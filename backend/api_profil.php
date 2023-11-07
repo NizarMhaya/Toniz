@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 }
 function get_aliment($pdo, $login)
 {
-    $sql = "SELECT * FROM utilisateur WHERE LOGIN = :login";
+    $sql = "SELECT LOGIN, AGE, TAILLE, POIDS, SEXE, ACTIVITE, KCAL_JOUR FROM utilisateur WHERE LOGIN = :login";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':login', $login, PDO::PARAM_STR);
     $stmt->execute();
