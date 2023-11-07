@@ -8,7 +8,7 @@ require_once('init_pdo.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     // Vérifiez l'ID de l'utilisateur à partir des données de la session ou du token d'authentification
-    $userID = 1; // Remplacez ceci par la méthode appropriée pour obtenir l'ID de l'utilisateur
+    $login = $_COOKIE['login']; // Remplacez ceci par la méthode appropriée pour obtenir l'ID de l'utilisateur
 
     // Utilisez la fonction get_repas_utilisateur pour obtenir les repas de l'utilisateur
     $repasUtilisateur = get_repas_utilisateur($pdo, $userID);
@@ -24,14 +24,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 }
 
 // Fonction pour récupérer les repas de l'utilisateur
-function get_repas_utilisateur($pdo, $userID)
+function get_repas_utilisateur($pdo, $login)
 {
     try {
         // Préparez la requête SQL pour obtenir les repas de l'utilisateur
-        $stmt = $pdo->prepare("SELECT * FROM repas WHERE ID_USER = :user_id");
+        $stmt = $pdo->prepare("SELECT r.*
+        FROM repas r
+        JOIN utilisateur u ON r.ID_USER = u.ID_USER
+        WHERE u.LOGIN = :login");
 
         // Liez la valeur de l'ID de l'utilisateur en tant que paramètre
-        $stmt->bindParam(':user_id', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':login', $login, PDO::PARAM_STR);
 
         // Exécutez la requête
         $stmt->execute();
