@@ -2,6 +2,8 @@
 /*==============================================================*/
 /* Table : ALIMENT                                              */
 /*==============================================================*/
+
+
 create table ALIMENT
 (
    CODE_BARRES          BIGINT NOT NULL,
@@ -74,6 +76,7 @@ create table REPAS
 (
    ID_REPAS             INT NOT NULL AUTO_INCREMENT,
    ID_USER              INT NOT NULL,
+   NOM_REPAS            varchar(80)  comment '',
    DATE                 TIMESTAMP,
    PRIMARY KEY (ID_REPAS)
 );

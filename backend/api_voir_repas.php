@@ -27,8 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             http_response_code(200); // OK
             echo json_encode($repasDetails);
         } else {
-            http_response_code(404); // Not Found
-            echo json_encode(array('error' => 'Aucun repas trouvé.'));
+            http_response_code(200); // OK (ou 204 No Content selon le cas)
+            echo json_encode(array()); // Renvoyer un tableau vide si aucune donnée n'est disponible
         }
     } catch (PDOException $e) {
         http_response_code(500); // Internal Server Error
