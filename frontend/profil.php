@@ -49,6 +49,7 @@
     <button type="button" id="modifier-profil-button">Modifier votre profil</button>
     <button type="button" id="valider-modifications-button">Valider les modifications</button>
 
+
     <div id="message"></div>
 
 
@@ -101,6 +102,8 @@
         const modifierProfilButton = document.getElementById("modifier-profil-button");
         const inscriptionForm = document.getElementById("inscription-form");
         const validerModificationsButton = document.getElementById("valider-modifications-button");
+        modifierProfilButton.style.display = "block";
+
 
         var table = $('#myTable').DataTable({
             ajax: {
@@ -155,6 +158,8 @@
             document.getElementById("kcal").value = rowData.KCAL_JOUR;
 
             inscriptionForm.style.display = "block";
+            modifierProfilButton.style.display = "none";
+            validerModificationsButton.style.display = "block";
 
             // Assurez-vous de traiter les valeurs de texte selon vos besoins.
             // Par exemple, pour les valeurs numériques, vous pouvez utiliser parseInt() ou parseFloat() selon le cas.
@@ -196,6 +201,7 @@
                     // }
                     // Je mets ceci en commentaire sinon j'ai tout le temps cette erreur alors que ça marche
                 });
+                window.location.href = 'profil.php';
             });
         });
     </script>
