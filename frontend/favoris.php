@@ -28,7 +28,10 @@
     </table>
 
     <button type="button" id="saveButton" class="btn btn-primary " style="display: none;">Enregistrer</button>
+    <footer class="py-4 bg-dark">
+        <?php require_once('template_footer.php'); ?>
 
+    </footer>
     <script>
         let apiUrl = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
                         echo _API_URL_FAVORIS; ?> "; // utilisation de la variable définie dans config

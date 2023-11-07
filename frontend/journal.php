@@ -7,7 +7,7 @@
 <body>
     <?php 
     require_once('template_menu.php'); 
-    renderMenuToHTML('repas'); ?>
+    renderMenuToHTML('journal'); ?>
 
     <main>
         <!-- Contenu de la page "profil.php" -->
@@ -17,10 +17,10 @@
 
     <!-- Autres sections ou contenu ici -->
 
-    <footer>
-        <!-- Pied de page -->
+    <footer class="py-4 bg-dark">
+        <?php require_once('template_footer.php'); ?>
+
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
