@@ -47,6 +47,7 @@
         <!-- Afficher les informations personnelles de l'utilisateur ici -->
     <?php endif; ?>
     <button type="button" id="modifier-profil-button">Modifier votre profil</button>
+    <button type="button" id="valider-modifications-button">Valider les modifications</button>
 
     <div id="message"></div>
 
@@ -99,6 +100,7 @@
         // Récupérez le bouton, le formulaire et les cellules de la table par leur ID
         const modifierProfilButton = document.getElementById("modifier-profil-button");
         const inscriptionForm = document.getElementById("inscription-form");
+        const validerModificationsButton = document.getElementById("valider-modifications-button");
 
         var table = $('#myTable').DataTable({
             ajax: {
@@ -156,12 +158,46 @@
 
             // Assurez-vous de traiter les valeurs de texte selon vos besoins.
             // Par exemple, pour les valeurs numériques, vous pouvez utiliser parseInt() ou parseFloat() selon le cas.
+
+            validerModificationsButton.addEventListener("click", function() {
+                // Récupérez les valeurs des champs du formulaire
+                const login = document.getElementById("login").value;
+                const age = document.getElementById("age").value;
+                const taille = document.getElementById("taille").value;
+                const poids = document.getElementById("poids").value;
+                const sexe = document.getElementById("sexe").value;
+                const activite = document.getElementById("activite").value;
+                const kcal = document.getElementById("kcal").value;
+
+                // Créez un objet avec les données à envoyer
+                const formData = {
+                    login: login,
+                    age: age,
+                    taille: taille,
+                    poids: poids,
+                    sexe: sexe,
+                    activite: activite,
+                    kcal_jour: kcal
+                };
+
+                // Effectuez l'appel AJAX de type PUT
+                $.ajax({
+                    url: apiUrlProfil, // Remplacez ceci par l'URL de votre API PUT
+                    type: "PUT",
+                    contentType: "application/json",
+                    data: JSON.stringify(formData), // Convertissez l'objet en chaîne JSON
+                    success: function(response) {
+                        console.log("Modification réussie :", response);
+                        // Traitez la réponse de l'API si nécessaire
+                    }
+                    // error: function(error) {
+                    //     console.error("Erreur lors de la modification :", error);
+                    //     // Gérez les erreurs si l'appel échoue
+                    // }
+                    // Je mets ceci en commentaire sinon j'ai tout le temps cette erreur alors que ça marche
+                });
+            });
         });
-
-
-
-        // Assurez-vous de traiter les valeurs de texte, par exemple, si vous avez besoin de convertir des chaînes en nombres.
-        // Par exemple, pour les valeurs numériques, vous pouvez utiliser parseInt() ou parseFloat() selon le cas.
     </script>
 
 
