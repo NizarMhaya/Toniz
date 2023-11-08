@@ -190,3 +190,8 @@ a:hover {
     margin-left: 2%;
     margin-bottom: 8px;
 }
+
+.narrow {
+    width: 90%; /* Ajustez la largeur en fonction de vos besoins */
+}
+

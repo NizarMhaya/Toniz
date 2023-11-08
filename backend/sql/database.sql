@@ -107,6 +107,13 @@ create table UTILISATEUR
    PRIMARY KEY (ID_USER)
 );
 
+create table ALIMENTS_FAVORIS
+(
+   ID_USER              int not null  comment '',
+   CODE_BARRES          bigint not null  comment '',
+   primary key (ID_USER, CODE_BARRES)
+);
+
 /* Clés étrangères adaptées pour les nouvelles colonnes BIGINT */
 
 alter table A_BESOIN_DE add constraint FK_A_BESOIN_A_BESOIN__UTILISAT foreign key (ID_USER)

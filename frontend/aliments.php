@@ -110,22 +110,22 @@
     <table id="myTable">
         <thead>
             <tr>
-                <th scope="col">CODE BARRES</th>
-                <th scope="col">NOM</th>
-                <th scope="col">MARQUE</th>
-                <th scope="col">CATEGORIE</th>
-                <th scope="col">ENERGIE_100G</th>
-                <th scope="col">MATIERES_GRASSES</th>
-                <th scope="col">GRAISSES_SATUREES</th>
-                <th scope="col">GLUCIDES</th>
-                <th scope="col">SUCRES</th>
-                <th scope="col">FIBRES</th>
-                <th scope="col">PROTEINES</th>
-                <th scope="col">SEL</th>
-                <th scope="col">SODIUM</th>
-                <th scope="col">CALCIUM</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
+                <th scope="col" class="narrow">CODE BARRES</th>
+                <th scope="col" class="narrow">NOM</th>
+                <th scope="col" class="narrow">MARQUE</th>
+                <th scope="col" class="narrow">CATEGORIE</th>
+                <th scope="col" class="narrow">ENERGIE_100G</th>
+                <th scope="col" class="narrow">MATIERES_GRASSES</th>
+                <th scope="col" class="narrow">GRAISSES_SATUREES</th>
+                <th scope="col" class="narrow">GLUCIDES</th>
+                <th scope="col" class="narrow">SUCRES</th>
+                <th scope="col" class="narrow">FIBRES</th>
+                <th scope="col" class="narrow">PROTEINES</th>
+                <th scope="col" class="narrow">SEL</th>
+                <th scope="col" class="narrow">SODIUM</th>
+                <th scope="col" class="narrow">CALCIUM</th>
+                <th scope="col" class="narrow">Edit</th>
+                <th scope="col" class="narrow">Delete</th>
             </tr>
         </thead>
         <tbody id="studentsTableBody"></tbody>
