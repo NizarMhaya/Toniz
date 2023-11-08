@@ -9,7 +9,8 @@
         <?php renderMenuToHTML('aliments'); ?>
     </header>
     <h1 class="my-custom-h1">Gestionnaire de la base de données des aliments</h1>
-    <h2 id="custom-description">Cette page vous permet de visualiser l'ensemble des aliments disponibles dans notre base de données de la table aliment avec toutes les actions CRUD associées</h2>
+    <p class="p-text">Sur cette page sont listés tous les aliments de notre base de données, pour l'instant modifiables par tous.</p>
+    <p class="p-text">Si un aliment consommé n'est pas dans notre base de données, vous pouvez le rajouter grâce au bouton vert ci-dessous.<p>
     <button id="createAlimentButton" class="btn btn-success">Créer un nouvel aliment</button>
     <form id="addAlimentForm">
         <div class="form-group row">
