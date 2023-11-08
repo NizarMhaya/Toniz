@@ -69,7 +69,6 @@ footer {
     /* Espacement intérieur du footer */
 }
 
-
 #valider-modifications-button {
     display: none;
 }
@@ -197,5 +196,10 @@ a:hover {
 
 #createAlimentButton {
     margin-left: 2%;
-
+    margin-bottom: 8px;
 }
+
+.narrow {
+    width: 90%; /* Ajustez la largeur en fonction de vos besoins */
+}
+

@@ -2,20 +2,19 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculateur de Besoins Énergétiques</title>
-    <link rel="stylesheet" href="CSS/styles_calculateur.css">
-    <link rel="icon" type="image/x-icon" href="assets/faviconV2.png" />
-    <?php require_once('template_menu.php'); ?>
-    <header class="bg-dark py-1">
-        <?php renderMenuToHTML('ajouter_favoris'); ?>
-    </header>
+    <?php require_once('template_settings.php'); ?>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Calculateur de Besoins Énergétiques</h1>
+    <?php 
+    require_once('template_menu.php'); 
+    renderMenuToHTML('calculateur'); 
+    ?>
+    <div class="container-calculateur">
+        <h1 class="my-custom-h1">Calculateur de Besoins Énergétiques</h1>
+        <p class=p-text>Ce calculateur repose sur la formule de Harris-Benedict, qui permet le calcul du métabolisme de base.<br>
+        Un multiplicateur y est ensuite associé en fonction de votre activité physique.</p>
+        <p class=p-text>Vous pouvez utiliser ce calculateur pour définir votre besoin énergétique quotidien dans votre profil, ou vous pouvez directement rentrer cette valeur manuellement.</p>
         <div class="form-group">
             <label for="age">Âge :</label>
             <input type="number" id="age" placeholder="Entrez votre âge">
@@ -45,8 +44,12 @@
                 <option value="extremement_actif">Extrêmement Actif</option>
             </select>
         </div>
-        <div id="resultat"></div>
+        <p class=p-text-left>Besoins énergétiques journaliers : <div id="resultat"></div></p>
     </div>
+    <footer class="py-4 bg-dark">
+        <?php require_once('template_footer.php'); ?>
+
+    </footer>
     <script src="JS/script_calculateur.js"></script>
 </body>
 

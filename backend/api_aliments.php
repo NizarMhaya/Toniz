@@ -54,12 +54,21 @@ function create_aliment($pdo, $data)
     $marque = $data['MARQUE'];
     $categorie = $data['CATEGORIE'];
     $energie_100g = $data['ENERGIE_100G'];
+    $matieres_grasses = $data['MATIERES_GRASSES'];
+    $graisses_saturees = $data['GRAISSES_SATUREES'];
+    $glucides = $data['GLUCIDES'];
+    $sucres = $data['SUCRES'];
+    $fibres = $data['FIBRES'];
+    $proteines = $data['PROTEINES'];
+    $sel = $data['SEL'];
+    $sodium = $data['SODIUM'];
+    $calcium = $data['CALCIUM'];
 
     try {
-        // Préparez la requête SQL d'insertion avec le champ "name"
-        $stmt = $pdo->prepare("INSERT INTO aliment (CODE_BARRES, NOM, MARQUE, CATEGORIE, ENERGIE_100G)
-        VALUES (:code_barres, :nom, :marque, :categorie, :energie_100g);
-        ");
+        // Préparez la requête SQL d'insertion avec tous les champs
+        $stmt = $pdo->prepare("INSERT INTO ALIMENT 
+            (CODE_BARRES, NOM, MARQUE, CATEGORIE, ENERGIE_100G, MATIERES_GRASSES, GRAISSES_SATUREES, GLUCIDES, SUCRES, FIBRES, PROTEINES, SEL, SODIUM, CALCIUM)
+            VALUES (:code_barres, :nom, :marque, :categorie, :energie_100g, :matieres_grasses, :graisses_saturees, :glucides, :sucres, :fibres, :proteines, :sel, :sodium, :calcium)");
 
         // Liez les valeurs des paramètres
         $stmt->bindParam(':code_barres', $code_barres, PDO::PARAM_INT);
@@ -67,17 +76,27 @@ function create_aliment($pdo, $data)
         $stmt->bindParam(':marque', $marque, PDO::PARAM_STR);
         $stmt->bindParam(':categorie', $categorie, PDO::PARAM_STR);
         $stmt->bindParam(':energie_100g', $energie_100g, PDO::PARAM_INT);
+        $stmt->bindParam(':matieres_grasses', $matieres_grasses, PDO::PARAM_STR);
+        $stmt->bindParam(':graisses_saturees', $graisses_saturees, PDO::PARAM_STR);
+        $stmt->bindParam(':glucides', $glucides, PDO::PARAM_STR);
+        $stmt->bindParam(':sucres', $sucres, PDO::PARAM_STR);
+        $stmt->bindParam(':fibres', $fibres, PDO::PARAM_STR);
+        $stmt->bindParam(':proteines', $proteines, PDO::PARAM_STR);
+        $stmt->bindParam(':sel', $sel, PDO::PARAM_STR);
+        $stmt->bindParam(':sodium', $sodium, PDO::PARAM_STR);
+        $stmt->bindParam(':calcium', $calcium, PDO::PARAM_STR);
 
         // Exécutez la requête
         $stmt->execute();
 
         // Retournez un message de succès
-        return array('message' => 'Nouvel aliment cree avec succes.');
+        return array('message' => 'Nouvel aliment créé avec succès.');
     } catch (PDOException $e) {
         // En cas d'erreur, retournez un message d'erreur
         return array('error' => 'Erreur lors de la création de l\'aliment : ' . $e->getMessage());
     }
 }
+
 
 
 // Gérer la méthode DELETE pour supprimer un aliment
@@ -145,24 +164,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
 
 function update_aliment($pdo, $data)
 {
-    $id = $data['CODE_BARRES']; // Récupération du CODE_BARRES depuis les données d'entrée
-    $nom = $data['NOM']; // Récupération du NOM depuis les données d'entrée
-    $marque = $data['MARQUE']; // Récupération du MARQUE depuis les données d'entrée
-    $categorie = $data['CATEGORIE']; // Récupération du CATEGORIE depuis les données d'entrée
-    $energie_100g = $data['ENERGIE_100G']; // Récupération du ENERGIE_100G depuis les données d'entrée
-
+    $id = $data['CODE_BARRES'];
+    $nom = $data['NOM'];
+    $marque = $data['MARQUE'];
+    $categorie = $data['CATEGORIE'];
+    $energie_100g = $data['ENERGIE_100G'];
+    $matieres_grasses = $data['MATIERES_GRASSES'];
+    $graisses_saturees = $data['GRAISSES_SATUREES'];
+    $glucides = $data['GLUCIDES'];
+    $sucres = $data['SUCRES'];
+    $fibres = $data['FIBRES'];
+    $proteines = $data['PROTEINES'];
+    $sel = $data['SEL'];
+    $sodium = $data['SODIUM'];
+    $calcium = $data['CALCIUM'];
 
     try {
         // Préparez la requête SQL de mise à jour avec les champs appropriés
-        $stmt = $pdo->prepare("UPDATE aliment SET NOM = :nom, MARQUE = :marque, CATEGORIE = :categorie, ENERGIE_100G = :energie_100g WHERE CODE_BARRES = :id");
+        $stmt = $pdo->prepare("UPDATE ALIMENT SET 
+            NOM = :nom, 
+            MARQUE = :marque, 
+            CATEGORIE = :categorie, 
+            ENERGIE_100G = :energie_100g, 
+            MATIERES_GRASSES = :matieres_grasses, 
+            GRAISSES_SATUREES = :graisses_saturees, 
+            GLUCIDES = :glucides, 
+            SUCRES = :sucres, 
+            FIBRES = :fibres, 
+            PROTEINES = :proteines, 
+            SEL = :sel, 
+            SODIUM = :sodium, 
+            CALCIUM = :calcium 
+            WHERE CODE_BARRES = :id");
 
         // Liez les valeurs des paramètres
         $stmt->bindParam(':nom', $nom, PDO::PARAM_STR);
         $stmt->bindParam(':marque', $marque, PDO::PARAM_STR);
         $stmt->bindParam(':categorie', $categorie, PDO::PARAM_STR);
         $stmt->bindParam(':energie_100g', $energie_100g, PDO::PARAM_INT);
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT); // Assurez-vous que l'ID est traité comme un entier
-
+        $stmt->bindParam(':matieres_grasses', $matieres_grasses, PDO::PARAM_STR);
+        $stmt->bindParam(':graisses_saturees', $graisses_saturees, PDO::PARAM_STR);
+        $stmt->bindParam(':glucides', $glucides, PDO::PARAM_STR);
+        $stmt->bindParam(':sucres', $sucres, PDO::PARAM_STR);
+        $stmt->bindParam(':fibres', $fibres, PDO::PARAM_STR);
+        $stmt->bindParam(':proteines', $proteines, PDO::PARAM_STR);
+        $stmt->bindParam(':sel', $sel, PDO::PARAM_STR);
+        $stmt->bindParam(':sodium', $sodium, PDO::PARAM_STR);
+        $stmt->bindParam(':calcium', $calcium, PDO::PARAM_STR);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
         // Exécutez la requête
         $stmt->execute();
@@ -170,13 +219,14 @@ function update_aliment($pdo, $data)
         // Vérifiez si la mise à jour a affecté des lignes (au moins une ligne a été mise à jour)
         if ($stmt->rowCount() > 0) {
             // La mise à jour a réussi, retournez un message de succès
-            return array('message' => 'Utilisateur mis à jour avec succès.');
+            return array('message' => 'Aliment mis à jour avec succès.');
         } else {
-            // Aucune ligne n'a été mise à jour, l'utilisateur avec l'ID spécifié n'a pas été trouvé
-            return array('error' => 'Utilisateur non trouvé ou aucune mise à jour nécessaire.'); // remarque : ce message est renvoyé également si l'utilisateur existe mais que l'on met à jour avec le même mail et name
+            // Aucune ligne n'a été mise à jour, l'aliment avec l'ID spécifié n'a pas été trouvé
+            return array('error' => 'Aliment non trouvé ou aucune mise à jour nécessaire.');
         }
     } catch (PDOException $e) {
         // En cas d'erreur, retournez un message d'erreur
-        return array('error' => 'Erreur lors de la mise à jour de l\'utilisateur : ' . $e->getMessage());
+        return array('error' => 'Erreur lors de la mise à jour de l\'aliment : ' . $e->getMessage());
     }
 }
+
