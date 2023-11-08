@@ -11,5 +11,4 @@ define('_API_URL_ALIMENT_FAVORIS', 'http://localhost/Toniz/backend/api_aliments_
 define('_API_URL_FAVORIS', 'http://localhost/Toniz/backend/api_favoris.php');
 define('_API_URL_REPAS', 'http://localhost/Toniz/backend/api_creer_repas.php');
 define('_API_URL_VOIR_REPAS', 'http://localhost/Toniz/backend/api_voir_repas.php');
-
-?>
+define('_API_URL_NEW_REPAS', 'http://localhost/Toniz/backend/api_repas.php');
