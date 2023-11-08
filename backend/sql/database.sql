@@ -11,6 +11,15 @@ create table ALIMENT
    MARQUE               VARCHAR(80),
    CATEGORIE            VARCHAR(160),
    ENERGIE_100G         INT,
+   MATIERES_GRASSES     FLOAT,
+   GRAISSES_SATUREES    FLOAT,
+   GLUCIDES             FLOAT,
+   SUCRES               FLOAT,
+   FIBRES               FLOAT,
+   PROTEINES            FLOAT,
+   SEL                  FLOAT,
+   SODIUM               FLOAT,
+   CALCIUM              FLOAT,
    PRIMARY KEY (CODE_BARRES)
 );
 
@@ -130,16 +139,15 @@ alter table REPAS add constraint FK_REPAS_MANGE_UTILISAT foreign key (ID_USER)
 /*==============================================================*/
 /* Insertions de données dans la Table : ALIMENT                                         */
 /*==============================================================*/
-INSERT INTO ALIMENT (CODE_BARRES, NOM, MARQUE, CATEGORIE, ENERGIE_100G)
+INSERT INTO ALIMENT (CODE_BARRES, NOM, MARQUE, CATEGORIE, ENERGIE_100G, MATIERES_GRASSES, GRAISSES_SATUREES, GLUCIDES, SUCRES, FIBRES, PROTEINES, SEL, SODIUM, CALCIUM)
 VALUES
-  (7612345678901, 'Pomme', 'Del Monte', 'Fruits, Fruits frais, Pommes', 52.0),
-  (2001000000011, 'Pain complet', 'Harrys', 'Pains, Pains complets', 250.0),
-  (5000159493444, 'Yaourt à la vanille', 'Danone', 'Produits laitiers, Yaourts, Yaourts à la vanille', 112.0),
-  (1234567890123, 'Riz basmati', 'Uncle Ben''s', 'Céréales, Riz, Riz basmati', 360.0),
-  (5410983045300, 'Saumon fumé', 'Norwegian Seafood', 'Poissons, Poissons fumés, Saumon fumé', 250.0),
-  (8033857421237, 'Pizza Margherita', 'Dr. Oetker', 'Plats préparés, Pizzas, Pizzas Margherita', 260.0),
-  (2034567890128, 'Salade César', 'Fresh Express', 'Salades, Salades César', 180.0),
-  (4002536541230, 'Barre de chocolat', 'Nestlé', 'Snacks, Chocolats, Barres de chocolat', 530.0),
-  (8718901156309, "Jus d'orange", 'Tropicana', "Boissons, Jus de fruits, Jus d'orange", 43.0),
-  (2054345678123, 'Pâtes spaghetti', 'Barilla', 'Céréales, Pâtes, Pâtes spaghetti', 350.0);
-
+  (7612345678901, 'Pomme', 'Del Monte', 'Fruits, Fruits frais, Pommes', 52.0, 0.2, 0.0, 14.0, 9.0, 2.4, 0.4, 0.0, 0.0, 11.0),
+  (2001000000011, 'Pain complet', 'Harrys', 'Pains, Pains complets', 250.0, 3.5, 0.6, 46.0, 3.2, 6.5, 10.0, 0.72, 0.29, 34.0),
+  (5000159493444, 'Yaourt à la vanille', 'Danone', 'Produits laitiers, Yaourts, Yaourts à la vanille', 112.0, 3.5, 2.3, 14.0, 12.0, 0.0, 5.2, 0.13, 0.05, 130.0),
+  (1234567890123, 'Riz basmati', 'Uncle Ben''s', 'Céréales, Riz, Riz basmati', 360.0, 0.7, 0.2, 79.0, 0.3, 1.0, 6.7, 0.01, 0.003, 4.0),
+  (5410983045300, 'Saumon fumé', 'Norwegian Seafood', 'Poissons, Poissons fumés, Saumon fumé', 250.0, 17.0, 3.7, 0.0, 0.0, 0.0, 24.0, 2.0, 0.79, 0.0),
+  (8033857421237, 'Pizza Margherita', 'Dr. Oetker', 'Plats préparés, Pizzas, Pizzas Margherita', 260.0, 10.0, 4.3, 32.0, 3.3, 2.0, 10.0, 1.2, 0.47, 200.0),
+  (2034567890128, 'Salade César', 'Fresh Express', 'Salades, Salades César', 180.0, 13.0, 2.6, 12.0, 2.6, 2.0, 6.0, 0.52, 0.2, 72.0),
+  (4002536541230, 'Barre de chocolat', 'Nestlé', 'Snacks, Chocolats, Barres de chocolat', 530.0, 29.0, 16.0, 57.0, 51.0, 7.0, 6.7, 0.43, 0.17, 76.0),
+  (8718901156309, "Jus d'orange", 'Tropicana', "Boissons, Jus de fruits, Jus d'orange", 43.0, 0.2, 0.0, 8.2, 8.2, 0.2, 0.8, 0.01, 0.005, 11.0),
+  (2054345678123, 'Pâtes spaghetti', 'Barilla', 'Céréales, Pâtes, Pâtes spaghetti', 350.0, 1.5, 0.2, 71.0, 3.4, 2.7, 12.0, 0.01, 0.004, 13.0);

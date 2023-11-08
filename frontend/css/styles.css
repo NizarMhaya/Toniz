@@ -181,3 +181,11 @@ a:hover {
     padding: 10px;
     margin-right: 80%;
 }
+
+#addAlimentForm { 
+    margin-left: 2%;
+}
+
+#createAlimentButton {
+    margin-left: 2%;
+}
