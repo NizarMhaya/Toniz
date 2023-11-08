@@ -35,7 +35,10 @@
                         echo _API_URL_VOIR_REPAS; ?> "; // utilisation de la variable définie dans config
     </script>
     <script src="JS/script_voir_repas.js" defer></script>
+    <footer class="py-4 bg-dark">
+        <?php require_once('template_footer.php'); ?>
 
+    </footer>
 </body>
 
 </html>

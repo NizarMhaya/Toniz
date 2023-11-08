@@ -82,6 +82,7 @@ function get_aliment($pdo, $login)
 
 
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
     // Récupérer les données envoyées dans le corps de la requête
     $data = json_decode(file_get_contents("php://input"), true);
@@ -117,3 +118,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
         echo json_encode(array("message" => "Erreur lors de la mise à jour de l'utilisateur."));
     }
 }
+
+//GET et PUT
+
+// if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+//     // Vérifiez si l'utilisateur est connecté
+//     if (isset($_SESSION['login'])) {
+//         $login = $_SESSION['login']; // Obtenez l'ID de l'utilisateur à partir de la session
+//         $aliments = get_aliments($pdo, $login);
+
+//         // Vérifiez si des aliments ont été trouvés pour cet utilisateur
+//         if ($aliments) {
+//             http_response_code(200); // OK
+//             echo json_encode($aliments);
+//         } else {
+//             http_response_code(204); // No Content
+//             echo json_encode(array()); // Renvoyer un tableau vide si aucune donnée n'est disponible
+//         }
+//     } else {
+//         http_response_code(401); // Unauthorized
+//         echo json_encode(array('error' => 'Utilisateur non autorisé.'));
+//     }
+// }
+
+// // Fonction pour récupérer les aliments de l'utilisateur
+// function get_aliments($pdo, $login)
+// {
+//     try {
+//         $stmt = $pdo->prepare("SELECT * FROM utilisateur WHERE LOGIN = :user_login");
+//         $stmt->bindParam(':user_login', $login);
+//         $stmt->execute();
+//         $aliments = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//         return $aliments;
+//     } catch (PDOException $e) {
+//         return array('error' => 'Erreur lors de la récupération des données de l\'utilisateur : ' . $e->getMessage());
+//     }
+// }
+

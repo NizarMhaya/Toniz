@@ -63,10 +63,18 @@
         </div>
     </form>
     <button type="button" id="saveButton" class="btn btn-primary" style="display: none;">Enregistrer</button>
+    <footer class="py-4 bg-dark">
+        <?php require_once('template_footer.php'); ?>
+
+    </footer>
     <script>
         let apiUrl = "<?php require_once 'config.php'; 
         echo _API_URL; ?>";
     </script>
     <script src="JS/script_aliments.js" defer></script>
+    <footer class="py-4 bg-dark">
+        <?php require_once('template_footer.php'); ?>
+
+    </footer>
 </body>
 </html>

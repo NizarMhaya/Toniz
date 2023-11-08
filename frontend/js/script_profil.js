@@ -42,59 +42,26 @@ $(document).ready(function () {
         });
     });
 
-    // var table = $('#myTable').DataTable({
-    //     ajax: {
-    //         url: apiUrlProfil,
-    //         dataSrc: ''
-    //     },
-    //     columns: [
-    //         // { "data": "ID_USER" },
-    //         { "data": "LOGIN" },
-    //         // { "data": "MDP" },
-    //         { "data": "AGE" },
-    //         { "data": "TAILLE" },
-    //         { "data": "POIDS" },
-    //         { "data": "SEXE" },
-    //         { "data": "ACTIVITE" },
-    //         { "data": "KCAL_JOUR" }
-    //     ]
-    // });
 
-    // // Récupérez les valeurs des champs du formulaire
-    // const login = document.getElementById("login").value;
-    // const age = document.getElementById("age").value;
-    // const taille = document.getElementById("taille").value;
-    // const poids = document.getElementById("poids").value;
-    // const sexe = document.getElementById("sexe").value;
-    // const activite = document.getElementById("activite").value;
-    // const kcal = document.getElementById("kcal").value;
 
-    // // Créez un objet avec les données à envoyer
-    // const formData = {
-    //     login: login,
-    //     age: age,
-    //     taille: taille,
-    //     poids: poids,
-    //     sexe: sexe,
-    //     activite: activite,
-    //     kcal_jour: kcal
-    // };
+    var table = $('#myTable').DataTable({
+        ajax: {
+            url: apiUrlProfil,
+            dataSrc: ''
+        },
+        columns: [
+            // { "data": "ID_USER" },
+            { "data": "LOGIN" },
+            // { "data": "MDP" },
+            { "data": "AGE" },
+            { "data": "TAILLE" },
+            { "data": "POIDS" },
+            { "data": "SEXE" },
+            { "data": "ACTIVITE" },
+            { "data": "KCAL_JOUR" }
+        ]
+    });
 
-    // // Effectuez l'appel AJAX de type PUT
-    // $.ajax({
-    //     url: apiUrlProfil, // Remplacez ceci par l'URL de votre API PUT
-    //     type: "PUT",
-    //     contentType: "application/json",
-    //     data: JSON.stringify(formData), // Convertissez l'objet en chaîne JSON
-    //     success: function (response) {
-    //         console.log("Modification réussie :", response);
-    //         // Traitez la réponse de l'API si nécessaire
-    //     },
-    //     error: function (error) {
-    //         console.error("Erreur lors de la modification :", error);
-    //         // Gérez les erreurs si l'appel échoue
-    //     }
-    // });
 
 
 
