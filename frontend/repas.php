@@ -19,7 +19,7 @@
 
         <button type="button" id="ajouter-aliment">Ajouter un aliment</button><br><br>
 
-        <button type="submit">Enregistrer le repas</button>
+        <button type="submit" id="enregistrer-repas-button">Enregistrer le repas</button>
     </form>
 
     <script>
