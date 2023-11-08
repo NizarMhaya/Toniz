@@ -42,6 +42,8 @@ $(document).ready(function () {
         });
     });
 
+
+
     var table = $('#myTable').DataTable({
         ajax: {
             url: apiUrlProfil,
@@ -59,6 +61,7 @@ $(document).ready(function () {
             { "data": "KCAL_JOUR" }
         ]
     });
+
 
 
 

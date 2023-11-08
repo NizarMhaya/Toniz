@@ -68,6 +68,15 @@ footer {
     padding: 20px 0;
     /* Espacement intérieur du footer */
 }
+
+
+#valider-modifications-button {
+    display: none;
+}
+
+#modifier-profil-button {
+    display: none;
+
 .connexion-form {
     font-size: 18px;
     font-family: "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -188,4 +197,5 @@ a:hover {
 
 #createAlimentButton {
     margin-left: 2%;
+
 }
