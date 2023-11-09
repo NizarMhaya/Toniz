@@ -267,7 +267,7 @@ a:hover {
 
 .clic-effectue {
     background-color: rgb(255, 238, 142);
-    border: 2px solid darkgreen;
+    border: 2px solid rgb(0, 173, 0);
     color: white;
 }
 
