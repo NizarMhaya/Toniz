@@ -60,10 +60,6 @@ body {
     margin-bottom: 5px;
     font-family: "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
-main {
-    flex-grow: 1;
-}
-
 footer {
     width: 100%;
     background-color: #333;
@@ -81,17 +77,32 @@ footer {
 #modifier-profil-button {
     display: none;
 }
+
+
+#valider-modifications-button {
+    display: none;
+}
+
+#modifier-profil-button {
+    display: none;
+}
+
 .connexion-form {
     font-size: 18px;
     font-family: "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     color: #666;
-    margin: auto; /* Centre le bloc horizontalement */
+    margin: auto;
+    /* Centre le bloc horizontalement */
     padding-right: 100px;
-    width: 650px; /* Largeur du bloc */
-    text-align: center; /* Centre le texte à l'intérieur du bloc */
-    border: 1px solid #198754; /* Bordure verte de 2 pixels */
+    width: 650px;
+    /* Largeur du bloc */
+    text-align: center;
+    /* Centre le texte à l'intérieur du bloc */
+    border: 1px solid #198754;
+    /* Bordure verte de 2 pixels */
     padding: 30px;
-    text-align: left; /* Aligne les éléments du formulaire à gauche */
+    text-align: left;
+    /* Aligne les éléments du formulaire à gauche */
     margin-top: 50px;
 
 
@@ -103,10 +114,15 @@ footer {
     color: #198754;
     font-weight: bolder;
 }
-#connexion-form label, #connexion-form input {
-    display: block; /* Affiche chaque label et input sur une nouvelle ligne */
-    margin-bottom: 0px; /* Espace entre les éléments */
+
+#connexion-form label,
+#connexion-form input {
+    display: block;
+    /* Affiche chaque label et input sur une nouvelle ligne */
+    margin-bottom: 0px;
+    /* Espace entre les éléments */
 }
+
 
 #connexion-button, #inscription-button, #valider-modifications-button, #modifier-profil-button {
     background-color: #198754; /* Couleur de fond du bouton */
@@ -119,86 +135,168 @@ footer {
 
 }
 
+
 #inscription-form input, #inscription-form select {
     font-family: "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 18px;
     color: #666;
 }
-#connexion-form input, #connexion-form select {
+
+#connexion-form input,
+#connexion-form select {
     font-family: "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-size: 18px; /* Taille de police */
-    color: #666; /* Couleur du texte */
+    font-size: 18px;
+    /* Taille de police */
+    color: #666;
+    /* Couleur du texte */
 }
+
 /* Styles pour les liens par défaut */
 a {
-    color: green; /* Couleur verte pour les liens */
+    color: green;
+    /* Couleur verte pour les liens */
 }
 
 /* Styles pour les liens au survol (hover) */
 a:hover {
-    color: rgb(2, 172, 2); /* Couleur verte pour les liens */
+    color: rgb(2, 172, 2);
+    /* Couleur verte pour les liens */
 }
 
 /* Styles pour les groupes de formulaire (form-group) */
 .form-group {
-    margin-bottom: 15px; /* Espacement entre les groupes de formulaire */
+    margin-bottom: 15px;
+    /* Espacement entre les groupes de formulaire */
 }
 
 .form-group label {
-    font-weight: bold; /* Texte en gras pour les libellés des formulaires */
-    display: block; /* Affiche chaque libellé sur une nouvelle ligne */
+    font-weight: bold;
+    /* Texte en gras pour les libellés des formulaires */
+    display: block;
+    /* Affiche chaque libellé sur une nouvelle ligne */
 }
 
 .form-group input,
 .form-group select {
-    width: 100%; /* Largeur à 100% pour les champs de saisie */
-    padding: 8px; /* Espacement intérieur des champs de saisie */
-    border: 1px solid #ccc; /* Bordure légère autour des champs de saisie */
-    border-radius: 5px; /* Coins arrondis des champs de saisie */
+    width: 100%;
+    /* Largeur à 100% pour les champs de saisie */
+    padding: 8px;
+    /* Espacement intérieur des champs de saisie */
+    border: 1px solid #ccc;
+    /* Bordure légère autour des champs de saisie */
+    border-radius: 5px;
+    /* Coins arrondis des champs de saisie */
 }
 
 /* Placeholder pour les champs de saisie */
 .form-group input::placeholder {
-    color: #999; /* Couleur du texte de l'indication */
-    font-style: italic; /* Style italique pour l'indication */
+    color: #999;
+    /* Couleur du texte de l'indication */
+    font-style: italic;
+    /* Style italique pour l'indication */
 }
 
 /* Styles pour les boutons du formulaire */
 .form-group button {
-    background-color: #198754; /* Couleur de fond du bouton */
-    color: #fff; /* Couleur du texte du bouton */
-    padding: 10px 20px; /* Rembourrage du bouton */
+    background-color: #198754;
+    /* Couleur de fond du bouton */
+    color: #fff;
+    /* Couleur du texte du bouton */
+    padding: 10px 20px;
+    /* Rembourrage du bouton */
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
+
 .form-title {
-    color: #198754; /* Couleur du texte du titre */
-    font-weight: bolder; /* Police en gras */
-    margin-top: 20px; /* Espacement en haut du titre */
+    color: #198754;
+    /* Couleur du texte du titre */
+    font-weight: bolder;
+    /* Police en gras */
+    margin-top: 20px;
+    /* Espacement en haut du titre */
 }
+
 .container-calculateur {
     margin-top: 10px;
     width: 60%;
-    margin: 0 auto; /* Centre le conteneur horizontalement */
+    margin: 0 auto;
+    /* Centre le conteneur horizontalement */
 }
 
 #resultat {
-    border: 1px solid #198754; /* Bordure verte de 2 pixels */
+    border: 1px solid #198754;
+    /* Bordure verte de 2 pixels */
     padding: 10px;
     margin-right: 80%;
 }
 
-#addAlimentForm { 
+#addAlimentForm {
     margin-left: 2%;
 }
 
 #createAlimentButton {
     margin-left: 2%;
+
+
+}
+
+.custom-button {
+
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.custom-button img {
+    width: 16px;
+    /* Largeur souhaitée de l'icône */
+    height: 16px;
+    /* Hauteur souhaitée de l'icône */
+    margin-right: 5px;
+    /* Espacement entre l'icône et le texte (si applicable) */
+}
+
+.clic-effectue {
+    background-color: rgb(255, 238, 142);
+    border: 2px solid rgb(0, 173, 0);
+    color: white;
+}
+
+.clic-effectue {
+    animation: vibrate 0.3s ease infinite;
+}
+
+@keyframes vibrate {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-2px);
+    }
+
+    50% {
+        transform: translateX(2px);
+    }
+
+    75% {
+        transform: translateX(-2px);
+    }
+
+    100% {
+        transform: translateX(2px);
+    }
+}
+
     margin-bottom: 8px;
 }
 
 .narrow {
     width: 90%; /* Ajustez la largeur en fonction de vos besoins */
 }
+
 
