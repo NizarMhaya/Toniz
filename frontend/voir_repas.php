@@ -21,7 +21,7 @@
                 <th scope="col">ALIMENTS</th>
                 <th scope="col">MARQUES</th>
                 <th scope="col">QUANTITE_TOTAL</th>
-                <th scope="col">Modifier repas</th> <!-- Colonne pour le bouton Delete -->
+                <th scope="col">Supprimer repas</th> <!-- Colonne pour le bouton Delete -->
             </tr>
         </thead>
         <tbody id="studentsTableBody">

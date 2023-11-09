@@ -42,3 +42,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         echo json_encode(array('error' => 'Erreur lors de la récupération des repas : ' . $e->getMessage()));
     }
 }
+
+if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+    // Récupérez l'ID_REPAS à partir des paramètres de l'URL
+    $idRepas = $_GET['id'] ?? null;
+
+    // Vérifiez si l'ID_REPAS a été fourni
+    if ($idRepas === null) {
+        http_response_code(400); // Bad Request
+        echo json_encode(array('error' => 'ID_REPAS manquant dans la requête.'));
+        exit();
+    }
+
+    try {
+        // Préparez la requête SQL pour supprimer le repas en fonction de l'ID_REPAS
+        $stmt = $pdo->prepare("DELETE FROM repas WHERE ID_REPAS = :idRepas");
+        $stmt->bindParam(':idRepas', $idRepas, PDO::PARAM_INT);
+
+        // Exécutez la requête
+        $stmt->execute();
+
+        // Vérifiez si le repas a été supprimé avec succès
+        if ($stmt->rowCount() > 0) {
+            http_response_code(200); // OK
+            echo json_encode(array('message' => 'Repas supprimé avec succès.'));
+        } else {
+            http_response_code(404); // Not Found
+            echo json_encode(array('error' => 'Repas non trouvé avec l\'ID_REPAS spécifié.'));
+        }
+    } catch (PDOException $e) {
+        http_response_code(500); // Internal Server Error
+        echo json_encode(array('error' => 'Erreur lors de la suppression du repas : ' . $e->getMessage()));
+    }
+}
