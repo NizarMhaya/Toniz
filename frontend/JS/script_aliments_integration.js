@@ -35,6 +35,23 @@ $(document).ready(function () {
 
     });
 
+    $(document).ready(function () {
+        var table = $('#secondTable').DataTable({
+            ajax: {
+                url: apiUrlFavoris,
+                dataSrc: ''
+            },
+            columns: [
+                { "data": null, "defaultContent": '<button class="custom-button"> <img src="assets/clipboard.png" alt="Icône personnalisée" style="width: 32px; height: 32px; "> </button>' },
+                { "data": "CODE_BARRES" },
+                { "data": "NOM" },
+                { "data": "MARQUE" },
+                { "data": "CATEGORIE" },
+                { "data": "ENERGIE_100G" }
+            ]
+        });
 
+
+    });
 });
 
