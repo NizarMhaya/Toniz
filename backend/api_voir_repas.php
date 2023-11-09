@@ -16,7 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         FROM repas r 
         LEFT JOIN element_de ed ON r.ID_REPAS = ed.ID_REPAS 
         LEFT JOIN aliment a ON ed.CODE_BARRES = a.CODE_BARRES 
-        LEFT JOIN utilisateur u ON r.ID_USER = u.ID_USER
+        -- On recupere le nom de l'utilisateur connecte pour le mettre dans la table repas:
+        LEFT JOIN utilisateur u ON r.ID_USER_CONNECTE = u.ID_USER
         WHERE u.LOGIN = :login 
         GROUP BY r.ID_REPAS;
         ");

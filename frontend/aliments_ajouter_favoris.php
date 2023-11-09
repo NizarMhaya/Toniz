@@ -11,6 +11,7 @@
 <header class="bg-dark py-1">
         <?php renderMenuToHTML('ajouter_favoris'); ?>
     </header>
+<main>
     <h1 class="my-custom-h1">Ajout de favoris</h1>
     <h2 id="custom-description">Cette page vous permet de visualiser l'ensemble des aliments disponibles dans notre base de données et d'en ajouter à votre liste d'aliments favoris.</h2>
     <table id="myTable">
@@ -27,7 +28,7 @@
         <tbody id="studentsTableBody">
         </tbody>
     </table>
-
+</main>
 
     <script>
         let apiUrl = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
