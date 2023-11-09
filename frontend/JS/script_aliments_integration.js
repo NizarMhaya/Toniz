@@ -38,10 +38,3 @@ $(document).ready(function () {
 
 });
 
-        // Affichez une notification ou effectuez d'autres actions si nécessaire
-        alert('Code-barres copié : ' + codeBarres);
-    });
-
-
-});
-
