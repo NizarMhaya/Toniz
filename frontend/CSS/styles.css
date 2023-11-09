@@ -7,10 +7,12 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
+
 .content {
     /* Flex-grow permet au contenu de prendre toute la place disponible */
     flex-grow: 1;
 }
+
 .table {
     margin-top: 300px;
     margin-bottom: 100px;
@@ -60,6 +62,7 @@ body {
     margin-bottom: 5px;
     font-family: "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
 footer {
     width: 100%;
     background-color: #333;
@@ -124,19 +127,26 @@ footer {
 }
 
 
-#connexion-button, #inscription-button, #valider-modifications-button, #modifier-profil-button {
-    background-color: #198754; /* Couleur de fond du bouton */
-    color: #fff; /* Couleur du texte du bouton */
-    padding: 10px 20px; /* Rembourrage du bouton */
+#connexion-button,
+#inscription-button,
+#valider-modifications-button,
+#modifier-profil-button {
+    background-color: #198754;
+    /* Couleur de fond du bouton */
+    color: #fff;
+    /* Couleur du texte du bouton */
+    padding: 10px 20px;
+    /* Rembourrage du bouton */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-bottom : 10px;
+    margin-bottom: 10px;
 
 }
 
 
-#inscription-form input, #inscription-form select {
+#inscription-form input,
+#inscription-form select {
     font-family: "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 18px;
     color: #666;
@@ -292,11 +302,9 @@ a:hover {
     }
 }
 
-    margin-bottom: 8px;
-}
+
 
 .narrow {
-    width: 90%; /* Ajustez la largeur en fonction de vos besoins */
+    width: 90%;
+    /* Ajustez la largeur en fonction de vos besoins */
 }
-
-
