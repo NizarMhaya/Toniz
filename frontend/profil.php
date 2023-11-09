@@ -10,6 +10,7 @@
     require_once('template_menu.php');
     renderMenuToHTML('profil');
     ?>
+    <main>
     <h1 class="my-custom-h1">Profil</h1>
 
 
@@ -50,16 +51,16 @@
             </thead>
             <tbody id="studentsTableBody"></tbody>
         </table>
-        <!-- Afficher les informations personnelles de l'utilisateur ici -->
-    <?php endif; ?>
-    <button type="button" id="modifier-profil-button">Modifier votre profil</button>
+
+        <button type="button" id="modifier-profil-button">Modifier votre profil</button>
+
     <button type="button" id="valider-modifications-button">Valider les modifications</button>
-
-
     <div id="message"></div>
 
+        <?php endif; ?>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
     <script>
         let apiUrlProfil = "<?php require_once 'config.php';
                             echo _API_URL_PROFIL; ?> ";
@@ -212,6 +213,8 @@
         });
     </script>
 
+
+    </main>
 
     <footer class="py-4 bg-dark">
         <?php require_once('template_footer.php'); ?>

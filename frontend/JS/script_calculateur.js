@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             // Afficher le résultat
-            resultatDiv.textContent = `Besoins Énergétiques Journaliers : ${tdee.toFixed(2)} calories`;
+            resultatDiv.textContent = `${tdee.toFixed(2)} calories`;
         } else {
             // Si les champs ne sont pas tous remplis, afficher un message d'erreur
             resultatDiv.textContent = "Veuillez remplir tous les champs.";

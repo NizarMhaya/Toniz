@@ -16,6 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         FROM repas r 
         LEFT JOIN element_de ed ON r.ID_REPAS = ed.ID_REPAS 
         LEFT JOIN aliment a ON ed.CODE_BARRES = a.CODE_BARRES 
+
+        -- On recupere le nom de l'utilisateur connecte pour le mettre dans la table repas:
+
         LEFT JOIN utilisateur u ON r.ID_USER_CONNECTE = u.ID_USER
         WHERE u.LOGIN = :login 
         GROUP BY r.ID_REPAS;
@@ -41,6 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         http_response_code(500); // Internal Server Error
         echo json_encode(array('error' => 'Erreur lors de la récupération des repas : ' . $e->getMessage()));
     }
+
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
@@ -75,3 +79,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
         echo json_encode(array('error' => 'Erreur lors de la suppression du repas : ' . $e->getMessage()));
     }
 }
+

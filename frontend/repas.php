@@ -12,6 +12,8 @@
     <header class="bg-dark py-1">
         <?php renderMenuToHTML('aliments'); ?>
     </header>
+
+    <main>
     <h1 class="my-custom-h1">Créez votre repas</h1>
     <h2 id="custom-description">Entrez le nom et la date du repas et ajoutez autant d'aliments que vous le souhaitez en précisant leur quantités.</h2>
 
@@ -69,6 +71,7 @@
         </tbody>
     </table>
 
+    </main>
 
     <script>
         let apiUrl = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...

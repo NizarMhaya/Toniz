@@ -16,6 +16,7 @@ $(document).ready(function () {
     });
 
 
+
     $('#myTable').on('click', '.custom-button', function (event) {
         var row = $(this).closest('tr');
         var data = table.row(row).data();
@@ -32,6 +33,13 @@ $(document).ready(function () {
         $(this).addClass('clic-effectue');
 
 
+    });
+
+
+});
+
+        // Affichez une notification ou effectuez d'autres actions si nécessaire
+        alert('Code-barres copié : ' + codeBarres);
     });
 
 

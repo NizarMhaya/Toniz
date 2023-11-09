@@ -10,6 +10,7 @@
     <header class="bg-dark py-1">
         <?php renderMenuToHTML('voir_repas'); ?>
     </header>
+    <main>
     <h1 class="my-custom-h1">Vos repas</h1>
     <h2 id="custom-description">Voici l'ensemble des repas que vous avez créés.</h2>
     <table id="myTable">
@@ -29,7 +30,7 @@
     </table>
 
     <button type="button" id="saveButton" class="btn btn-primary " style="display: none;">Enregistrer</button>
-
+</main>
     <script>
         let apiUrl = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
                         echo _API_URL_VOIR_REPAS; ?> "; // utilisation de la variable définie dans config

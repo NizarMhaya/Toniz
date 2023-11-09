@@ -29,3 +29,4 @@ function get_aliment($pdo)
     $aliment = $request->fetchAll(PDO::FETCH_ASSOC);
     return $aliment;
 }
+
