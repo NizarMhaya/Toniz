@@ -10,6 +10,7 @@
     <header class="bg-dark py-1">
         <?php renderMenuToHTML('favoris'); ?>
     </header>
+    <main>
     <h1 class="my-custom-h1">Vos favoris</h1>
     <h2 id="custom-description">Voici l'ensemble des aliments que vous avez mis en favoris</h2>
     <table id="myTable">
@@ -28,6 +29,7 @@
     </table>
 
     <button type="button" id="saveButton" class="btn btn-primary " style="display: none;">Enregistrer</button>
+</main>
     <footer class="py-4 bg-dark">
         <?php require_once('template_footer.php'); ?>
 
