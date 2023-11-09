@@ -1,5 +1,7 @@
 <?php
 header('Content-Type: application/json');
+
+
 require_once('init_pdo.php');
 
 session_start(); // Démarrez la session
@@ -78,6 +80,45 @@ function get_aliment($pdo, $login)
     return $aliment;
 }
 
+
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
+    // Récupérer les données envoyées dans le corps de la requête
+    $data = json_decode(file_get_contents("php://input"), true);
+    error_log(json_encode($_PUT));
+
+    // Récupérer les valeurs des champs du formulaire
+    $login = $data['login'];
+    $age = $data['age'];
+    $taille = $data['taille'];
+    $poids = $data['poids'];
+    $sexe = $data['sexe'];
+    $activite = $data['activite'];
+    $kcal_jour = $data['kcal_jour'];
+
+    // Exécuter la mise à jour dans la base de données (remplacez ceci par votre logique de mise à jour)
+    // $pdo est votre objet de connexion à la base de données PDO
+    // Ici, nous supposons que vous avez une table 'utilisateur' avec des colonnes correspondantes à chaque champ du formulaire
+    $stmt = $pdo->prepare("UPDATE utilisateur SET AGE = :age, TAILLE = :taille, POIDS = :poids, SEXE = :sexe, ACTIVITE = :activite, KCAL_JOUR = :kcal_jour WHERE login = :login");
+    $stmt->bindParam(':login', $login, PDO::PARAM_STR);
+    $stmt->bindParam(':age', $age, PDO::PARAM_INT);
+    $stmt->bindParam(':taille', $taille, PDO::PARAM_INT);
+    $stmt->bindParam(':poids', $poids, PDO::PARAM_INT);
+    $stmt->bindParam(':sexe', $sexe, PDO::PARAM_STR);
+    $stmt->bindParam(':activite', $activite, PDO::PARAM_INT);
+    $stmt->bindParam(':kcal_jour', $kcal_jour, PDO::PARAM_INT);
+
+    // Exécutez la requête
+    if ($stmt->execute()) {
+        http_response_code(200); // OK
+        echo json_encode(array("message" => "Utilisateur mis à jour avec succès."));
+    } else {
+        http_response_code(500); // Erreur du serveur
+        echo json_encode(array("message" => "Erreur lors de la mise à jour de l'utilisateur."));
+    }
+}
+
 //GET et PUT
 
 // if ($_SERVER['REQUEST_METHOD'] === 'GET') {
@@ -113,3 +154,4 @@ function get_aliment($pdo, $login)
 //         return array('error' => 'Erreur lors de la récupération des données de l\'utilisateur : ' . $e->getMessage());
 //     }
 // }
+

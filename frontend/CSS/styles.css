@@ -3,8 +3,14 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
-
+.content {
+    /* Flex-grow permet au contenu de prendre toute la place disponible */
+    flex-grow: 1;
+}
 .table {
     margin-top: 300px;
     margin-bottom: 100px;
@@ -54,19 +60,26 @@ body {
     margin-bottom: 5px;
     font-family: "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+main {
+    flex-grow: 1;
+}
+
 footer {
-    position: fixed;
-    bottom: 0;
     width: 100%;
     background-color: #333;
-    /* Couleur de fond du footer */
     color: gray;
-    /* Couleur du texte du footer */
-    font-style: italic;    
+    font-style: italic;
     text-align: center;
-    /* Alignement du texte au centre */
     padding: 20px 0;
-    /* Espacement intérieur du footer */
+}
+
+#valider-modifications-button {
+    display: none;
+
+}
+
+#modifier-profil-button {
+    display: none;
 }
 .connexion-form {
     font-size: 18px;
@@ -86,7 +99,6 @@ footer {
 
 }
 
-
 .connexion-form h2 {
     color: #198754;
     font-weight: bolder;
@@ -96,22 +108,17 @@ footer {
     margin-bottom: 0px; /* Espace entre les éléments */
 }
 
-#connexion-button {
+#connexion-button, #inscription-button, #valider-modifications-button, #modifier-profil-button {
     background-color: #198754; /* Couleur de fond du bouton */
     color: #fff; /* Couleur du texte du bouton */
     padding: 10px 20px; /* Rembourrage du bouton */
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-bottom : 10px;
+
 }
-#inscription-button {
-    background-color: #198754; /* Couleur de fond du bouton */
-    color: #fff; /* Couleur du texte du bouton */
-    padding: 10px 20px; /* Rembourrage du bouton */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+
 #inscription-form input, #inscription-form select {
     font-family: "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 18px;
@@ -188,4 +195,10 @@ a:hover {
 
 #createAlimentButton {
     margin-left: 2%;
+    margin-bottom: 8px;
 }
+
+.narrow {
+    width: 90%; /* Ajustez la largeur en fonction de vos besoins */
+}
+

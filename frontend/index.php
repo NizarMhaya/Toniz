@@ -23,6 +23,8 @@
             </div>
         </div>
     </header>
+    <main>
+
     <!-- Features section-->
     <section class="py-5 border-bottom" id="features">
         <div class="container px-5 my-5">
@@ -57,7 +59,7 @@
             </div>
         </div>
     </section>
-
+</main>
     <!-- Footer-->
     <footer class="py-4 bg-dark">
         <?php require_once('template_footer.php'); ?>
@@ -65,7 +67,6 @@
     </footer>
     <!-- Bootstrap core JS-->
     <!-- Core theme JS-->
-    <script src="js/script.js"></script>
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <!-- * *                               SB Forms JS                               * *-->
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
