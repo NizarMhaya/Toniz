@@ -8,6 +8,7 @@
     <header class="bg-dark py-1">
         <?php renderMenuToHTML('aliments'); ?>
     </header>
+    <main>
     <h1 class="my-custom-h1">Gestionnaire de la base de données des aliments</h1>
     <p class="p-text">Sur cette page sont listés tous les aliments de notre base de données, pour l'instant modifiables par tous.</p>
     <p class="p-text">Si un aliment consommé n'est pas dans notre base de données, vous pouvez le rajouter grâce au bouton vert ci-dessous.<p>
@@ -130,7 +131,8 @@
         </thead>
         <tbody id="studentsTableBody"></tbody>
     </table>
-    
+    </main>
+
     <footer class="py-4 bg-dark">
         <?php require_once('template_footer.php'); ?>
     </footer>

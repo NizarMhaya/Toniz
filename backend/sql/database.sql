@@ -84,7 +84,7 @@ create table PRESENT_DANS
 create table REPAS
 (
    ID_REPAS             INT NOT NULL AUTO_INCREMENT,
-   ID_USER              INT NOT NULL,
+   ID_USER_CONNECTE     INT NOT NULL,
    NOM_REPAS            varchar(80)  comment '',
    DATE                 TIMESTAMP,
    PRIMARY KEY (ID_REPAS)
@@ -139,9 +139,6 @@ alter table PRESENT_DANS add constraint FK_PRESENT__PRESENT_D_ALIMENT foreign ke
 
 alter table PRESENT_DANS add constraint FK_PRESENT__PRESENT_D_NUTRIMEN foreign key (ID_NUTRIMENT)
       references NUTRIMENT (ID_NUTRIMENT) on delete restrict on update restrict;
-
-alter table REPAS add constraint FK_REPAS_MANGE_UTILISAT foreign key (ID_USER)
-      references UTILISATEUR (ID_USER) on delete restrict on update restrict;
 
 /*==============================================================*/
 /* Insertions de données dans la Table : ALIMENT                                         */

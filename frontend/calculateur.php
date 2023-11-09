@@ -10,6 +10,7 @@
     require_once('template_menu.php'); 
     renderMenuToHTML('calculateur'); 
     ?>
+    <main>
     <div class="container-calculateur">
         <h1 class="my-custom-h1">Calculateur de Besoins Énergétiques</h1>
         <p class=p-text>Ce calculateur repose sur la formule de Harris-Benedict, qui permet le calcul du métabolisme de base.<br>
@@ -46,6 +47,7 @@
         </div>
         <p class=p-text-left>Besoins énergétiques journaliers : <div id="resultat"></div></p>
     </div>
+</main>
     <footer class="py-4 bg-dark">
         <?php require_once('template_footer.php'); ?>
 
