@@ -31,31 +31,6 @@ function get_aliment($pdo)
 
 
 
-// Gérer la méthode POST pour ajouter un aliment aux favoris de l'utilisateur
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Vérifiez l'ID de l'utilisateur à partir des données de la session ou du token d'authentification
-    $userID = 1; // Remplacez ceci par la méthode appropriée pour obtenir l'ID de l'utilisateur
-
-    $inputData = json_decode(file_get_contents('php://input'), true);
-
-    $codeBarres = $inputData['CODE_BARRES'];
-
-    // Utilisez la fonction add_aliment_to_favoris pour ajouter l'aliment aux favoris de l'utilisateur
-    $result = add_aliment_to_favoris($pdo, $userID, $codeBarres);
-
-    // Vérifiez le résultat de l'ajout
-    if (isset($result['message'])) {
-        http_response_code(200); // OK
-        echo json_encode($result);
-    } elseif (isset($result['error'])) {
-        http_response_code(400); // Bad Request ou tout autre code d'erreur approprié
-        echo json_encode($result);
-    } else {
-        http_response_code(500); // Erreur interne du serveur
-        echo json_encode(array("error" => "Une erreur inattendue s'est produite lors de l'ajout de l'aliment aux favoris."));
-    }
-}
-
 // Fonction pour ajouter un aliment aux favoris de l'utilisateur
 function add_aliment_to_favoris($pdo, $userID, $codeBarres)
 {
