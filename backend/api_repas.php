@@ -32,7 +32,7 @@ try {
 
     // Insérer le repas dans la table REPAS
 
-    $stmt = $pdo->prepare("INSERT INTO repas (NOM_REPAS, ID_USER, DATE) VALUES (:nomRepas, :idUser, :dateRepas)");
+    $stmt = $pdo->prepare("INSERT INTO repas (NOM_REPAS, ID_USER_CONNECTE, DATE) VALUES (:nomRepas, :idUser, :dateRepas)");
     $stmt->bindParam(':nomRepas', $nomRepas, PDO::PARAM_STR);
     $stmt->bindParam(':idUser', $idUser, PDO::PARAM_INT);
     $stmt->bindParam(':dateRepas', $dateRepas, PDO::PARAM_STR);
