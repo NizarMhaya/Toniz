@@ -264,3 +264,35 @@ a:hover {
     margin-right: 5px;
     /* Espacement entre l'icône et le texte (si applicable) */
 }
+
+.clic-effectue {
+    background-color: rgb(255, 238, 142);
+    border: 2px solid darkgreen;
+    color: white;
+}
+
+.clic-effectue {
+    animation: vibrate 0.3s ease infinite;
+}
+
+@keyframes vibrate {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-2px);
+    }
+
+    50% {
+        transform: translateX(2px);
+    }
+
+    75% {
+        transform: translateX(-2px);
+    }
+
+    100% {
+        transform: translateX(2px);
+    }
+}
