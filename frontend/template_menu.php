@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <link rel="stylesheet" href="css/styles_menu.css">
 
@@ -17,10 +18,10 @@ function renderMenuToHTML($currentPageId)
         'journal' => array('Journal', 'journal.php'),
         'ajouter_favoris' => array('Ajouter des favoris', 'aliments_ajouter_favoris.php'),
         'favoris' => array('Favoris', 'favoris.php'),
-        'repas' => array('Créer un repas', 'creer_repas.php'),
+        'repas' => array('Créer un repas', 'repas.php'),
         'voir_repas' => array('Vos repas', 'voir_repas.php'),
         'calculateur' => array('Calculateur KCAL', 'calculateur.php'),
-        'voir_repas' => array('Mes repas', 'voir_repas.php'),
+
 
     );
 
@@ -79,7 +80,7 @@ function renderMenuToHTML($currentPageId)
 
 <script>
     let apiUrlDeco = "<?php require_once 'config.php';
-    echo _API_URL_DECO; ?> ";
+                        echo _API_URL_DECO; ?> ";
 </script>
 <script src="JS/script_menu.js" defer></script>
 

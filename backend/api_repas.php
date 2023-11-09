@@ -11,7 +11,7 @@ print_r($inputData);
 $nomRepas = $inputData['nomRepas'];
 $dateRepas = $inputData['dateRepas'];
 $aliments = $inputData['aliments'];
-$idUser = 11;
+$idUser = 10;
 
 try {
     // Commencer une transaction

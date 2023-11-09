@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <?php require_once('template_settings.php'); ?>
 </head>
@@ -65,7 +66,6 @@
     </footer>
     <!-- Bootstrap core JS-->
     <!-- Core theme JS-->
-    <script src="js/script.js"></script>
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <!-- * *                               SB Forms JS                               * *-->
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
