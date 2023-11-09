@@ -11,11 +11,24 @@ print_r($inputData);
 $nomRepas = $inputData['nomRepas'];
 $dateRepas = $inputData['dateRepas'];
 $aliments = $inputData['aliments'];
-$idUser = 10;
+$login = $_COOKIE['login'];
 
 try {
     // Commencer une transaction
     $pdo->beginTransaction();
+
+    // Récupérer l'ID de l'utilisateur à partir du login
+    $stmt = $pdo->prepare("SELECT ID_USER FROM utilisateur WHERE LOGIN = :login");
+    $stmt->bindParam(':login', $login, PDO::PARAM_STR);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$result) {
+        // Utilisateur non trouvé, gérer l'erreur
+        throw new Exception("Utilisateur non trouvé.");
+    }
+
+    $idUser = $result['ID_USER'];
 
     // Insérer le repas dans la table REPAS
 
@@ -46,7 +59,7 @@ try {
     echo json_encode(array('message' => 'Repas enregistré avec succès.'));
 } catch (PDOException $e) {
     //     // En cas d'erreur, annuler la transaction
-    //     $pdo->rollBack();
+    $pdo->rollBack();
 
     // Répondre avec un message d'erreur
     http_response_code(500);
