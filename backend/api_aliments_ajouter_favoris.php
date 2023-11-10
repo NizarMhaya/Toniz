@@ -72,12 +72,35 @@ function get_aliment($pdo)
     return $aliment;
 }
 
+// Fonction pour récupérer l'ID de l'utilisateur en fonction du login
+function get_user_id_by_login($pdo, $login)
+{
+    try {
+        // Préparez la requête SQL pour obtenir l'ID de l'utilisateur en fonction du login
+        $stmt = $pdo->prepare("SELECT ID_USER FROM utilisateur WHERE LOGIN = :login");
 
+        // Liez la valeur du login en tant que paramètre
+        $stmt->bindParam(':login', $login, PDO::PARAM_STR);
+
+        // Exécutez la requête
+        $stmt->execute();
+
+        // Récupérez l'ID de l'utilisateur
+        $userID = $stmt->fetchColumn();
+
+        return $userID;
+    } catch (PDOException $e) {
+        // En cas d'erreur, retournez un message d'erreur
+        die('Erreur lors de la récupération de l\'ID de l\'utilisateur : ' . $e->getMessage());
+    }
+} // Remplacez ceci par la méthode appropriée pour obtenir l'ID de l'utilisateur
 
 // Gérer la méthode POST pour ajouter un aliment aux favoris de l'utilisateur
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Vérifiez l'ID de l'utilisateur à partir des données de la session ou du token d'authentification
-    $userID = 1; // Remplacez ceci par la méthode appropriée pour obtenir l'ID de l'utilisateur
+    $login = $_COOKIE['login'];
+    $userID = get_user_id_by_login($pdo, $login); // Ecrire ici une logique permettant de faire le lien entre login et userID
+    // rajouter un else se connecter 
 
     $inputData = json_decode(file_get_contents('php://input'), true);
 
