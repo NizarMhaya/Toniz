@@ -31,7 +31,6 @@ try {
     $idUser = $result['ID_USER'];
 
     // Insérer le repas dans la table REPAS
-
     $stmt = $pdo->prepare("INSERT INTO repas (NOM_REPAS, ID_USER_CONNECTE, DATE) VALUES (:nomRepas, :idUser, :dateRepas)");
     $stmt->bindParam(':nomRepas', $nomRepas, PDO::PARAM_STR);
     $stmt->bindParam(':idUser', $idUser, PDO::PARAM_INT);
@@ -51,32 +50,34 @@ try {
         $stmt->execute();
     }
 
+    // Calculer les calories pour le repas
+    $stmt = $pdo->prepare("
+        SELECT
+            SUM((a.ENERGIE_100G / 100) * ed.QUANTITE_G) AS TOTAL_CALORIES
+        FROM
+            ELEMENT_DE ed
+        JOIN
+            ALIMENT a ON ed.CODE_BARRES = a.CODE_BARRES
+        WHERE
+            ed.ID_REPAS = :idRepas
+    ");
+    $stmt->bindParam(':idRepas', $idRepas, PDO::PARAM_INT);
+    $stmt->execute();
+    $resultCalories = $stmt->fetch(PDO::FETCH_ASSOC);
+    $totalCalories = $resultCalories['TOTAL_CALORIES'];
+
     // Valider la transaction
     $pdo->commit();
 
-    // Répondre avec un message de succès
+    // Répondre avec un message de succès et le total des calories
     http_response_code(200);
-    echo json_encode(array('message' => 'Repas enregistré avec succès.'));
+    echo json_encode(array('message' => 'Repas enregistré avec succès.', 'totalCalories' => $totalCalories));
 } catch (PDOException $e) {
-    //     // En cas d'erreur, annuler la transaction
+    // En cas d'erreur, annuler la transaction
     $pdo->rollBack();
 
     // Répondre avec un message d'erreur
     http_response_code(500);
     echo json_encode(array('message' => 'Erreur lors de l\'enregistrement du repas : ' . $e->getMessage()));
 }
-
-
-
-
-
-// Exemple de données de test qui fonctionnent dans reqbin
-// {
-//     "nomRepas": "Déjeuner",
-//     "dateRepas": "2023-11-15 12:30:00",
-//     "aliments": [
-//       {"aliment": 123456789, "quantite": 200},  
-//       {"aliment": 987654321, "quantite": 150}, 
-//       {"aliment": 111222333, "quantite": 100} 
-//     ]
-//   }
+?>
