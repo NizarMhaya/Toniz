@@ -10,10 +10,9 @@
 <body>
     <?php require_once('template_menu.php'); ?>
     <header class="bg-dark py-1">
-        <?php renderMenuToHTML('repas'); ?>
+        <?php renderMenuToHTML('aliments'); ?>
     </header>
 
-    <main>
 
     <h1 class="my-custom-h1">Créez votre repas</h1>
     <h2 id="custom-description">Entrez le nom et la date du repas et ajoutez autant d'aliments que vous le souhaitez en précisant leur quantités.</h2>
@@ -33,7 +32,6 @@
 
         <button type="submit" id="enregistrer-repas-button">Enregistrer le repas</button>
     </form>
-
 
     <script>
         const alimentsContainer = document.getElementById("aliments-container");
@@ -99,44 +97,26 @@
             </table>
         </div>
 
-    <h1 class="my-custom-h1">Tableau des aliments</h1>
-    <h2 id="custom-description">Recopiez le code barre des aliments de votre choix</h2>
-    <table id="myTable">
-        <thead>
-            <tr>
-                <th scope="col">Copier le code-barres</th> <!-- Colonne pour le bouton Ajouter aux repas -->
-                <th scope="col">CODE BARRES</th>
-                <th scope="col">NOM</th>
-                <th scope="col">MARQUE</th>
-                <th scope="col">CATEGORIE</th>
-                <th scope="col">ENERGIE_100G</th>
-            </tr>
-        </thead>
-        <tbody id="studentsTableBody">
-        </tbody>
-    </table>
 
-    </main>
+        </main>
 
-    <script>
-        let apiUrl = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
-                        echo _API_URL_INTEGRATION; ?> "; // utilisation de la variable définie dans config
-    </script>
-    <script src="JS/script_aliments_integration.js" defer></script>
-    <script src="JS/script_repas.js" defer></script>
-    <script>
-        let apiUrlRepas = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
-                            echo _API_URL_NEW_REPAS; ?> "; // utilisation de la variable définie dans config
-    </script>
-    <script>
-        let apiUrlNutriment = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
-                        echo _API_URL_NUTRIMENT; ?> "; // utilisation de la variable définie dans config
-    </script>
-    <script src="JS/script_nutriment.js" defer></script>
-        
-    
-    <footer class="py-4 bg-dark">
-        <?php require_once('template_footer.php'); ?>
+        <script>
+            let apiUrl = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
+                            echo _API_URL_INTEGRATION; ?> "; // utilisation de la variable définie dans config
+        </script>
+        <script src="JS/script_aliments_integration.js" defer></script>
+        <script src="JS/script_repas.js" defer></script>
+        <script>
+            let apiUrlRepas = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
+                                echo _API_URL_NEW_REPAS; ?> "; // utilisation de la variable définie dans config
+        </script>
+        <script>
+            let apiUrlFavoris = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
+                                    echo _API_URL_FAVORIS; ?> "; // utilisation de la variable définie dans config
+        </script>
+
+        <footer class="py-4 bg-dark">
+            <?php require_once('template_footer.php'); ?>
 
         </footer>
 </body>
