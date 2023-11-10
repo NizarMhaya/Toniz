@@ -7,12 +7,12 @@
 </head>
 
 <body>
-    <?php require_once('template_menu.php'); 
+    <?php require_once('template_menu.php');
     renderMenuToHTML('journal'); ?>
 
     <main>
         <h1 class="my-custom-h1">Journal</h1>
-                <!-- Section pour afficher les nutriments de la veille -->
+        <!-- Section pour afficher les nutriments de la veille -->
 
         <!-- Formulaire pour sélectionner une période -->
         <form id="nutriment-form">
@@ -35,7 +35,7 @@
                 <option value="SODIUM">Sodium (mg)</option>
                 <option value="CALCIUM">Calcium (mg)</option>
             </select>
-            <button type="submit">Afficher les données</button>
+            <button type="submit" id="ajouter-aliment">Afficher les données</button>
         </form>
 
         <!-- Section pour afficher les nutriments par jour -->
@@ -57,8 +57,8 @@
     </footer>
 
     <script>
-        let apiUrlNutriment = "<?php require_once 'config.php'; 
-        echo _API_URL_NUTRIMENT; ?>";
+        let apiUrlNutriment = "<?php require_once 'config.php';
+                                echo _API_URL_NUTRIMENT; ?>";
     </script>
     <script src="JS/script_nutriment.js" defer></script>
 </body>

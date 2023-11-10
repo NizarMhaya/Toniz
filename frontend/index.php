@@ -26,41 +26,41 @@
     </header>
     <main>
 
-    <!-- Features section-->
-    <section class="py-5 border-bottom" id="features">
-        <div class="container px-5 my-5">
-            <div class="row gx-5">
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <img src="assets/icon1.png" alt="icon1" />
-                    <h2 class="h4 fw-bolder mt-3">Un objectif adapté</h2>
-                    <p>Inscrivez-vous. Rentrez vos informations (âge, sexe, activités sportives...) permettant de fixer votre propre norme d'alimentation quotidienne.</p>
-                    <a class="text-decoration-none" href="#!">
-                        Voir la page Profil
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <img src="assets/icon2.png" alt="icon2" />
-                    <h2 class="h4 fw-bolder mt-3">Des milliers d'aliments</h2>
-                    <p>Notre base de données contient plus de 6 000 aliments. Vous pouvez retrouver les informations sur tout ce que vous mangez dans la page dédiée.</p>
-                    <a class="text-decoration-none" href="#!">
-                        Voir la page Aliments
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-                <div class="col-lg-4">
-                    <img src="assets/icon3.png" alt="icon3" />
-                    <h2 class="h4 fw-bolder mt-3">Un historique de vos repas</h2>
-                    <p>Recréez les repas que vous mangez chaque jour et consultez les nutriments que vous absorbez quotidiennement dans votre journal.</p>
-                    <a class="text-decoration-none" href="#!">
-                        Voir la page Journal
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
+        <!-- Features section-->
+        <section class="py-5 border-bottom" id="features">
+            <div class="container px-5 my-5">
+                <div class="row gx-5">
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <img src="assets/icon1.png" alt="icon1" />
+                        <h2 class="h4 fw-bolder mt-3">Un objectif adapté</h2>
+                        <p>Inscrivez-vous. Rentrez vos informations (âge, sexe, activités sportives...) permettant de fixer votre propre norme d'alimentation quotidienne.</p>
+                        <a class="text-decoration-none" href="profil.php">
+                            Voir la page Profil
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <img src="assets/icon2.png" alt="icon2" />
+                        <h2 class="h4 fw-bolder mt-3">Des milliers d'aliments</h2>
+                        <p>Notre base de données contient plus de 6 000 aliments. Vous pouvez retrouver les informations sur tout ce que vous mangez dans la page dédiée.</p>
+                        <a class="text-decoration-none" href="aliments.php">
+                            Voir la page Aliments
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="col-lg-4">
+                        <img src="assets/icon3.png" alt="icon3" />
+                        <h2 class="h4 fw-bolder mt-3">Un historique de vos repas</h2>
+                        <p>Recréez les repas que vous mangez chaque jour et consultez les nutriments que vous absorbez quotidiennement dans votre journal.</p>
+                        <a class="text-decoration-none" href="journal.php">
+                            Voir la page Journal
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-</main>
+        </section>
+    </main>
     <!-- Footer-->
     <footer class="py-4 bg-dark">
         <?php require_once('template_footer.php'); ?>
