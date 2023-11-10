@@ -63,6 +63,16 @@ body {
     font-family: "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+
+main {
+    flex-grow: 1;
+    background-color: #fff; /* Ajoutez une couleur de fond à la section principale */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Ajoutez une ombre légère */
+}
+
+
 footer {
     width: 100%;
     background-color: #333;
@@ -82,6 +92,7 @@ footer {
 }
 
 
+
 #valider-modifications-button {
     display: none;
 }
@@ -89,6 +100,7 @@ footer {
 #modifier-profil-button {
     display: none;
 }
+
 
 .connexion-form {
     font-size: 18px;
@@ -252,6 +264,57 @@ a:hover {
 
 }
 
+
+#nutriment-form {
+    background-color: #f9f9f9; /* Couleur de fond du formulaire */
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#calories-section {
+    background-color: #f9f9f9; /* Ajoutez une couleur de fond à la section des calories */
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+#calories-section h3 {
+    color: #198754; /* Couleur du texte */
+    font-size: 24px; /* Taille de la police */
+    font-weight: bold; /* Police en gras */
+    margin-bottom: 10px; /* Espacement en bas du titre */
+    border-bottom: 2px solid #198754; /* Bordure en bas du titre */
+    padding-bottom: 5px; /* Espacement en bas de la bordure */
+}
+
+#nutriment-form select,
+#nutriment-form input,
+#nutriment-form button {
+    border: 1px solid #ddd; /* Ajoutez une bordure aux champs de formulaire */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#nutriment-form button {
+    background-color: #198754;
+    color: #fff;
+    cursor: pointer;
+}
+
+#calories-section {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Ajoutez une ombre légère à la section des calories */
+}
+#nutriment-chart-container {
+    width: 50%; /* Ajustez la largeur en fonction de vos besoins */
+    margin: 0 auto; /* Centre le conteneur horizontalement */
+    text-align: left; /* Alignez le contenu à gauche */
+    margin-right:50%;
+    margin-left:2%;
+
+}
+
+
 .custom-button {
 
     color: #ffffff;
@@ -268,17 +331,20 @@ a:hover {
     /* Hauteur souhaitée de l'icône */
     margin-right: 5px;
     /* Espacement entre l'icône et le texte (si applicable) */
+
 }
 
 .clic-effectue {
     background-color: rgb(255, 238, 142);
     border: 2px solid rgb(0, 173, 0);
     color: white;
+    animation: vibrate 0.3s ease infinite;
+
 }
 
-.clic-effectue {
-    animation: vibrate 0.3s ease infinite;
-}
+
+
+
 
 @keyframes vibrate {
     0% {
@@ -302,9 +368,3 @@ a:hover {
     }
 }
 
-
-
-.narrow {
-    width: 90%;
-    /* Ajustez la largeur en fonction de vos besoins */
-}

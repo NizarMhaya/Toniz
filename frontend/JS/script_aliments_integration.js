@@ -33,6 +33,7 @@ $(document).ready(function () {
         $(this).addClass('clic-effectue');
 
 
+
     });
 
 
@@ -71,5 +72,6 @@ $(document).ready(function () {
 
 
     });
+
 });
 
