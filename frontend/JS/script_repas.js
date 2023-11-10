@@ -73,4 +73,19 @@ $(document).ready(function () {
         messageDiv.classList.add("alert", "alert-danger");
         messageDiv.style.display = "block";
     }
+
+
+    document.getElementById("toggleButton").addEventListener("click", function () {
+        var secondTableContainer = document.getElementById("secondTableContainer");
+
+        // Inversez la visibilité du conteneur du deuxième tableau
+        if (secondTableContainer.style.display === "none" || secondTableContainer.style.display === "") {
+            secondTableContainer.style.display = "block";
+        } else {
+            secondTableContainer.style.display = "none";
+        }
+    });
+
+
 });
+

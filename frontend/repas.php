@@ -14,6 +14,7 @@
     </header>
 
     <main>
+
     <h1 class="my-custom-h1">Créez votre repas</h1>
     <h2 id="custom-description">Entrez le nom et la date du repas et ajoutez autant d'aliments que vous le souhaitez en précisant leur quantités.</h2>
 
@@ -54,6 +55,49 @@
         });
     </script>
 
+    <button id="toggleButton">Afficher les aliments favoris</button>
+
+
+
+    <div id="secondTableContainer" class="table-container" style="display: none;">
+        <h1 class="my-custom-h1">Vos aliments favoris</h1>
+        <h2 id="custom-description">Votre sélection favorite</h2>
+        <table id="secondTable">
+            <!-- Contenu du deuxième tableau -->
+            <thead>
+                <tr>
+                    <th scope="col">Copier le code-barres</th>
+                    <th scope="col">CODE BARRES</th>
+                    <th scope="col">NOM</th>
+                    <th scope="col">MARQUE</th>
+                    <th scope="col">CATEGORIE</th>
+                    <th scope="col">ENERGIE_100G</th>
+                </tr>
+            </thead>
+
+        </table>
+    </div>
+    </div>
+
+    <div class="container">
+        <div id="firstTableContainer" class="table-container">
+            <h1 class="my-custom-h1">Tableau des aliments</h1>
+            <h2 id="custom-description">Recopiez le code barre des aliments de votre choix</h2>
+            <table id="myTable">
+                <!-- Contenu du premier tableau -->
+                <thead>
+                    <tr>
+                        <th scope="col">Copier le code-barres</th>
+                        <th scope="col">CODE BARRES</th>
+                        <th scope="col">NOM</th>
+                        <th scope="col">MARQUE</th>
+                        <th scope="col">CATEGORIE</th>
+                        <th scope="col">ENERGIE_100G</th>
+                    </tr>
+                </thead>
+
+            </table>
+        </div>
 
     <h1 class="my-custom-h1">Tableau des aliments</h1>
     <h2 id="custom-description">Recopiez le code barre des aliments de votre choix</h2>
@@ -94,7 +138,7 @@
     <footer class="py-4 bg-dark">
         <?php require_once('template_footer.php'); ?>
 
-    </footer>
+        </footer>
 </body>
 
 </html>
