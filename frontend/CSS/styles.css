@@ -388,7 +388,9 @@ a:hover {
 /* Style pour les boutons d'ajout d'aliment et d'enregistrement de repas */
 #ajouter-aliment,
 #enregistrer-repas-button,
-#toggleButton {
+#toggleButton,
+#modifier-profil-button,
+#valider-modifications-button {
     background-color: #198754;
     /* Couleur de fond */
     color: white;
@@ -420,6 +422,16 @@ a:hover {
 
 /* Style pour le bouton d'affichage des aliments favoris au survol */
 #toggleButton:hover {
+    background-color: rgb(100, 212, 78);
+    /* Changement de couleur au survol */
+}
+
+#modifier-profil-button:hover {
+    background-color: rgb(100, 212, 78);
+    /* Changement de couleur au survol */
+}
+
+#valider-modifications-button:hover {
     background-color: rgb(100, 212, 78);
     /* Changement de couleur au survol */
 }
