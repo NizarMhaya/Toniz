@@ -6,15 +6,15 @@
 
 
 </head>
-<main>
-
-    <body>
-        <?php require_once('template_menu.php'); ?>
-        <header class="bg-dark py-1">
-            <?php renderMenuToHTML('repas'); ?>
-        </header>
 
 
+<body>
+    <?php require_once('template_menu.php'); ?>
+    <header class="bg-dark py-1">
+        <?php renderMenuToHTML('repas'); ?>
+    </header>
+
+    <main>
         <h1 class="my-custom-h1">Créez votre repas</h1>
         <h2 id="custom-description">Entrez le nom et la date du repas et ajoutez autant d'aliments que vous le souhaitez en précisant leur quantités.</h2>
 
@@ -99,27 +99,27 @@
             </div>
 
 
-</main>
+    </main>
 
-<script>
-    let apiUrl = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
-                    echo _API_URL_INTEGRATION; ?> "; // utilisation de la variable définie dans config
-</script>
-<script src="JS/script_aliments_integration.js" defer></script>
-<script src="JS/script_repas.js" defer></script>
-<script>
-    let apiUrlRepas = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
-                        echo _API_URL_NEW_REPAS; ?> "; // utilisation de la variable définie dans config
-</script>
-<script>
-    let apiUrlFavoris = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
-                            echo _API_URL_FAVORIS; ?> "; // utilisation de la variable définie dans config
-</script>
+    <script>
+        let apiUrl = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
+                        echo _API_URL_INTEGRATION; ?> "; // utilisation de la variable définie dans config
+    </script>
+    <script src="JS/script_aliments_integration.js" defer></script>
+    <script src="JS/script_repas.js" defer></script>
+    <script>
+        let apiUrlRepas = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
+                            echo _API_URL_NEW_REPAS; ?> "; // utilisation de la variable définie dans config
+    </script>
+    <script>
+        let apiUrlFavoris = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
+                                echo _API_URL_FAVORIS; ?> "; // utilisation de la variable définie dans config
+    </script>
 
-<footer class="py-4 bg-dark">
-    <?php require_once('template_footer.php'); ?>
+    <footer class="py-4 bg-dark">
+        <?php require_once('template_footer.php'); ?>
 
-</footer>
+    </footer>
 </body>
 
 </html>
