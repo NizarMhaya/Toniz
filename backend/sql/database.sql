@@ -109,7 +109,7 @@ create table ALIMENTS_FAVORIS
 
 INSERT INTO `utilisateur` (`ID_USER`, `LOGIN`, `MDP`, `AGE`, `TAILLE`, `POIDS`, `SEXE`, `ACTIVITE`, `KCAL_JOUR`) VALUES
 (2, 'Titouan', '$2y$10$gjkV5LHri8B3L7AQ/r/QROqo0UJsFbKDOcA3E6FfFdeF4us8O3J/m', 16, 170, 65, 1, 2, NULL),
-(3, 'Ariana', '$2y$10$gR/RSdAm6NDmr9IVvhjJzuViaSF8IZX2rXbR8pcDFwF1leGKgW2VC', 30, 155, 48, 2, 3, NULL);
+(1, 'Ariana', '$2y$10$gR/RSdAm6NDmr9IVvhjJzuViaSF8IZX2rXbR8pcDFwF1leGKgW2VC', 30, 155, 48, 2, 3, 1700);
 COMMIT;
 
 
