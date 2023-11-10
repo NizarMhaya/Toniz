@@ -5,11 +5,36 @@
 header('Content-Type: application/json'); // Définir le type de contenu JSON
 
 require_once('init_pdo.php');
+
+function get_user_id_by_login($pdo, $login)
+{
+    try {
+        // Préparez la requête SQL pour obtenir l'ID de l'utilisateur en fonction du login
+        $stmt = $pdo->prepare("SELECT ID_USER FROM utilisateur WHERE LOGIN = :login");
+
+        // Liez la valeur du login en tant que paramètre
+        $stmt->bindParam(':login', $login, PDO::PARAM_STR);
+
+        // Exécutez la requête
+        $stmt->execute();
+
+        // Récupérez l'ID de l'utilisateur
+        $userID = $stmt->fetchColumn();
+
+        return $userID;
+    } catch (PDOException $e) {
+        // En cas d'erreur, retournez un message d'erreur
+        die('Erreur lors de la récupération de l\'ID de l\'utilisateur : ' . $e->getMessage());
+    }
+}
 //Ce code sera à utiliser pour afficher seulement les favoris. Or ici je veux afficher tous les aliments donc je reprends le meme get que api_aliments_reel
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     // Vérifiez l'ID de l'utilisateur à partir des données de la session ou du token d'authentification
-    $userID = 1; // Remplacez ceci par la méthode appropriée pour obtenir l'ID de l'utilisateur
+    $login = $_COOKIE['login'];
+    $userID = get_user_id_by_login($pdo, $login); // Ecrire ici une logique permettant de faire le lien entre login et userID
     // rajouter un else se connecter 
+
+
 
     // Utilisez la fonction get_aliments_favoris pour obtenir les aliments favoris de l'utilisateur
     $alimentsFavoris = get_aliments_favoris($pdo, $userID);
@@ -30,9 +55,9 @@ function get_aliments_favoris($pdo, $userID)
     try {
         // Préparez la requête SQL pour obtenir les aliments favoris de l'utilisateur
         $stmt = $pdo->prepare("SELECT a.CODE_BARRES, a.NOM, a.MARQUE, a.CATEGORIE, a.ENERGIE_100G
-                              FROM aliment a
-                              JOIN aliments_favoris af ON a.CODE_BARRES = af.CODE_BARRES
-                              WHERE af.ID_USER = :user_id");
+                             FROM aliment a
+                             JOIN aliments_favoris af ON a.CODE_BARRES = af.CODE_BARRES
+                             WHERE af.ID_USER = :user_id");
 
         // Liez la valeur de l'ID de l'utilisateur en tant que paramètre
         $stmt->bindParam(':user_id', $userID, PDO::PARAM_INT);
@@ -50,13 +75,13 @@ function get_aliments_favoris($pdo, $userID)
     }
 }
 
-
 // DELETE /api_favoris : Supprime un aliment favori de l'utilisateur.
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
     // Vérifiez l'ID de l'utilisateur à partir des données de la session ou du token d'authentification
-    $userID = 1; // Remplacez ceci par la méthode appropriée pour obtenir l'ID de l'utilisateur
+    $login = $_COOKIE['login'];
+    $userID = get_user_id_by_login($pdo, $login); // Remplacez ceci par la méthode appropriée pour obtenir l'ID de l'utilisateur
 
     // Récupérez l'ID de l'aliment favori à partir de la requête DELETE
     $codeBarres = $_GET['CODE_BARRES']; // Assurez-vous que le nom du paramètre correspond à votre URL
