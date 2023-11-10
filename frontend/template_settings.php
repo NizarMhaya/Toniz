@@ -14,5 +14,6 @@
 <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
 <link href="css/styles_bootstrap.css" rel="stylesheet" />
 <link href="css/styles.css" rel="stylesheet" />
+<link href="CSS/styles.css" rel="stylesheet" />
 
 </html>

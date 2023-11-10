@@ -19,10 +19,10 @@
         <h2 id="custom-description">Entrez le nom et la date du repas et ajoutez autant d'aliments que vous le souhaitez en précisant leur quantités.</h2>
 
         <form id="formulaire-repas">
-            <label for="nom-repas">Nom du repas :</label>
+            <label for="nom-repas">Nom du repas :</label><br></br>
             <input type="text" id="nom-repas" name="nom-repas" required><br><br>
 
-            <label for="date-repas">Date du repas :</label>
+            <label for="date-repas">Date du repas :</label><br></br>
             <input type="datetime-local" id="date-repas" name="date-repas" required><br><br>
 
             <div id="aliments-container">
@@ -42,10 +42,10 @@
             ajouterAlimentButton.addEventListener("click", function() {
                 const nouvelAlimentDiv = document.createElement("div");
                 nouvelAlimentDiv.innerHTML = `
-            <label for="aliment-${alimentIndex}">Aliment (code barres) :</label>
+            <label for="aliment-${alimentIndex}">Aliment (code barres) :</label><br></br>
             <input type="number" class="aliment-input" id="aliment-${alimentIndex}" name="aliment-${alimentIndex}" required><br><br>
 
-            <label for="quantite-${alimentIndex}">Quantité (g) :</label>
+            <label for="quantite-${alimentIndex}">Quantité (g) :</label><br></br>
             <input type="number" class="quantite-input" id="quantite-${alimentIndex}" name="quantite-${alimentIndex}" required><br><br>
         `;
 
