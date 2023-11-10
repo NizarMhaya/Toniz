@@ -42,6 +42,8 @@
         <section id="calories-section">
             <h3>Nutriments sur une période donnée</h3>
             <p id="nutriments-info">Chargement en cours...</p>
+            <!-- Ajoutez un paragraphe pour afficher KCAL_JOUR -->
+            <p id="user-kcal-info">KCAL_JOUR: <span id="user-kcal-value"></span></p>
             <div id="nutriment-chart-container">
                 <canvas id="nutriment-chart" width="400" height="200"></canvas>
             </div>

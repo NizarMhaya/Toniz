@@ -42,7 +42,7 @@
                 <div class="col-lg-4 mb-5 mb-lg-0">
                     <img src="assets/icon2.png" alt="icon2" />
                     <h2 class="h4 fw-bolder mt-3">Des milliers d'aliments</h2>
-                    <p>Notre base de données contient plus de 100 000 aliments. Vous pouvez retrouver les informations sur tout ce que vous mangez dans la page dédiée.</p>
+                    <p>Notre base de données contient plus de 6 000 aliments. Vous pouvez retrouver les informations sur tout ce que vous mangez dans la page dédiée.</p>
                     <a class="text-decoration-none" href="#!">
                         Voir la page Aliments
                         <i class="bi bi-arrow-right"></i>
@@ -51,7 +51,7 @@
                 <div class="col-lg-4">
                     <img src="assets/icon3.png" alt="icon3" />
                     <h2 class="h4 fw-bolder mt-3">Un historique de vos repas</h2>
-                    <p>Recréez les repas que vous mangez chaque jour et consultez les nutriments que vous absorbez quotidiennement.</p>
+                    <p>Recréez les repas que vous mangez chaque jour et consultez les nutriments que vous absorbez quotidiennement dans votre journal.</p>
                     <a class="text-decoration-none" href="#!">
                         Voir la page Journal
                         <i class="bi bi-arrow-right"></i>

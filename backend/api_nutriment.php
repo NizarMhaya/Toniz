@@ -1,5 +1,4 @@
 <?php
-
 // POST /api_calories : Récupère les calories absorbées par jour sur une période spécifique par un utilisateur.
 
 header('Content-Type: application/json'); // Définir le type de contenu JSON
@@ -49,14 +48,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Récupérez les résultats
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+        // Maintenant, ajoutez une requête pour récupérer KCAL_JOUR de l'utilisateur
+        $stmtUserKcal = $pdo->prepare("SELECT KCAL_JOUR FROM UTILISATEUR WHERE LOGIN = :loginUtilisateur");
+        $stmtUserKcal->bindParam(':loginUtilisateur', $loginUtilisateur, PDO::PARAM_STR);
+        $stmtUserKcal->execute();
+        $userKcal = $stmtUserKcal->fetch(PDO::FETCH_ASSOC);
+
         // Retournez les résultats
         if ($results) {
             http_response_code(200); // OK
-            echo json_encode(['dailyNutriments' => $results]);
+            echo json_encode(['dailyNutriments' => $results, 'userKcal' => $userKcal['KCAL_JOUR']]);
         } else {
             http_response_code(204); // No Content
-            echo json_encode(['dailyNutriments' => []]);
+            echo json_encode(['dailyNutriments' => [], 'userKcal' => $userKcal['KCAL_JOUR']]);
         }
+
     } catch (PDOException $e) {
         http_response_code(500); // Internal Server Error
         echo json_encode(['error' => 'Erreur lors de la récupération du nutriment : ' . $e->getMessage()]);
