@@ -17,6 +17,10 @@ $(document).ready(function () {
         // Afficher les données à des fins de débogage
         console.log('Données de connexion envoyées :', loginData);
 
+        // Réinitialiser le message d'erreur précédent
+        $('#error-message').text('');
+        $('#error-message').hide();
+
         // Envoyer les données de connexion à votre API (utilisez une URL différente pour la connexion)
         $.ajax({
             url: apiUrlProfil,
@@ -27,20 +31,23 @@ $(document).ready(function () {
                 // Gérez la réponse de la connexion, par exemple, redirigez l'utilisateur ou affichez un message
                 // Vous pouvez également ajouter des vérifications supplémentaires ici
                 console.log('Réponse de la connexion :', response);
-                $('#message').text('Connexion réussie'); // Affichez un message de connexion réussie
 
                 if (response.message === 'Connexion réussie') {
                     $('#session-status').text('Connecté : ' + connexionLogin);
                     window.location.href = 'index.php'; // Remplacez 'index.php' par l'URL de votre page d'accueil
+                } else {
+                    // Afficher un message d'erreur
+                    $('#error-message').text('Nom d\'utilisateur ou mot de passe incorrect.');
+                    $('#error-message').show();
                 }
             },
             error: function (error) {
                 console.error('Erreur de connexion : ', error);
                 console.log('Réponse de la requête :', error.responseText); // Affichez la réponse du serveur
-                $('#message').text('Erreur de connexion : ' + error.responseText);
+                $('#error-message').text('Erreur de connexion : ' + error.responseText);
+                $('#error-message').show();
             }
         });
     });
-
 
 });

@@ -15,7 +15,7 @@ if (($handle = fopen($file, 'r')) !== FALSE) {
         $marque = $row[2];
         $categories = $row[3];
         $energie_100g = $row[4];
-        $matieres_grasses = $row[5];
+        $MAT_GRASSES = $row[5];
         $graisses_saturees = $row[6];
         $glucides = $row[7];
         $sucres = $row[8];
@@ -34,15 +34,15 @@ if (($handle = fopen($file, 'r')) !== FALSE) {
         }, $categories));
 
         // Exemple d'insertion avec PDO (suppose que vous avez une table 'aliment' avec des colonnes correspondantes)
-        $insertQuery = "INSERT IGNORE INTO aliment (CODE_BARRES, NOM, MARQUE, CATEGORIE, ENERGIE_100G, MATIERES_GRASSES, GRAISSES_SATUREES, GLUCIDES, SUCRES, FIBRES, PROTEINES, SEL, SODIUM, CALCIUM) 
-            VALUES (:code_barres, :nom, :marque, :categories, :energie_100g, :matieres_grasses, :graisses_saturees, :glucides, :sucres, :fibres, :proteines, :sel, :sodium, :calcium)";
+        $insertQuery = "INSERT IGNORE INTO aliment (CODE_BARRES, NOM, MARQUE, CATEGORIE, ENERGIE_100G, MAT_GRASSES, GRAISSES_SATUREES, GLUCIDES, SUCRES, FIBRES, PROTEINES, SEL, SODIUM, CALCIUM) 
+            VALUES (:code_barres, :nom, :marque, :categories, :energie_100g, :MAT_GRASSES, :graisses_saturees, :glucides, :sucres, :fibres, :proteines, :sel, :sodium, :calcium)";
         $insertStatement = $pdo->prepare($insertQuery);
         $insertStatement->bindParam(':code_barres', $code_barres);
         $insertStatement->bindParam(':nom', $nom);
         $insertStatement->bindParam(':marque', $marque);
         $insertStatement->bindParam(':categories', $categories_string);
         $insertStatement->bindParam(':energie_100g', $energie_100g);
-        $insertStatement->bindParam(':matieres_grasses', $matieres_grasses);
+        $insertStatement->bindParam(':MAT_GRASSES', $MAT_GRASSES);
         $insertStatement->bindParam(':graisses_saturees', $graisses_saturees);
         $insertStatement->bindParam(':glucides', $glucides);
         $insertStatement->bindParam(':sucres', $sucres);

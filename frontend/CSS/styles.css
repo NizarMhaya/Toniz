@@ -18,6 +18,9 @@ body {
     margin-bottom: 100px;
     /* Ajoutez d'autres styles au besoin */
 }
+#myTable {
+    width: 68%; /* Vous pouvez ajuster la largeur en pourcentage ou en pixels en fonction de vos besoins */
+}
 
 /* Appliquer un style différent aux lignes paires */
 #myTable tbody tr:nth-child(even) {

@@ -15,7 +15,7 @@
         <h1 class="my-custom-h1">Calculateur de Besoins Énergétiques</h1>
         <p class=p-text>Ce calculateur repose sur la formule de Harris-Benedict, qui permet le calcul du métabolisme de base.<br>
         Un multiplicateur y est ensuite associé en fonction de votre activité physique.</p>
-        <p class=p-text>Vous pouvez utiliser ce calculateur pour définir votre besoin énergétique quotidien dans votre profil, ou vous pouvez directement rentrer cette valeur manuellement.</p>
+        <p class=p-text>Vous pouvez utiliser ce calculateur pour avoir un idée de votre besoin énergétique quotidien, et reporter cette valeur dans votre profil.</p>
         <div class="form-group">
             <label for="age">Âge :</label>
             <input type="number" id="age" placeholder="Entrez votre âge">

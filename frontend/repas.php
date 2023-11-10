@@ -72,33 +72,34 @@
                               </tr>
                           </thead>
                       </table>
-                  </div>';
+                  </div>
+                  <div class="container">
+                  <div id="firstTableContainer" class="table-container">
+                      <h1 class="my-custom-h1">Tableau des aliments</h1>
+                      <h2 id="custom-description">Recopiez le code barre des aliments de votre choix</h2>
+                      <table id="myTable">
+                          <!-- Contenu du premier tableau -->
+                          <thead>
+                              <tr>
+                                  <th scope="col">Copier le code-barres</th>
+                                  <th scope="col">CODE BARRES</th>
+                                  <th scope="col">NOM</th>
+                                  <th scope="col">MARQUE</th>
+                                  <th scope="col">CATEGORIE</th>
+                                  <th scope="col">ENERGIE_100G</th>
+                              </tr>
+                          </thead>
+                      </table>
+                  </div>
+              </div>';
         } else {
             // Utilisateur non connecté, affichez le message approprié
-            echo '<h1 class="my-custom-h1">Créez votre repas</h1>';
-            echo '<p>Veuillez vous connecter pour créer votre repas.</p>';
+            echo '<h1 class="my-custom-h1">Créez vos repas</h1>';
+            echo '<p class="p-text">Veuillez vous connecter pour créer vos repas.</p>';
         }
         ?>
 
-        <div class="container">
-            <div id="firstTableContainer" class="table-container">
-                <h1 class="my-custom-h1">Tableau des aliments</h1>
-                <h2 id="custom-description">Recopiez le code barre des aliments de votre choix</h2>
-                <table id="myTable">
-                    <!-- Contenu du premier tableau -->
-                    <thead>
-                        <tr>
-                            <th scope="col">Copier le code-barres</th>
-                            <th scope="col">CODE BARRES</th>
-                            <th scope="col">NOM</th>
-                            <th scope="col">MARQUE</th>
-                            <th scope="col">CATEGORIE</th>
-                            <th scope="col">ENERGIE_100G</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-        </div>
+ 
     </main>
 
     <script>

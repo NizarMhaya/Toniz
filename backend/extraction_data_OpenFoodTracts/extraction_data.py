@@ -29,7 +29,7 @@ if file_path:
         'brands': 'MARQUE',
         'categories': 'CATEGORIE',
         'energy-kcal_value': 'ENERGIE_100G',
-        'fat_value': 'MATIERES_GRASSES',
+        'fat_value': 'MAT_GRASSES',
         'saturated-fat_value': 'GRAISSES_SATUREES',
         'carbohydrates_value': 'GLUCIDES',
         'sugars_value': 'SUCRES',

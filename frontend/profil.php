@@ -29,6 +29,8 @@
 
             <button type="button" id="connexion-button">Se connecter</button>
         </form>
+        <div id="error-message" class="error-message" style="display: none;"></div>
+
     </div>
     <?php else : ?>
 

@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 DATE(R.DATE) AS jour,
                                 SUM(CASE 
                                     WHEN :nutrimentType = 'ENERGIE_100G' THEN A.ENERGIE_100G
-                                    WHEN :nutrimentType = 'MATIERES_GRASSES' THEN A.MATIERES_GRASSES
+                                    WHEN :nutrimentType = 'MAT_GRASSES' THEN A.MAT_GRASSES
                                     WHEN :nutrimentType = 'GRAISSES_SATUREES' THEN A.GRAISSES_SATUREES
                                     WHEN :nutrimentType = 'GLUCIDES' THEN A.GLUCIDES
                                     WHEN :nutrimentType = 'SUCRES' THEN A.SUCRES
