@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
     var table = $('#myTable').DataTable({
+        "autoWidth": false, // Désactive l'ajustement automatique de la largeur des colonnes
         ajax: {
             url: apiUrl,
             dataSrc: ''
@@ -11,7 +12,7 @@ $(document).ready(function () {
             { "data": "MARQUE" },
             { "data": "CATEGORIE" },
             { "data": "ENERGIE_100G" },
-            { "data": "MATIERES_GRASSES" },
+            { "data": "MAT_GRASSES" },
             { "data": "GRAISSES_SATUREES" },
             { "data": "GLUCIDES" },
             { "data": "SUCRES" },
@@ -64,7 +65,7 @@ $(document).ready(function () {
             "MARQUE": marque,
             "CATEGORIE": categorie,
             "ENERGIE_100G": energie,
-            "MATIERES_GRASSES": matieresGrasses,
+            "MAT_GRASSES": matieresGrasses,
             "GRAISSES_SATUREES": graissesSaturees,
             "GLUCIDES": glucides,
             "SUCRES": sucres,
@@ -131,7 +132,7 @@ $(document).ready(function () {
         $('#marqueInput').val(data.MARQUE);
         $('#categorieInput').val(data.CATEGORIE);
         $('#energieInput').val(data.ENERGIE_100G);
-        $('#matieresGrassesInput').val(data.MATIERES_GRASSES);
+        $('#matieresGrassesInput').val(data.MAT_GRASSES);
         $('#graissesSatureesInput').val(data.GRAISSES_SATUREES);
         $('#glucidesInput').val(data.GLUCIDES);
         $('#sucresInput').val(data.SUCRES);
@@ -166,7 +167,7 @@ $(document).ready(function () {
                 "MARQUE": newMarque,
                 "CATEGORIE": newCategorie,
                 "ENERGIE_100G": newEnergie,
-                "MATIERES_GRASSES": newMatieresGrasses,
+                "MAT_GRASSES": newMatieresGrasses,
                 "GRAISSES_SATUREES": newGraissesSaturees,
                 "GLUCIDES": newGlucides,
                 "SUCRES": newSucres,

@@ -26,7 +26,7 @@
                 <input type="text" class="form-control" id="nomInput">
             </div>
         </div>
-        <!-- Ajoutez ici les champs pour MARQUE, CATEGORIE, ENERGIE_100G, MATIERES_GRASSES, GRAISSES_SATUREES, GLUCIDES, SUCRES, FIBRES, PROTEINES, SEL, SODIUM, et CALCIUM -->
+        <!-- Ajoutez ici les champs pour MARQUE, CATEGORIE, ENERGIE_100G, MAT_GRASSES, GRAISSES_SATUREES, GLUCIDES, SUCRES, FIBRES, PROTEINES, SEL, SODIUM, et CALCIUM -->
         <div class="form-group row">
             <label for="marqueInput" class="col-sm-2 col-form-label">MARQUE*</label>
             <div class="col-sm-3">
@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="form-group row">
-            <label for="matieresGrassesInput" class="col-sm-2 col-form-label">MATIERES_GRASSES*</label>
+            <label for="matieresGrassesInput" class="col-sm-2 col-form-label">MAT_GRASSES*</label>
             <div class="col-sm-3">
                 <input type="text" class="form-control" id="matieresGrassesInput">
             </div>
@@ -116,7 +116,7 @@
                 <th scope="col" class="narrow">MARQUE</th>
                 <th scope="col" class="narrow">CATEGORIE</th>
                 <th scope="col" class="narrow">ENERGIE_100G</th>
-                <th scope="col" class="narrow">MATIERES_GRASSES</th>
+                <th scope="col" class="narrow">MAT_GRASSES</th>
                 <th scope="col" class="narrow">GRAISSES_SATUREES</th>
                 <th scope="col" class="narrow">GLUCIDES</th>
                 <th scope="col" class="narrow">SUCRES</th>

@@ -7,10 +7,17 @@
 </head>
 
 <body>
-    <?php require_once('template_menu.php');
-    renderMenuToHTML('journal'); ?>
+    <?php require_once('template_menu.php'); ?>
+    
+    <header class="bg-dark py-1">
+        <?php renderMenuToHTML('journal'); ?>
+    </header>
 
     <main>
+        <?php
+        if (isset($_COOKIE['login'])) {
+            // Utilisateur est connecté, affichez le contenu de la page
+        ?>
         <h1 class="my-custom-h1">Journal</h1>
         <!-- Section pour afficher les nutriments de la veille -->
 
@@ -19,13 +26,13 @@
             <label for="start-date">Choisir la date de début : </label>
             <input type="date" id="start-date" name="start_date" required>
 
-            <label for="end-date">Choisir la date de fin : </label>
+            <label for "end-date">Choisir la date de fin : </label>
             <input type="date" id="end-date" name="end_date" required>
 
             <label for="nutriment-type">Choisir le type de nutriment : </label>
             <select id="nutriment-type" name="nutriment_type">
                 <option value="ENERGIE_100G">Énergie (kcal)</option>
-                <option value="MATIERES_GRASSES">Matières grasses (g)</option>
+                <option value="MAT_GRASSES">Matières grasses (g)</option>
                 <option value="GRAISSES_SATUREES">Graisses saturées (g)</option>
                 <option value="GLUCIDES">Glucides (g)</option>
                 <option value="SUCRES">Sucres (g)</option>
@@ -40,7 +47,7 @@
 
         <!-- Section pour afficher les nutriments par jour -->
         <section id="calories-section">
-            <h3>Nutriments sur une période donnée</h3>
+            <h3>Nutriment sur une période donnée</h3>   
             <p id="nutriments-info">Chargement en cours...</p>
             <!-- Ajoutez un paragraphe pour afficher KCAL_JOUR -->
             <p id="user-kcal-info">KCAL_JOUR: <span id="user-kcal-value"></span></p>
@@ -48,8 +55,15 @@
                 <canvas id="nutriment-chart" width="400" height="200"></canvas>
             </div>
         </section>
-
-
+        <?php
+        } else {
+            // Utilisateur non connecté, affichez le message approprié
+        ?>
+        <h1 class="my-custom-h1">Journal</h1>
+        <p class="p-text">Veuillez vous connecter pour accéder à votre journal.</p>
+        <?php
+        }
+        ?>
     </main>
 
     <footer class="py-4 bg-dark">

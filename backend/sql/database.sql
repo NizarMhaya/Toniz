@@ -10,7 +10,7 @@ create table ALIMENT
    MARQUE               VARCHAR(80),
    CATEGORIE            VARCHAR(160),
    ENERGIE_100G         INT,
-   MATIERES_GRASSES     FLOAT,
+   MAT_GRASSES     FLOAT,
    GRAISSES_SATUREES    FLOAT,
    GLUCIDES             FLOAT,
    SUCRES               FLOAT,
@@ -114,28 +114,28 @@ COMMIT;
 
 
 INSERT INTO `repas` (`ID_REPAS`, `ID_USER_CONNECTE`, `NOM_REPAS`, `DATE`) VALUES
-(1, 3, 'Petit déjeuner', '2023-11-06 08:30:00'),
-(2, 3, 'Couscous', '2023-11-06 11:33:00'),
-(3, 3, 'Salade du soir', '2023-11-06 19:45:00'),
-(4, 3, 'Petit déjeuner', '2023-11-07 07:36:00'),
-(5, 3, 'Gnocchis au pesto', '2023-11-07 12:37:00'),
-(6, 3, 'Collation fin après-midi', '2023-11-07 15:38:00'),
-(7, 3, 'Soupe du soir', '2023-11-07 19:39:00'),
-(8, 3, 'Petit déjeuner chez Nizar', '2023-11-10 08:39:00'),
-(9, 3, 'Raviolis du midi', '2023-11-08 11:41:00'),
-(10, 3, 'Lasagnes du futur', '2023-11-08 18:42:00'),
-(11, 3, 'Petit déjeuner', '2023-11-09 10:43:00'),
-(12, 3, 'Nouilles vite fait bien fait', '2023-11-10 11:44:00'),
-(13, 3, 'Burger fait maison', '2023-11-09 19:45:00'),
-(14, 3, 'Petit déjeuner express', '2023-11-10 06:47:00'),
-(15, 3, 'Pâtes bolognaise', '2023-11-10 12:48:00'),
-(16, 3, 'Riz et poulet curry', '2023-11-10 19:48:00'),
-(17, 3, 'Petit déjeuner anglais', '2023-11-11 09:49:00'),
-(18, 3, 'Sandwich aprem', '2023-11-10 15:51:00'),
-(19, 3, 'Collation du soir', '2023-11-11 19:52:00'),
-(20, 3, 'Petit déjeuner', '2023-11-12 08:53:00'),
-(21, 3, 'Repas de cantine', '2023-11-12 11:54:00'),
-(22, 3, 'Cassoulet tout fait', '2023-11-12 19:54:00');
+(1, 1, 'Petit déjeuner', '2023-11-06 08:30:00'),
+(2, 1, 'Couscous', '2023-11-06 11:33:00'),
+(3, 1, 'Salade du soir', '2023-11-06 19:45:00'),
+(4, 1, 'Petit déjeuner', '2023-11-07 07:36:00'),
+(5, 1, 'Gnocchis au pesto', '2023-11-07 12:37:00'),
+(6, 1, 'Collation fin après-midi', '2023-11-07 15:38:00'),
+(7, 1, 'Soupe du soir', '2023-11-07 19:39:00'),
+(8, 1, 'Petit déjeuner chez Nizar', '2023-11-10 08:39:00'),
+(9, 1, 'Raviolis du midi', '2023-11-08 11:41:00'),
+(10, 1, 'Lasagnes du futur', '2023-11-08 18:42:00'),
+(11, 1, 'Petit déjeuner', '2023-11-09 10:43:00'),
+(12, 1, 'Nouilles vite fait bien fait', '2023-11-10 11:44:00'),
+(13, 1, 'Burger fait maison', '2023-11-09 19:45:00'),
+(14, 1, 'Petit déjeuner express', '2023-11-10 06:47:00'),
+(15, 1, 'Pâtes bolognaise', '2023-11-10 12:48:00'),
+(16, 1, 'Riz et poulet curry', '2023-11-10 19:48:00'),
+(17, 1, 'Petit déjeuner anglais', '2023-11-11 09:49:00'),
+(18, 1, 'Sandwich aprem', '2023-11-10 15:51:00'),
+(19, 1, 'Collation du soir', '2023-11-11 19:52:00'),
+(20, 1, 'Petit déjeuner', '2023-11-12 08:53:00'),
+(21, 1, 'Repas de cantine', '2023-11-12 11:54:00'),
+(22, 1, 'Cassoulet tout fait', '2023-11-12 19:54:00');
 COMMIT;
 
 INSERT INTO `aliments_favoris` (`ID_USER`, `CODE_BARRES`) VALUES
@@ -214,7 +214,7 @@ INSERT INTO `element_de` (`CODE_BARRES`, `ID_REPAS`, `QUANTITE_G`) VALUES
 COMMIT;
 
 
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (7612345678901, 'Pomme', 'Del Monte', 'Fruits, Fruits frais, Pommes', 52, 0.2, 0, 14, 9, 2.4, 0.4, 0, 0, 11),
 (2001000000011, 'Pain complet', 'Harrys', 'Pains, Pains complets', 250, 3.5, 0.6, 46, 3.2, 6.5, 10, 0.72, 0.29, 34),
 (5000159493444, 'Yaourt à la vanille', 'Danone', 'Produits laitiers, Yaourts, Yaourts à la vanille', 112, 3.5, 2.3, 14, 12, 0, 5.2, 0.13, 0.05, 130),
@@ -409,7 +409,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3250392335564, 'Paëlla Poulet et fruits de mer', 'Monique ranou', '\'Viandes et dérivés\', \'Plats préparés\', \'Plats préparés à la viande\', \'Plats à base de riz\', \'Plats à la volaille\', \'Plats préparés à réchauffer au micro-ondes\'', 151, 5, 1.3, 16.6, 0.6, 1.2, 9.2, 0.89, 0.356, 0),
 (3252755150005, '20 madeleines longues aux œufs frais', 'Le Ster', '\'Snacks\', \'Desserts\', \'Snacks sucrés\', \'Biscuits et gâteaux\', \'Gâteaux\', \'Madeleines\', \'Madeleines longues\'', 445, 22, 2.3, 55, 28, 0, 6.1, 1, 0.4, 0),
 (3046920017503, 'Excellence Dark Roasted Sesame', 'Lindt', '\'Snacks\', \'Snacks sucrés\', \'Cacao et dérivés\', \'Chocolats\', \'Chocolats noirs\', \'Chocolats noirs extra fin\'', 531, 32, 17, 50, 45, 0, 6.8, 0.09, 0.036, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3250390102625, 'L\'envoûtant chocolat noir 70%', 'Producteur & Commerçant, Les Créations', '\'Snacks\', \'Snacks sucrés\', \'Cacao et dérivés\', \'Chocolats\', \'Chocolats noirs\', \'Chocolat noir en tablette extra dégustation à 70% de cacao minimum\'', 573, 40, 26, 38, 28, 10, 9, 0.01, 0.004, 0),
 (3250392743437, 'Brassés au lait de coco, fraise-framboise', 'Pâturages', '\'Aliments et boissons à base de végétaux\', \'Produits fermentés\', \'Substituts de produits laitiers\', \'Desserts\', \'Desserts végétaliens\', \'Produits végétaux ferme', 89, 4.3, 3.9, 12, 9.2, 0.5, 0.6, 0.1, 0.04, 0),
 (3410280141428, 'Pâté de campagne', 'Top Budget', '\'Viandes et dérivés\', \'Charcuteries\', \'Charcuteries diverses\', \'Pâté\', \'Pâtés de porc\', \'Pâtés de campagne\'', 277, 23, 8.9, 2.6, 0.5, 0.5, 15, 1.6, 0.64, 0),
@@ -603,7 +603,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3250390571438, 'Riz Thaï naturellement parfumé sachet', 'La jonque', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Céréales et pommes de terre\', \'Graines\', \'Céréales et dérivés\', \'Céréales en grains\'', 350, 0.5, 0.1, 79, 0.5, 0, 7.1, 0, 0, 0),
 (3250392473136, 'Cantal jeune', 'Paturages', '\'Produits laitiers\', \'Produits fermentés\', \'Produits laitiers fermentés\', \'Fromages\', \'Fromages de vache\', \'Fromages de France\', \'Fromages à pâte pressée non cu', 378, 30, 22, 1.5, 0.5, 0, 24, 1.9, 0.76, 0),
 (8410076482556, 'Tortilla chips paprika', 'old el paso', '\'Snacks\', \'Salty snacks\', \'Appetizers\', \'Chips and fries\', \'Crisps\', \'Corn chips\'', 489, 25.5, 2.9, 56, 2.6, 5, 6.4, 1.25, 0.5, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3250390188513, 'Ananas en morceaux au jus d\'ananas', 'Paquito,Intermarché', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Conserves\', \'Aliments à base de fruits et de légumes\', \'Aliments à base de plantes e', 51, 0.5, 0.1, 12, 11, 1, 0.5, 0.01, 0.004, 0),
 (3250392341886, 'Cœurs de palmiers morceaux', 'Saint Eloi', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Conserves\', \'Aliments à base de plantes en conserve\', \'Frais\', \'Aliments à base de p', 22, 0.5, 0.1, 2.9, 1.2, 1.2, 0.7, 0.73, 0.292, 0),
 (3250391554508, 'Rillettes de poulet rôti', 'Monique ranou', '\'Viandes et dérivés\', \'Produits à tartiner\', \'Viandes\', \'Charcuteries\', \'Produits à tartiner salés\', \'Rillettes\', \'Rillettes de viande\', \'Rillettes de viande bl', 340, 29.5, 9.4, 0.6, 0.5, 0.5, 17.9, 1.1, 0.44, 0),
@@ -807,7 +807,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3250390383437, 'Biscuits les florentins amande chocolat au lait', 'Chabrior,Intermarché, Les Créations', '\'Snacks\', \'Snacks sucrés\', \'Biscuits et gâteaux\', \'Biscuits\', \'Biscuits au chocolat\', \'Biscuits secs\', \'Biscuits au chocolat au lait\', \'Florentins\'', 537, 31.9, 9.5, 51.9, 44.1, 4.9, 8.9, 0.09, 0.036, 0),
 (4000539670107, 'Lapin Or chocolat blanc', 'Lindt,Lindt & Sprüngli', '\'Snacks\', \'Sweet snacks\', \'Cocoa and its products\', \'Festive foods\', \'Chocolates\', \'Chocolate molds\', \'White chocolates\', \'Easter food\', \'Chocolate rabbits\'', 572, 36, 22, 55, 55, 0, 7, 0.25, 0.1, 0),
 (3421557501968, 'Muesli croustillant pommes canelle', 'Terres et Céréales', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Petit-déjeuners\', \'Céréales et pommes de terre\', \'Céréales et dérivés\', \'Céréales po', 437, 13, 1.4, 69, 24, 7.1, 8.3, 0.09, 0.036, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3324040112156, 'Brie', 'Pâturages Comtois', '\'Produits laitiers\', \'Produits fermentés\', \'Produits laitiers fermentés\', \'Fromages\', \'Fromages de vache\', \'Fromages à pâte molle à croûte fleurie\', \'Fromages d', 376, 32.85, 23.4, 0.8, 0.5, 0, 17.8, 1.168, 0.4672, 0),
 (3336971505037, 'Chips saveur chèvre chaud & Herbes 120g', 'VicoIntersnack', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Snacks\', \'Céréales et pommes de terre\', \'Snacks salés\', \'Amuse-gueules\', \'Chips et f', 516, 32, 2.8, 49, 2, 4.4, 6, 1.3, 0.52, 0),
 (3178530422009, 'Petites madeleines pépites chocolat format familial lot 2 x 600 g', 'St Michel', '\'Snacks\', \'Snacks sucrés\', \'Biscuits et gâteaux\', \'Gâteaux\', \'Gâteaux au chocolat\', \'Madeleines\', \'Madeleines au chocolat\', \'en:Biscuits et gâteaux\', \'en:Gâteau', 426, 21, 3.1, 55, 29, 1.7, 5.4, 0.69, 0.276, 0),
@@ -998,7 +998,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3250392600150, 'Muesli floconneux fruits secs et aux graines', 'chabrior', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Petit-déjeuners\', \'Céréales et pommes de terre\', \'Céréales et dérivés\', \'Céréales po', 389, 9.8, 3.3, 60.9, 17.6, 0, 9.6, 0.01, 0.004, 0),
 (3250390193364, 'Suiss\'fruits, Fromages Frais Sucrés', 'Paturages', '\'Produits laitiers\', \'Produits fermentés\', \'Desserts\', \'Produits laitiers fermentés\', \'Desserts lactés\', \'Desserts lactés fermentés\', \'Petits suisses\'', 95, 2, 1.4, 12.4, 12, 0, 6.6, 0.1, 0.04, 0),
 (3250391455171, 'Yaourt Biologique Au Lait Entier Brassé à La Vanille', 'Pâturages', '\'Produits laitiers\', \'Produits fermentés\', \'Desserts\', \'Produits laitiers fermentés\', \'Desserts lactés\', \'Desserts lactés fermentés\', \'Yaourts\', \'Yaourts brassé', 90, 2.9, 2, 13, 12, 0, 3.1, 0.1, 0.04, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3250390803423, 'Petit pot de crème au café', 'Pâturages', '\'Produits laitiers\', \'Desserts\', \'Desserts lactés\', \'Crèmes dessert\', \'Crèmes dessert café\', \'Desserts au café\', \'Desserts lactés au café\'', 162, 7.4, 4.1, 21.1, 16.5, 0, 4.7, 0.25, 0.1, 0),
 (3250391245383, 'vita pause - spécialité laitière pêche', 'Paturages', '\'Produits laitiers\', \'Produits fermentés\', \'Desserts\', \'Produits laitiers fermentés\', \'Desserts lactés\', \'Desserts lactés fermentés\', \'Desserts lactés fermentés', 112, 3.6, 2.6, 14, 13, 0.5, 5.6, 0.075, 0.03, 0),
 (3250392743161, 'Yaourt à la Grecque Bio nature', 'Paturages,Intermarché', '\'Produits laitiers\', \'Produits fermentés\', \'Desserts\', \'Produits laitiers fermentés\', \'Desserts lactés\', \'Desserts lactés fermentés\', \'Desserts lactés fermentés', 111, 8.4, 5.8, 5.1, 4.4, 0.5, 3.7, 0.12, 0.048, 0),
@@ -1195,7 +1195,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3250391449309, 'Mélange Plaisir', 'Paquito', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Aliments à base de fruits et de légumes\', \'Fruits et produits dérivés\', \'Produits dé', 480, 27.4, 2.2, 44.4, 41.6, 5.4, 11.2, 0.01, 0.004, 0),
 (3250390137818, 'Confiture allégée framboise', 'Paquito', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Petit-déjeuners\', \'Aliments à base de fruits et de légumes\', \'Produits à tartiner\', ', 168, 0.5, 0.3, 39.2, 34.5, 1, 0.6, 0.03, 0.012, 0),
 (3250390134688, 'Confiture allégée fraise', 'Paquito', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Petit-déjeuners\', \'Produits à tartiner\', \'Pâtes à tartiner végétales\', \'Produits à t', 166, 0.5, 0.1, 40, 38.7, 1.2, 0.5, 0.03, 0.012, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3250390953586, 'Boisson à diluer saveur menthe zéro sucres', 'Paquito', '\'Boissons\', \'Sirops\', \'Boissons édulcorées\', \'Sirops aromatisés\', \'Sirops de menthe\', \'Sirops aromatisés sans sucre\'', 2, 0, 0, 0, 0, 0, 0, 0.25, 0.1, 0),
 (3250392190484, 'Lait Facile à digérer', 'Pâturages', '\'Produits laitiers\', \'Laits\', \'Laits homogénéisés\', \'Laits demi-écrémés\', \'Laits UHT\', \'Laits à teneur réduite en lactose\'', 41, 1, 0.8, 4.8, 4.8, 0, 3.2, 0.1, 0.04, 0),
 (3250392430412, 'Lissea mousse', 'Pâturages', '\'Produits laitiers\', \'Desserts\', \'Desserts lactés\'', 159, 10, 6.5, 11, 11, 0, 5.8, 0.1, 0.04, 0),
@@ -1389,7 +1389,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3250392490645, 'Les Mélanges Bon & Bon - Poelée orientale', 'Saint eloi', '\'Plats préparés\', \'Poêlées\', \'A\'', 354, 4, 0.5, 61.1, 4.1, 9.6, 13.6, 2.42, 0.968, 0),
 (3250390003779, 'Haricots blancs à la tomate', 'Saint eloi,Sélection des Mousquetaires,Les Mousquetaires', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Légumineuses et dérivés\', \'Conserves\', \'Aliments à base de fruits et de légumes\', \'L', 85, 0.4, 0, 11.7, 0.7, 5.7, 5.7, 0.94, 0.376, 0),
 (3250392354176, 'Mini coeur d\'artichauts', 'Saint Eloi', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Conserves\', \'Aliments à base de fruits et de légumes\', \'Aliments à base de plantes e', 18, 0.5, 0.1, 2.3, 0.6, 0, 1.3, 0.625, 0.25, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3250391908639, 'Mini poireaux', 'Saint Eloi', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Conserves\', \'Aliments à base de fruits et de légumes\', \'Aliments à base de plantes e', 31, 0.5, 0.1, 4.9, 2.8, 2.9, 1.4, 0.55, 0.22, 0),
 (3250392271114, 'Pois cassés', 'Saint eloi', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Légumineuses et dérivés\', \'Légumineuses\', \'Graines\', \'Graines de légumineuses\', \'Lég', 342, 2.1, 0.2, 53.8, 4.5, 9, 22.4, 0.01, 0.004, 0),
 (3250391041930, 'Poêlée de Printemps', 'Saint Eloi', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Aliments à base de fruits et de légumes\', \'Surgelés\', \'Plats préparés\', \'Légumes et ', 46, 1.7, 0.2, 5.1, 3.5, 2.4, 1.4, 0.35, 0.14, 0),
@@ -1581,7 +1581,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3250390883975, 'Lait Facile à digérer', 'Pâturages', '\'Produits laitiers\', \'Laits\', \'Laits homogénéisés\', \'Laits demi-écrémés\', \'Laits UHT\'', 41, 1, 0.7, 4.8, 4.8, 0, 3.2, 0.1, 0.04, 120),
 (3041090063114, 'Cracotte', 'LU', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Snacks\', \'Céréales et pommes de terre\', \'Tartines craquantes extrudées\'', 389, 2.7, 1, 78, 7.9, 3, 11, 1.7, 0.68, 0),
 (3250391996261, 'Lait frais entier bio', 'Pâturages', '\'Produits laitiers\', \'Frais\', \'Laits\', \'Laits frais\', \'Laits entiers\'', 68, 4, 2.3, 4.8, 4.8, 0, 3.2, 0.1, 0.04, 120);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3250390866992, 'Grignottes de poulet rôties', 'Volae', '\'\'', 205, 10.9, 2.4, 4.3, 0, 0, 22.4, 1.5, 0.6, 0),
 (3250390102953, 'Soupe de poissons', 'Saint eloi', '\'Plats préparés\', \'Soupes\', \'Soupes à réchauffer\', \'Soupes de poissons\'', 37, 0.9, 0.6, 3.7, 0.9, 1.1, 3, 0.6, 0.24, 0),
 (3250392553579, 'Poulet rôti & Potatoes + Sauce Ketchup', 'Monique Ranou', '\'\'', 102, 2.8, 0.7, 15.7, 4, 1.5, 7.5, 0.61, 0.244, 0),
@@ -1782,7 +1782,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3250390007586, 'Pilki, boisson aux oranges', 'Look,intermarche', '\'Aliments et boissons à base de végétaux\', \'Boissons\', \'Aliments d\\\'origine végétale\', \'Aliments à base de fruits et de légumes\', \'Fruits et produits dérivés\', ', 36, 0.5, 0.1, 8.9, 8.9, 0, 0.5, 0.01, 0.004, 0),
 (3011250112020, 'Escalope normande aux champignons jambon de dinde et crème fraîche', 'Père Dodu', '\'Viandes et dérivés\', \'Préparations de viande\', \'Produits panés\'', 180, 7, 1, 15, 3.5, 0, 14, 1.5, 0.6, 0),
 (6191509900855, 'Huile d\'olive vierge extra', 'Terra Delyssa', '\'Plant-based foods and beverages\', \'Plant-based foods\', \'Fats\', \'Vegetable fats\', \'Olive tree products\', \'Vegetable oils\', \'Olive oils\', \'Extra-virgin olive oil', 821, 91, 19, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (8727200299806, 'Salsa sauce a napper', 'Old El Paso', '\'Condiments\', \'Sauces\', \'Sauces tomate\', \'Sauces aux légumes\', \'Sauces tomate aux petits légumes\', \'en:groceries\'', 35, 0.5, 0.5, 5.5, 4.2, 1.8, 1.3, 1.13, 0.452, 0),
 (3250390722779, 'Blé précuit', 'Saint eloi,Sélection des Mousquetaires,Les Mousquetaires', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Céréales et pommes de terre\', \'Graines\', \'Céréales et dérivés\', \'Céréales en grains\'', 362, 1.8, 0.3, 71, 0.6, 5.5, 12.7, 0.01, 0.004, 0),
 (3410280070766, 'Mouliné 8 Légumes Variés', 'Top budget', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Aliments à base de fruits et de légumes\', \'Plats préparés\', \'Soupes\', \'Soupes à réch', 31, 0.7, 0.2, 4.9, 1, 0.9, 0.6, 0.57, 0.228, 0),
@@ -1977,7 +1977,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (8076809523660, 'Sugo Arrabbiata', 'Barilla', '\'Conserves\', \'Condiments\', \'Sauces\', \'Sauces pour pâtes\', \'Sauces tomate\', \'Sauces Arrabiata\', \'Sauces tomates pimentées\', \'en:groceries\'', 64, 3.1, 0.3, 6.9, 5, 1.5, 1.4, 0.95, 0.38, 0),
 (3250392201012, 'Coquillettes Jambon & Emmental', 'Monique ranou', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Viandes et dérivés\', \'Plats préparés\', \'Plats à base de pâtes\', \'Pâtes alimentaires\'', 182, 7.3, 3.8, 20.3, 0.5, 1.9, 8, 0.83, 0.332, 0),
 (3220034310006, 'Morceaux Bruns', 'SAINT LOUIS', '\'Édulcorants\', \'Sucres\', \'Sucres de canne\', \'Sucres en morceaux\'', 400, 0, 0, 0, 100, 0, 0, 0, 0, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3770015307155, 'Glace à la pâte à tartiner bio', '', '\'Desserts\', \'Surgelés\', \'Desserts glacés\', \'Glaces et sorbets\', \'Glaces\', \'Crèmes glacées en pot\'', 214, 9.4, 2.9, 26.4, 20.1, 1.8, 4.9, 0.1, 0.04, 0),
 (3250391815265, 'Lait Entier BIO', 'Pâturages', '\'Produits laitiers\', \'Laits\', \'Laits homogénéisés\', \'Laits UHT\', \'Laits entiers\'', 64, 3.6, 2.4, 4.8, 4.8, 0, 3.2, 0.13, 0.052, 120),
 (3250392490676, 'Velouté courgettes ricotta et fines herbes bio', 'Saint eloi', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Conserves\', \'Aliments à base de fruits et de légumes\', \'Plats préparés\', \'Soupes\', \'', 41, 1.9, 0.5, 4, 1.1, 0, 1.5, 0.72, 0.288, 0),
@@ -2169,7 +2169,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3250391447060, 'dattes dénoyautées bio', 'Paquito', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Aliments à base de fruits et de légumes\', \'Fruits et produits dérivés\', \'Produits dé', 289, 0, 0, 64, 58, 6.9, 2.2, 0.01, 0.004, 0),
 (3249760011148, 'Orangina et sa pulpe.', 'Orangina,Schweppes', '\'Aliments et boissons à base de végétaux\', \'Boissons\', \'Boissons à base de végétaux\', \'Boissons gazeuses\', \'Boissons aux fruits\', \'Sodas\', \'Sodas aux fruits\', \'', 41, 0.1, 0, 9.7, 9.6, 0, 0.1, 0.02, 0.008, 0),
 (8718114825199, 'Knorr Soupe Douceur de Poireaux Pommes Terre 80g 3 Portions', 'Knorr', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Aliments à base de fruits et de légumes\', \'Plats préparés\', \'Produits déshydratés\', ', 47, 2.4, 1.4, 5.5, 0.8, 0, 0.7, 0.7, 0.28, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3523230011419, 'Yaourt brassé au lait entier', 'BIONAT', '\'Produits laitiers\', \'Produits fermentés\', \'Desserts\', \'Produits laitiers fermentés\', \'Desserts lactés\', \'Desserts lactés fermentés\', \'Yaourts\', \'Yaourts brassé', 94, 2.7, 1.6, 14, 13, 0.1, 3.5, 0.08, 0.032, 120),
 (3664346300148, 'Chocolat au lait', 'Poulain', '\'Snacks\', \'Snacks sucrés\', \'Cacao et dérivés\', \'Chocolats\', \'Chocolats au lait\', \'Chocolat canada\', \'Tablette-de-chocolat\'', 559, 35, 21, 52, 51, 1.5, 7.2, 0.22, 0.088, 0),
 (3410280024387, 'Macaroni', 'Top budget', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Céréales et pommes de terre\', \'Céréales et dérivés\', \'Pâtes alimentaires\', \'Pâtes al', 359, 1.7, 0.3, 71.9, 3.7, 3.6, 12.2, 0.04, 0.016, 0),
@@ -2355,7 +2355,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3250390105060, 'ST Eloi Endives', 'Saint eloi', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Conserves\', \'Aliments à base de fruits et de légumes\', \'Aliments à base de plantes e', 16, 0.5, 0.1, 1.9, 1.6, 1.6, 1, 0.32, 0.128, 0),
 (3250390168232, '12 OEUFS FRAIS', 'Moisson, Volae', '\'Produits d\\\'élevages\', \'Œufs\', \'Œufs de poules\', \'Œufs de poules élevées en plein air\'', 140, 9.83, 2.64, 0.27, 0.27, 0, 12.7, 0.31, 0.124, 0),
 (3250390453482, 'Rillettes au crabe', 'Odyssée', '\'Produits de la mer\', \'Poissons et dérivés\', \'Poissons\', \'Viandes et dérivés\', \'Produits à tartiner\', \'Viandes\', \'Charcuteries\', \'Produits à tartiner salés\', \'R', 215, 16, 1.3, 2.5, 0.5, 0.5, 14, 1.1, 0.44, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3250390109204, 'Riz long grain 15 min', 'Saint eloi', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Céréales et pommes de terre\', \'Graines\', \'Céréales et dérivés\', \'Céréales en grains\'', 348, 1.1, 0.2, 76, 0.5, 1.3, 7.2, 0.01, 0.004, 0),
 (3250390111474, 'Choux de Bruxelles', 'Saint eloi', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Conserves\', \'Aliments à base de fruits et de légumes\', \'Aliments à base de plantes e', 38, 0.5, 0.1, 4.1, 2, 3.6, 2.7, 0.65, 0.26, 0),
 (3250390118503, 'Carottes extra-fines', 'Saint eloi', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Conserves\', \'Aliments à base de fruits et de légumes\', \'Aliments à base de plantes e', 31, 0.5, 0.1, 5, 3.1, 2, 0.8, 0.53, 0.212, 0),
@@ -2550,7 +2550,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3250390115670, 'Ketchup sans conservateurs', 'Bouton d\'or', '\'Condiments\', \'Sauces\', \'Sauces tomate\', \'Ketchup\', \'en:groceries\'', 106, 0.5, 0.1, 23, 20, 0, 1, 1.76, 0.704, 0),
 (3250390115175, 'Equalio', 'Bouton d\'or', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Condiments\', \'Matières grasses\', \'Matières grasses végétales\', \'Epices\', \'Huiles\', \'', 900, 100, 9, 0.5, 0.5, 0, 0, 0.01, 0.004, 0),
 (3250390115656, 'Ketchup nature', 'Bouton d\'or', '\'Condiments\', \'Sauces\', \'Sauces tomate\', \'Ketchup\', \'en:groceries\'', 106, 0.5, 0.1, 24, 23, 0, 1.5, 2, 0.8, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3250390119906, 'Vinaigrette à la Moutarde à l\'ancienne', 'Bouton d\'or,Sélection des Mousquetaires,Les Mousquetaires', '\'Condiments\', \'Sauces\', \'Sauces salades\', \'Vinaigrettes\', \'Vinaigrettes allégées en matières grasses\', \'en:groceries\'', 255, 25.9, 1.9, 4.4, 2.2, 1, 0.8, 2.8, 1.12, 0),
 (3250390119913, 'Vinaigrette nature', 'Bouton d\'or,Sélection des Mousquetaires,Les Mousquetaires', '\'Condiments\', \'Sauces\', \'Sauces salades\', \'Vinaigrettes\', \'Vinaigrettes allégées en matières grasses\', \'en:groceries\'', 245, 25, 1.8, 4.3, 1.9, 0.6, 0.5, 2.3, 0.92, 0),
 (3250390145523, 'Chips à l\'ancienne', 'Bouton d\'or,Sélection des Mousquetaires,Les Mousquetaires', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Snacks\', \'Céréales et pommes de terre\', \'Snacks salés\', \'Amuse-gueules\', \'Chips et f', 557, 37, 3, 48, 0.5, 5, 5.5, 1.3, 0.52, 0),
@@ -2743,7 +2743,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3250390176794, 'Knack  Pur porc', 'Monique ranou', '\'Viandes et dérivés\', \'Viandes\', \'Charcuteries\', \'Saucisses\', \'Saucisses françaises\', \'Saucisses de Strasbourg\', \'Knacks industrielles\'', 282, 25.3, 9.3, 1.5, 1.4, 0, 12, 1.91, 0.764, 0),
 (3250390176817, 'Knack  Pur porc', 'Monique ranou,Intermarché', '\'Viandes et dérivés\', \'Viandes\', \'Charcuteries\', \'Saucisses\', \'Saucisses françaises\', \'Saucisses de Strasbourg\', \'Knacks industrielles\'', 262, 22.9, 8.1, 1.4, 1.4, 1.2, 12.1, 1.78, 0.712, 0),
 (3250390176756, 'Knack  Pur porc', 'Monique ranou,Sélection Intermarché,Les Mousquetaires', '\'Viandes et dérivés\', \'Viandes\', \'Charcuteries\', \'Frais\', \'Porc et dérivés\', \'Saucisses\', \'Saucisses françaises\', \'Porc\', \'Saucisses de porc\', \'Saucisses de Str', 275, 24, 8.8, 1.4, 1.4, 0.5, 13, 1.8, 0.72, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3250390176770, 'Knack pur porc', 'Monique ranou', '\'Viandes et dérivés\', \'Viandes\', \'Charcuteries\', \'Saucisses\', \'Saucisses françaises\', \'Saucisses de Strasbourg\', \'Knacks industrielles\'', 282, 25.3, 9.3, 1.5, 1.4, 0, 12, 1.91, 0.764, 0),
 (3250390190950, 'Jambon découenné dégraissé - mon paris', 'Monique ranou', '\'Viandes et dérivés\', \'Viandes\', \'Charcuteries\', \'Jambons\', \'Jambons blancs\'', 110, 2.8, 1.1, 0.5, 0.5, 0, 20.8, 1.99, 0.796, 0),
 (3250390190974, 'Andouillettes supérieures nature', 'Monique ranou', '\'Viandes et dérivés\', \'Viandes\', \'Charcuteries\', \'Charcuteries cuites\', \'Andouillettes\'', 223, 16.2, 5.7, 1.9, 0.5, 0, 17.4, 1.66, 0.664, 0),
@@ -2937,7 +2937,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3250391781775, 'Huile de tournesol vierge extraite à froid bio', 'Bouton d\'or', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Matières grasses\', \'Matières grasses végétales\', \'Huiles\', \'Graines de tournesol et ', 828, 92, 11, 0.5, 0.5, 0, 0.5, 0.01, 0.004, 0),
 (3250391781805, 'Huile de colza vierge biologique', 'Bouton d\'or', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Matières grasses\', \'Matières grasses végétales\', \'Huiles\', \'Huiles de colza\'', 900, 100, 7, 0.5, 0.5, 0, 0.5, 0.01, 0.004, 0),
 (3250391781683, 'Spaghetti Bio', 'BIO Fiorini,Sélection Intermarché,Les Mousquetaires, Fiorini', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Céréales et pommes de terre\', \'Céréales et dérivés\', \'Pâtes alimentaires\', \'Pâtes al', 359, 1.2, 0.3, 72.6, 3.3, 3.1, 12.7, 0.01, 0.004, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3250391781591, 'Velouté légumes variés bio', 'Saint eloi', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Aliments à base de fruits et de légumes\', \'Plats préparés\', \'Soupes\', \'Veloutés\', \'S', 34, 0.7, 0.3, 5.7, 2.1, 1, 0.9, 0.65, 0.26, 0),
 (3250391782598, 'Rôti de poulet 100% filet', 'Monique ranou', '\'Viandes et dérivés\', \'Charcuteries\', \'Charcuteries cuites\', \'Blancs de volaille en tranches\', \'Blancs de poulet en tranches\'', 103, 1.7, 0.6, 0.8, 0.7, 0.5, 21, 1.3, 0.52, 0),
 (3250391781836, 'Farine blanche BIO', 'Chabrior', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Céréales et pommes de terre\', \'Céréales et dérivés\', \'Farines\', \'Farines de céréales', 359, 1.3, 0.3, 75.3, 1.3, 0, 9.9, 0.01, 0.004, 0),
@@ -3129,7 +3129,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3250392325541, 'Chicken Burger Mon Snack', 'Monique ranou', '\'Sandwichs\', \'Hamburgers\', \'Hamburgers au poulet\'', 254, 11.2, 3.7, 25.5, 3.5, 0, 11.3, 1.33, 0.532, 0),
 (3250392332808, 'Thon entier au naturel pêché à la canne', 'Odysée ( intermarché), Odyssee', '\'Produits de la mer\', \'Poissons et dérivés\', \'Conserves\', \'Poissons\', \'Poissons gras\', \'Poissons en conserve\', \'Thons\', \'Thons en conserve\', \'Thons au naturel\',', 105, 0.5, 0.1, 0.5, 0.5, 0.5, 24.9, 0.66, 0.264, 0),
 (3250392332648, 'Biscuits kanoë choco noisette', 'Chabrior', '\'Snacks\', \'Snacks sucrés\', \'Biscuits et gâteaux\', \'Biscuits\', \'Biscuits au chocolat\', \'Barquettes\', \'Barquettes au chocolat\'', 493, 24.6, 2.8, 59.3, 41.5, 1.5, 7.9, 0.3, 0.12, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3250392334147, 'Chorizo au piment d\'Espagne', 'Itinéraire des saveurs', '\'Viandes et dérivés\', \'Viandes\', \'Charcuteries\', \'Saucissons\', \'Chorizo\'', 457, 39.7, 15.4, 4.8, 3.1, 0, 20.3, 4.5, 1.8, 0),
 (3250392334116, 'Chorizo au piment d\'Espagne doux', 'Itinéraire des Saveurs,Intermarché', '\'Viandes et dérivés\', \'Viandes\', \'Charcuteries\', \'Saucissons\', \'Chorizo\'', 476, 42, 14.5, 4.5, 3.5, 0, 20, 3.5, 1.4, 0),
 (3250392334710, 'Jean Rozé La barquette de 6 300 g', 'Jean roze', '\'\'', 262, 22, 8.5, 1.3, 0.9, 0, 15, 1.2, 0.48, 0),
@@ -3326,7 +3326,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3410280023144, 'Confiture de fraises', 'Top budget,Intermarché', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Petit-déjeuners\', \'Produits à tartiner\', \'Pâtes à tartiner végétales\', \'Produits à t', 243, 0.5, 0.1, 60.5, 49, 1, 0.5, 0.01, 0.004, 0),
 (3410280023168, 'Confiture d\'Abricots', 'Top budget', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Petit-déjeuners\', \'Produits à tartiner\', \'Pâtes à tartiner végétales\', \'Produits à t', 242, 0.5, 0.1, 60.1, 50.2, 0, 0.5, 0.02, 0.008, 0),
 (3410280022987, 'Coupelle compote de pommes allégée en sucres', 'Top budget', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Desserts\', \'Aliments à base de fruits et de légumes\', \'Fruits et produits dérivés\', ', 62, 0.5, 0.1, 15, 14, 2.7, 0.5, 0.01, 0.004, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3410280023021, 'Cocktail de fruits au sirop léger', 'Top budget', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Conserves\', \'Desserts\', \'Aliments à base de fruits et de légumes\', \'Aliments à base ', 72, 0.5, 0.1, 16, 16, 0, 0.5, 0.02, 0.008, 0),
 (3410280022871, 'Steaks hachés', 'Top budget,Intermarché', '\'Viandes et dérivés\', \'Viande de bœuf et dérivés\', \'Surgelés\', \'Viandes\', \'Bœuf\', \'Steaks de viande\', \'Steaks de bœuf\', \'Viandes surgelées\', \'Steaks hachés\', \'P', 252, 20, 8.7, 0.5, 0.5, 0.5, 18, 0.2, 0.08, 0),
 (3410280023762, 'Sardines à l\'huile végétale', 'Top budget', '\'Produits de la mer\', \'Poissons et dérivés\', \'Conserves\', \'Poissons\', \'Poissons gras\', \'Poissons en conserve\', \'Sardines\', \'Sardines en conserve\', \'Sardines à l', 239, 15, 2.6, 0.5, 0.5, 0, 23, 0.6, 0.24, 0),
@@ -3538,7 +3538,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3760023454460, 'Papayes lamelles', 'Jean-Louis Bassinet', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Aliments à base de fruits et de légumes\', \'Fruits et produits dérivés\', \'Produits dé', 340, 0, 0, 85, 76, 0, 0, 0.55, 0.22, 0),
 (3760023452534, 'Arachides sucrees', 'Jean-Louis Bassinet', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Légumineuses et dérivés\', \'Légumineuses\', \'Fruits à coques et dérivés\', \'Fruits à co', 517, 26, 3, 57, 43, 0, 15, 0.001, 0.0004, 0),
 (3760023451049, 'Amandes décortiquées', 'Jean-Louis Bassinet', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Fruits à coques et dérivés\', \'Fruits à coques\', \'Fruits à coques décortiqués\', \'Aman', 645, 49.9, 3.8, 21.5, 4.2, 0, 21.1, 0.01, 0.004, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3760023454286, 'Pâtes de fruits barres qualité Auvergne', 'Jean-Louis Bassinet', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Snacks\', \'Aliments à base de fruits et de légumes\', \'Snacks sucrés\', \'Confiseries\', ', 327, 0.2, 0.2, 80, 71, 0, 0.8, 0.15, 0.06, 0),
 (3760023454019, 'Lamelles d\'orange confites', 'Jean-Louis Bassinet', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Snacks\', \'Aliments à base de fruits et de légumes\', \'Snacks sucrés\', \'Confiseries\', ', 31, 5.5, 0.2, 76, 48, 1.5, 1, 0.1, 0.04, 0),
 (3760008859945, 'Beignets (Ordinaire)', 'Les Délices Des 7 Vallées, intermarché', '\'Snacks\', \'Snacks sucrés\', \'Beignets sucrés\'', 428, 24, 8.5, 45, 19, 0, 6.8, 0.7, 0.28, 0),
@@ -3752,7 +3752,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3228022130131, 'President le bleu onctueux 200g', 'President', '\'Produits laitiers\', \'Produits fermentés\', \'Produits laitiers fermentés\', \'Fromages\', \'Fromages à pâte persillée\'', 333, 29, 19, 0.5, 0.5, 0, 19, 1.1, 0.44, 454),
 (3250390022022, 'Légumes pour couscous', 'Saint eloi', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Aliments à base de fruits et de légumes\', \'Surgelés\', \'Légumes et dérivés\', \'Aliment', 44, 0.8, 0.1, 5.7, 2.5, 2.9, 2.1, 0.07, 0.028, 0),
 (3410280029658, 'Maïs Doux En Grains Sous Vide, La Boîte,', 'Top budget', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Conserves\', \'Céréales et pommes de terre\', \'Aliments à base de fruits et de légumes\'', 109, 1.2, 0.2, 21, 4.2, 0, 2.5, 0.4, 0.16, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3250391985685, 'Spaghetti aux Oeufs frais', 'Fiorini', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Céréales et pommes de terre\', \'Céréales et dérivés\', \'Pâtes alimentaires\', \'Nouilles', 281, 2.9, 0.8, 52, 1.3, 0, 11, 0.07, 0.028, 0),
 (8710412002180, 'Canasta Saveur Gouda. Gaufrettes fourrées saveur Gouda', 'Delacre', '\'Snacks\', \'Snacks salés\', \'Snacks sucrés\', \'Amuse-gueules\', \'Biscuits et gâteaux\', \'Biscuits\', \'Biscuits apéritifs\', \'Gaufrettes\', \'Gaufrettes fourrées\'', 533, 32.5, 15.4, 51.3, 26.1, 0, 8.8, 1.1, 0.44, 0),
 (3250392359027, 'Dessert Praliné', 'Ivoria', '\'Snacks\', \'Desserts\', \'Snacks sucrés\', \'Cacao et dérivés\', \'Chocolats\', \'Chocolats aux noisettes\', \'Chocolats à la praline\'', 562, 35.8, 15.1, 50.8, 48.2, 3.1, 7.8, 0.12, 0.048, 0),
@@ -3953,7 +3953,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3165432491509, 'Cassonade pure canne dark demerara sachet daddy 500g', 'Daddy', '\'Édulcorants\', \'Sucres\', \'Sucres roux\', \'Sucres de canne\', \'Sucre muscovado\', \'Cassonades\', \'Sucres de canne non raffinée\'', 399, 0, 0, 99.3, 99.3, 0.2, 0.3, 0.03, 0.012, 0),
 (8718114711775, 'Maille Condiment Balsamique Blanc 25 cl', 'Maille', '\'Condiments\', \'Vinaigres\', \'Vinaigres balsamiques\', \'en:groceries\'', 111, 0.5, 0.1, 23, 22, 0.5, 0.5, 0.01, 0.004, 0),
 (3250390305224, 'Chorizo fort', 'Itinéraire des Saveurs', '\'Viandes et dérivés\', \'Viandes\', \'Charcuteries\', \'Saucissons\', \'Chorizo\'', 325, 25.3, 9.1, 1.3, 0.6, 0, 23, 3.89, 1.556, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3250391518319, 'Croissants pur beurre', 'Adélie,Delifrance', '\'Snacks\', \'Snacks sucrés\', \'Surgelés\', \'Biscuits et gâteaux\', \'Viennoiseries\', \'Croissants\', \'Croissants au beurre\', \'Gâteaux et pâtisseries surgelés\'', 357, 20.9, 13.4, 33.6, 5, 2, 7.7, 0.71, 0.284, 0),
 (3237550021880, 'Knacks d\'Alsace 4 pièces', 'Pierre Schmidt', '\'Viandes et dérivés\', \'Viandes\', \'Charcuteries\', \'Frais\', \'Saucisses\', \'Saucisses françaises\', \'Saucisses de Strasbourg\'', 288, 26, 9.7, 0.6, 0.6, 0, 13, 1.9, 0.76, 0),
 (3415587305146, 'Dark chocolate and almonds', 'Haagen Dazs', '\'Desserts\', \'Surgelés\', \'Desserts glacés\', \'Glaces et sorbets\', \'Glaces\', \'Crèmes glacées en pot\'', 247, 19, 11.4, 21.8, 20.6, 2.6, 5, 0.175, 0.07, 0),
@@ -4150,7 +4150,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3250390791317, 'Yaourt au lait entier nature', 'Pâturages', '\'Produits laitiers\', \'Produits fermentés\', \'Desserts\', \'Produits laitiers fermentés\', \'Desserts lactés\', \'Desserts lactés fermentés\', \'Desserts lactés fermentés', 68, 3.3, 2.2, 5.7, 4.5, 0, 3.9, 0.1, 0.04, 120),
 (3123349014129, 'LE PUR JUS Orange sans pulpe', 'joker', '\'Aliments et boissons à base de végétaux\', \'Boissons\', \'Boissons à base de végétaux\', \'Boissons aux fruits\', \'Jus et nectars\', \'Jus de fruits\', \'Jus d\\\'orange\',', 42, 0, 0, 8.6, 8.6, 0, 0.6, 0.01, 0.004, 0),
 (36560103, 'fromage blanc pâturages', 'paturages', '\'Produits laitiers\', \'Produits fermentés\', \'Desserts\', \'Produits laitiers fermentés\', \'Desserts lactés\', \'Desserts lactés fermentés\', \'Fromages blancs\'', 307, 3.2, 1.9, 3.8, 3.8, 0, 7.3, 0.09, 0.036, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3250390010135, 'Fromage Frais de Campagne au Lait Entier', 'Paturages', '\'Produits laitiers\', \'Produits fermentés\', \'Desserts\', \'Produits laitiers fermentés\', \'Fromages\', \'Desserts lactés\', \'Desserts lactés fermentés\', \'Fromages blan', 92, 6.8, 4.7, 3.9, 3.5, 0, 3.4, 0.1, 0.04, 0),
 (3660140823951, 'Savane pocket chocolat x 7 189g', 'Brossard', '\'Snacks\', \'Snacks sucrés\', \'Biscuits et gâteaux\', \'Gâteaux\', \'Gâteaux marbrés\'', 434, 22, 3.3, 53, 28, 1.5, 5.1, 0.61, 0.244, 0),
 (3250392647995, 'Foie gras de canard entier du Gers à l\'Armagnac', 'Itinéraire des Saveurs', '\'Poissons et viandes et oeufs\', \'Foies gras\', \'Foies gras de canard\', \'Foies gras entiers\'', 532, 54.6, 21.921, 2.8, 2, 0.5, 7.3, 0.78, 0.312, 0),
@@ -4345,7 +4345,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3023290008331, 'Sveltesse ferme & fondant caramel', 'Nestlé', '\'Produits laitiers\', \'Desserts\', \'Desserts lactés\', \'Crèmes dessert\'', 73, 0.9, 0.6, 12.2, 10.6, 2.3, 3.3, 0.2, 0.08, 0),
 (3770008133129, 'Frites croustillantes', 'Sans marque,PHM production', '\'Chips et frites\', \'Frites\'', 514, 30.2, 2.9, 51.7, 0.4, 4.9, 6.5, 1.26, 0.504, 0),
 (3457221000109, '10 crêpes de froment', 'Intermarché', '\'Crêpes et galettes\', \'Crêpes\', \'Crêpes de froment\'', 314, 8.2, 3.3, 51, 25, 0, 8.6, 0.5, 0.2, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (8714100875933, 'Batonnet Glace Mini Double Caramel', 'Magnum', '\'Desserts\', \'Surgelés\', \'Desserts glacés\', \'Glaces et sorbets\', \'Glaces\', \'Bâtonnets glacés\', \'Crèmes glacées en pot\', \'Glaces à la vanille\'', 288, 17, 12, 30, 28, 1.83, 2.7, 0.14, 0.056, 0),
 (3251512810008, 'Sorbet multifruits Oasis', 'Oasis,Froneri', '\'Desserts\', \'Surgelés\', \'Desserts glacés\', \'Glaces et sorbets\', \'Glaces\', \'Bâtonnets glacés\', \'Sorbets\', \'Sorbets multifruits\'', 112, 0.5, 0.1, 27.7, 20.2, 0.5, 0.4, 0.05, 0.02, 0),
 (3410280044491, 'Tomates entières pelées', 'Top Budget', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Conserves\', \'Aliments à base de fruits et de légumes\', \'Aliments à base de plantes e', 20, 0.5, 0.1, 3, 3, 1.2, 1.2, 0.05, 0.02, 0),
@@ -4551,7 +4551,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3049580540145, '1898 Boeuf Bourguignon', 'William Saurin', '\'Conserves\', \'Viandes et dérivés\', \'Plats préparés\', \'Plats préparés à la viande\', \'Plats au bœuf\', \'Ragoûts de boeuf\', \'Plats préparés en conserve\', \'Bœufs bou', 61, 1, 0.5, 6.3, 1.8, 0, 5.8, 0.9, 0.36, 0),
 (3304910002046, '12 Crêpes savoureuses', 'Crêperie du Vieux Moulin', '\'Crêpes et galettes\', \'Crêpes\'', 346, 7.2, 4.1, 61.55, 30.1, 0, 8.6, 1.32, 0.528, 0),
 (3250390000723, 'Lait écrémé en poudre', 'Pâturages', '\'Boissons\', \'Produits laitiers\', \'Produits déshydratés\', \'Laits\', \'Produits lyophilisés à reconstituer\', \'Boissons lyophilisées\', \'Laits écrémés\', \'Laits en pou', 36, 0.5, 0.1, 5.2, 5.2, 0.5, 3.6, 0.11, 0.044, 123);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3250392344436, 'Champignons de Paris entiers 1er choix les 3 boites de 115 g net égoutté', 'Saint Eloi', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Conserves\', \'Aliments à base de fruits et de légumes\', \'Aliments à base de plantes e', 42, 0.5, 0.4, 1.8, 0.5, 0, 2.2, 1.46, 0.584, 0),
 (3250391408818, 'Abondance au lait cru aop', 'Itineraire Des Saveurs,Itinéraire des Saveurs', '\'Produits laitiers\', \'Produits fermentés\', \'Produits laitiers fermentés\', \'Fromages\', \'Fromages de France\', \'Fromages au lait cru\', \'Abondance\'', 391, 32, 22, 0.9, 0.5, 0.5, 25, 1.9, 0.76, 653),
 (3250391491957, 'Mozzarella billes', 'Pâturages', '\'Produits laitiers\', \'Produits fermentés\', \'Produits laitiers fermentés\', \'Fromages\', \'Fromages de vache\', \'Fromages italiens\', \'Fromages à pâte filée\', \'Mozzar', 228, 17, 12, 1, 1, 0.5, 18, 0.4, 0.16, 0),
@@ -4756,7 +4756,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3700365099547, 'Pain spécial garni de poulet, de fromage frais au citron, basilic et d\'un mélang', 'Le kiosque à sandwich', '\'Sandwichs\', \'Wraps\', \'Wraps au poulet\'', 203, 3.8, 1.3, 32.2, 2.6, 1.6, 8.6, 0.875, 0.35, 0),
 (3700952001908, 'Chayma', 'chayma', '\'Snacks\', \'Snacks sucrés\', \'Confiseries\', \'Bonbons\', \'Bonbons gélifiés\'', 377, 0.01, 0, 89.52, 52.22, 0, 3.52, 0.03, 0.012, 0),
 (250392744793, 'Beurre demi sel bio', 'intermarché', '\'Produits laitiers\', \'Matières grasses\', \'Produits à tartiner\', \'Matières grasses à tartiner\', \'Matières grasses animales\', \'Matière grasse laitière\', \'Produits', 726, 80, 55.4, 1.5, 0.6, 0.5, 0.7, 2.2, 0.88, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (14100097006, 'Chocolate Chunk Milk Chocolate Macadamia Crispy Cookies', 'Chocolate Chunk,Pepperidge Farm', '\'Snacks\', \'Snacks sucrés\', \'Biscuits et gâteaux\', \'Biscuits\', \'Biscuits au chocolat\'', 525, 30, 15, 58, 33, 4, 5.6, 0.77, 0.308, 0),
 (14100097013, 'Chocolate Chunk White Chocolate Macadamia Crispy Cookies', 'Pepperidge Farm', '\'Snacks\', \'Snacks sucrés\', \'Biscuits et gâteaux\', \'Biscuits\', \'Biscuits au chocolat\'', 518, 29, 14, 58, 33, 0, 6, 0.8, 0.32, 0),
 (3004032145, 'Chinois Nature Décongelé', 'Intermarché', '\'Snacks\', \'Snacks sucrés\', \'Viennoiseries\', \'Brioches\', \'Brioche fourrée crème pâtissière\'', 400, 36, 36, 18, 18, 0, 20, 3, 1.2, 0),
@@ -4953,7 +4953,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3250392270414, '8 Saucisses fumées au bois de hêtre', 'Jean Rozé', '\'Viandes et dérivés\', \'Viandes\', \'Charcuteries\', \'Saucisses\', \'Saucisses fumées\'', 281, 23.9, 9.2, 0.9, 0.9, 0, 16.4, 2.21, 0.884, 0),
 (3250392007928, 'Flan Pur Beurre *5', 'Intermarché', '\'Snacks\', \'Snacks sucrés\', \'Biscuits et gâteaux\', \'Pâtisseries\', \'Flans pâtissiers\'', 200, 7.6, 5.2, 28.9, 18.3, 0, 3.7, 0.2, 0.08, 0),
 (3250392231705, 'Tranchettes de Truite Fumée', 'Odyssée,Intermarché', '\'Produits de la mer\', \'Poissons et dérivés\', \'Poissons\', \'Poissons gras\', \'Poissons fumés\', \'Truites\', \'Truites d\\\'élevage\', \'Truites fumées\', \'Produits déconge', 172, 8.2, 1.3, 0.5, 0.5, 0.4, 24, 3, 1.2, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3700002706142, '6 Plein Air d\'Ici', 'Les Oeufs Genty', '\'Produits d\\\'élevages\', \'Œufs\', \'Œufs de poules\', \'Œufs de poules élevées en plein air\'', 145, 10.3, 2.7, 0.7, 0.7, 0, 12.3, 0.3, 0.12, 0),
 (7622210663092, 'Fruits Rouges Noir (offre Gourmande)', 'Côte d\'Or', '\'Snacks\', \'Snacks sucrés\', \'Cacao et dérivés\', \'Chocolats\', \'Chocolats noirs\'', 443, 19, 11, 64, 52, 6.6, 2.4, 0.1, 0.04, 0),
 (3250390405092, 'Yaourts nature au lait entier bio', 'Pâturages', '\'Produits laitiers\', \'Produits fermentés\', \'Desserts\', \'Produits laitiers fermentés\', \'Desserts lactés\', \'Frais\', \'Desserts lactés fermentés\', \'Desserts lactés ', 64, 3.5, 2.5, 4.1, 3.8, 0, 3.4, 0.11, 0.044, 120),
@@ -5156,7 +5156,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (8852634051000, 'Lait de coco', 'Capitaine cook,Cap Tropical', '\'Aliments et boissons à base de végétaux\', \'Boissons\', \'Aliments d\\\'origine végétale\', \'Substituts de produits laitiers\', \'Substituts du lait\', \'Boissons à base', 50, 5, 0, 1, 0.27, 0, 0, 0, 0, 0),
 (3250390307754, 'Boudin Blanc Nature', 'Monique Ranou', '\'Viandes et dérivés\', \'Viandes\', \'Charcuteries\', \'Poissons et viandes et oeufs\', \'Abats\', \'Produits tripiers\', \'Boudins\', \'Boudins noirs\', \'Boudins blancs\', \'Bo', 303, 26.8, 10.8, 5.7, 3, 1.3, 9.2, 1.33, 0.532, 0),
 (3250390103325, 'Sans sucres ajoutés Pomme', 'Paquito', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Desserts\', \'Aliments à base de fruits et de légumes\', \'Fruits et produits dérivés\', ', 54, 0.5, 0.1, 12.1, 10.7, 0, 0.5, 0.01, 0.004, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3250390000679, 'Marmelade Orange, Avec écorces Coupées En Lamelles', 'Paquito,Intermarché', '\'Aliments et boissons à base de végétaux\', \'Boissons\', \'Aliments d\\\'origine végétale\', \'Petit-déjeuners\', \'Produits à tartiner\', \'Pâtes à tartiner végétales\', \'', 241, 0.5, 0.1, 59.8, 51.1, 0, 0.5, 0, 0, 0),
 (3250392333577, 'Sirop citron pur sucre', 'Paquito', '\'Boissons\', \'Sirops\', \'Sirops aromatisés\', \'Sirops de citron\', \'Boissons avec sucre ajouté\'', 290, 0.5, 0.1, 70, 70, 0, 0.5, 0.01, 0.004, 0),
 (3258561413150, 'Pommes rissolées', 'Intermarche', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Céréales et pommes de terre\', \'Surgelés\', \'Pommes de terre préparées\', \'Pommes de te', 160, 4.5, 0.5, 26.5, 2.5, 0, 2.2, 0.14, 0.056, 0),
@@ -5361,7 +5361,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3384110006556, 'Poulet en gelee aux petits legumes', 'Saveurs Bressanes', '\'Viandes et dérivés\', \'Plats préparés\', \'Plats préparés à la viande\', \'Plats à la volaille\', \'Plats au poulet\'', 80, 1, 0.3, 1.8, 1, 0, 15, 3, 1.2, 0),
 (5201671800530, 'Fromage feta grec et tomates séchées à tartiner', 'Gaea', '\'Produits à tartiner\', \'Produits à tartiner salés\'', 215, 18.5, 5.2, 5.8, 5.7, 0, 4.5, 1.8, 0.72, 0),
 (3430690000016, 'Eau Monts D\'Arrée 1.5L', 'menez are', '\'Boissons\', \'Eaux\', \'Eaux de sources\'', 0, 0, 0, 0, 0, 0, 0, 17.78, 7.112, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3700157522956, 'Cake à la poire et au caramel', 'Maison Colibri', '\'Snacks\', \'Snacks sucrés\', \'Biscuits et gâteaux\', \'Gâteaux\', \'Cakes aux fruits\'', 423, 23, 14, 48, 30, 1.3, 5.3, 0.54, 0.216, 0),
 (5201671100227, 'Tomates séchées à tartiner', 'GAEA', '\'Produits à tartiner\', \'Produits à tartiner salés\'', 183, 15, 1.9, 6, 4.9, 0, 3.5, 1.1, 0.44, 0),
 (3250390304821, 'Saucisses Cocktail Nature', 'Bouton d\'or,Intermarché', '\'Viandes et dérivés\', \'Viandes\', \'Charcuteries\', \'Saucisses\', \'Saucisses cocktail\'', 228, 20.2, 8, 0.5, 0.5, 0, 11.2, 1.5, 0.6, 0),
@@ -5562,7 +5562,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3262970805680, 'Bibeleskaes sur lit de cerise chocolat', 'Alsace lait', '\'Produits laitiers\', \'Produits fermentés\', \'Desserts\', \'Produits laitiers fermentés\', \'Desserts lactés\', \'Desserts lactés fermentés\', \'Desserts lactés fermentés', 141, 6.2, 4.2, 16, 15, 0, 5.4, 0.11, 0.044, 0),
 (3250391744404, 'Odyssée, Noix de St Jacques sans corail', 'odyssée', '\'Produits de la mer\', \'Mollusques\'', 82, 0.6, 0.3, 3.4, 0.5, 0, 15.8, 0.36, 0.144, 0),
 (3295216000013, 'Boudin Noir De Lyon à La Crème, L\'assiette,', 'Le Père Benoît', '\'Viandes et dérivés\', \'Viandes\', \'Charcuteries\', \'Poissons et viandes et oeufs\', \'Abats\', \'Produits tripiers\', \'Boudins\', \'Boudins noirs\', \'Boudin noir sauté\', ', 155, 9.4, 4.3, 7.4, 3.4, 0, 11, 0.975, 0.39, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3330319100519, 'Raisins de Smyrne', 'Sans marque,MG Europe', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Aliments à base de fruits et de légumes\', \'Fruits et produits dérivés\', \'Produits dé', 298, 0.1, 0, 67.7, 67.4, 0, 2.8, 0.15, 0.06, 0),
 (3502110010773, 'Tropicana Bio orange sans pulpe 75 cl', 'Tropicana', '\'Aliments et boissons à base de végétaux\', \'Boissons\', \'Boissons à base de végétaux\', \'Boissons aux fruits\', \'Jus et nectars\', \'Jus de fruits\', \'Jus d\\\'orange\',', 49, 0, 0, 10.8, 10.8, 0.8, 0.6, 0, 0, 0),
 (3760224581200, 'Huile aromatisée Truffe noire', 'ELISE & FÉLICIE', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Matières grasses\', \'Matières grasses végétales\', \'Huiles\', \'Produits artisanaux\'', 900, 100, 12, 0, 0, 0, 0, 0, 0, 0),
@@ -5760,7 +5760,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3250390059592, 'Miel De Fleurs', 'Elodie', '\'Petit-déjeuners\', \'Produits à tartiner\', \'Produits à tartiner sucrés\', \'Produits de la ruche\', \'Produits d\\\'élevages\', \'Édulcorants\', \'Miels\', \'Miels de fleurs', 324, 0.5, 0.1, 83.6, 74.6, 0, 0.5, 0, 0, 0),
 (3250392542733, 'Yaourt à la grecque nature', 'Páturages', '\'Produits laitiers\', \'Produits fermentés\', \'Desserts\', \'Produits laitiers fermentés\', \'Desserts lactés\', \'Desserts lactés fermentés\', \'Desserts lactés fermentés', 111, 8.6, 5.5, 4.7, 4.2, 0.5, 3.8, 0.12, 0.048, 0),
 (4009198868542, 'Zenat Poire', 'Zenat', '\'Boissons\'', 39, 0.1, 0.02, 9.6, 8.1, 0, 0.1, 0, 0, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3288131500430, '130G Petit Pot Bebe Jardiniere De Legumes', 'Babybio', '\'Aliments pour bébé\', \'Dès 4 mois\'', 56, 0.8, 0.2, 8.6, 3, 2.6, 2.3, 0.025, 0.01, 0),
 (209226025846, 'Comté', 'Itineraire Des Saveurs', '\'Produits laitiers\', \'Produits fermentés\', \'Produits laitiers fermentés\', \'Fromages\', \'Fromages à pâte pressée cuite\', \'Fromages de France\', \'Comté\', \'en:aoc-ch', 413, 34, 22, 0.8, 0.5, 0, 26, 0.8, 0.32, 0),
 (3256540010864, 'Beignet pomme', 'Pasquier', '\'Snacks\', \'Snacks sucrés\', \'Beignets sucrés\'', 403, 23, 3.1, 43.7, 17.6, 4.09, 4.8, 0.78, 0.312, 0),
@@ -5958,7 +5958,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3080920980542, 'Fruit To Go - Les Fruits du Paradis', 'St Mamet', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Conserves\', \'Desserts\', \'Aliments à base de fruits et de légumes\', \'Aliments à base ', 61, 0, 0, 14, 13, 1.3, 0, 0, 0, 0),
 (3038680020381, 'Sushi', 'Comptoir Sushi', '\'Plats préparés\', \'Frais\', \'Plats préparés au poisson\', \'Plats préparés frais\', \'Sushis et makis\', \'Sushis\'', 145, 4.1, 1.4, 21, 8, 0, 5.6, 2.1, 0.84, 0),
 (3270720001596, 'Formule boost', 'Daco Bello', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Snacks\', \'Aliments à base de fruits et de légumes\', \'Snacks salés\', \'Amuse-gueules\',', 445, 23.1, 2.8, 35.5, 35.5, 15.6, 17.7, 0.02, 0.008, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (8410564008176, 'pipas tostadas aguasal', 'Frit Ravich', '\'Alimentos y bebidas de origen vegetal\', \'Alimentos de origen vegetal\', \'Semillas\', \'Semillas de girasol y derivados\', \'Semillas de girasol\', \'Semillas de giras', 645, 54, 6.1, 4.7, 4.5, 7.9, 31, 0.15, 0.06, 0),
 (3613290000680, 'Gouda fruité de Noord Holland', 'Holland Master,Savencia', '\'Produits laitiers\', \'Produits fermentés\', \'Produits laitiers fermentés\', \'Fromages\', \'Fromages de vache\', \'Fromages à pâte pressée non cuite\', \'Fromages des Pa', 413, 34, 23, 0.5, 0.5, 0, 26, 1.9, 0.76, 0),
 (11718253, 'Biscotte complète', 'chabrior bio', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Céréales et pommes de terre\', \'Pains\', \'Biscottes\', \'Pains grillés\', \'Biscottes comp', 371, 3.7, 0.5, 64.8, 5.7, 9, 15.1, 1.34, 0.536, 0),
@@ -6176,7 +6176,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (7182217, 'Toastiligne Céréales', 'La Boulangère', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Céréales et pommes de terre\', \'Pains\', \'Pains de mie\'', 261, 5.5, 1.1, 39, 2.4, 5.4, 11, 1.1, 0.44, 0),
 (17350356, 'Mayonnaise', 'Top Budget', '\'Condiments\', \'Sauces\', \'Mayonnaises\', \'en:groceries\'', 643, 70, 5.2, 3.9, 0.4, 0, 1, 1.2, 0.48, 0),
 (5997523317157, 'Nouilles japonaises curry \'maroyaka\'', 'nissin', '\'Aliments et boissons à base de végétaux\', \'Aliments d\\\'origine végétale\', \'Céréales et pommes de terre\', \'Céréales et dérivés\', \'Produits déshydratés\', \'Pâtes ', 86, 3.5, 1.8, 11.2, 1.2, 0, 1.8, 1, 0.4, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3250392130312, 'Coq au vin de Madiran', 'Itinéraire des Saveurs', '\'Conserves\', \'Viandes et dérivés\', \'Plats préparés\', \'Plats préparés à la viande\', \'Plats à la volaille\', \'Plats préparés en conserve\', \'Coq au vin\'', 125, 5.4, 1.4, 4.4, 3.1, 0, 14.2, 1.18, 0.472, 0),
 (3250391999811, 'Look Pulp Citron-Citron Vert', 'Intermarché', '\'Boissons\', \'Boissons avec sucre ajouté\'', 37, 0.5, 0.1, 9.2, 0.5, 0, 0.5, 0.01, 0.004, 0),
 (3250392058319, 'Saucisses blanches', 'Itinéraire des Saveurs', '\'\'', 317, 29.8, 11.5, 0.7, 0.6, 0, 11.5, 1.6, 0.64, 0),
@@ -6455,7 +6455,7 @@ INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100
 (3250392483944, 'Soufflés au crabe', 'Capitaine Cook', '\'\'', 152, 9.9, 5.9, 6.5, 0.5, 0, 9.2, 1.48, 0.592, 0),
 (3760073026037, 'Purée Fine De Petits Pois Aux Asperges Bio, 220GR', 'Capitaine cook', '\'\'', 20, 0.55, 0.06, 4.19, 0.47, 4.64, 3.26, 0.83, 0.332, 0),
 (3250392441210, 'Saumon fumé de norvege', 'Capitaine Cook', '\'Produits de la mer\', \'Poissons et dérivés\', \'Poissons\', \'Poissons gras\', \'Saumons\', \'Poissons fumés\', \'Saumons fumés\', \'Saumons fumés d\\\'élevage\'', 200, 11.7, 2.8, 0.3, 0.3, 0, 23.4, 3.53, 1.412, 0);
-INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MATIERES_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
+INSERT INTO `aliment` (`CODE_BARRES`, `NOM`, `MARQUE`, `CATEGORIE`, `ENERGIE_100G`, `MAT_GRASSES`, `GRAISSES_SATUREES`, `GLUCIDES`, `SUCRES`, `FIBRES`, `PROTEINES`, `SEL`, `SODIUM`, `CALCIUM`) VALUES
 (3250391154951, 'Soupe de poissons a la provencale, l\'unite de', 'Capitaine cook', '\'Plats préparés\', \'Soupes\', \'Soupes à réchauffer\', \'Soupes de poissons\'', 90, 0, 1.2, 0, 0.8, 0, 5.3, 0.79, 0.316, 0),
 (3250391989867, 'Sushis Nigiris et California Rolls, les 10 sushis 225 g', 'Itinéraire des Saveurs', '\'\'', 150, 3.5, 0.5, 23, 2, 0, 5.8, 0, 0, 0),
 (8381854945375, 'Nouilles chinoises saveur crevette', 'Itineraire Des Saveurs', '\'\'', 458, 17.8, 9.4, 62.7, 1.7, 0, 10.8, 3.66, 1.464, 0),
