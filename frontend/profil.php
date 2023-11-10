@@ -51,14 +51,13 @@
             </thead>
             <tbody id="studentsTableBody"></tbody>
         </table>
+
         <button type="button" id="modifier-profil-button">Modifier votre profil</button>
 
     <button type="button" id="valider-modifications-button">Valider les modifications</button>
     <div id="message"></div>
 
         <?php endif; ?>
-
-
 
 
 
@@ -213,6 +212,7 @@
             });
         });
     </script>
+
 
     </main>
 

@@ -81,3 +81,22 @@ try {
     echo json_encode(array('message' => 'Erreur lors de l\'enregistrement du repas : ' . $e->getMessage()));
 }
 ?>
+
+
+
+
+
+// Exemple de données de test qui fonctionnent dans reqbin
+// {
+//     "nomRepas": "Déjeuner",
+//     "dateRepas": "2023-11-15 12:30:00",
+//     "aliments": [
+//       {"aliment": 123456789, "quantite": 200},  
+//       {"aliment": 987654321, "quantite": 150}, 
+//       {"aliment": 111222333, "quantite": 100} 
+//     ]
+
+//   }
+
+//   }
+

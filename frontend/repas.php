@@ -12,6 +12,7 @@
     <header class="bg-dark py-1">
         <?php renderMenuToHTML('repas'); ?>
     </header>
+
     <main>
     <h1 class="my-custom-h1">Créez votre repas</h1>
     <h2 id="custom-description">Entrez le nom et la date du repas et ajoutez autant d'aliments que vous le souhaitez en précisant leur quantités.</h2>
@@ -70,6 +71,7 @@
         <tbody id="studentsTableBody">
         </tbody>
     </table>
+
     </main>
 
     <script>

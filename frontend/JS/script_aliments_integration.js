@@ -16,7 +16,8 @@ $(document).ready(function () {
     });
 
 
-    $('#myTable').on('click', '.custom-button', function () {
+
+    $('#myTable').on('click', '.custom-button', function (event) {
         var row = $(this).closest('tr');
         var data = table.row(row).data();
         var codeBarres = data.CODE_BARRES; // Assurez-vous d'ajuster le nom de la propriété selon votre structure de données
@@ -28,9 +29,12 @@ $(document).ready(function () {
         document.execCommand('copy');
         tempInput.remove();
 
-        // Affichez une notification ou effectuez d'autres actions si nécessaire
-        alert('Code-barres copié : ' + codeBarres);
+        // Votre logique ici
+        $(this).addClass('clic-effectue');
+
+
     });
 
 
 });
+

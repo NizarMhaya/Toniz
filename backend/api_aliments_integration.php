@@ -7,6 +7,7 @@ header('Content-Type: application/json'); // Définir le type de contenu JSON
 require_once('init_pdo.php');
 
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     // Utilisez la fonction get_aliment pour obtenir tous les aliment
     $aliment = get_aliment($pdo);
@@ -29,26 +30,3 @@ function get_aliment($pdo)
     return $aliment;
 }
 
-
-
-// Fonction pour ajouter un aliment aux favoris de l'utilisateur
-function add_aliment_to_favoris($pdo, $userID, $codeBarres)
-{
-    try {
-        // Préparez la requête SQL d'insertion dans la table aliments_favoris
-        $stmt = $pdo->prepare("INSERT INTO aliments_favoris (ID_USER, CODE_BARRES) VALUES (:user_id, :code_barres)");
-
-        // Liez les valeurs des paramètres
-        $stmt->bindParam(':user_id', $userID, PDO::PARAM_INT);
-        $stmt->bindParam(':code_barres', $codeBarres, PDO::PARAM_INT);
-
-        // Exécutez la requête
-        $stmt->execute();
-
-        // Retournez un message de succès
-        return array('message' => 'Aliment ajouté aux favoris avec succès.');
-    } catch (PDOException $e) {
-        // En cas d'erreur, retournez un message d'erreur
-        return array('error' => 'Erreur lors de l\'ajout de l\'aliment aux favoris : ' . $e->getMessage());
-    }
-}

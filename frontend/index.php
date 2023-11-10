@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <?php require_once('template_settings.php'); ?>
 </head>
