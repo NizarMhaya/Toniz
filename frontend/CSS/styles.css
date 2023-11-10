@@ -308,10 +308,3 @@ a:hover {
     width: 90%;
     /* Ajustez la largeur en fonction de vos besoins */
 }
-
-
-
-/* Ajoutez le style nécessaire pour le masquage initial */
-#tableSection {
-    display: none;
-}
