@@ -2,8 +2,6 @@
 function removeNutrimentChart() {
     $('#nutriment-chart').remove();
 }
-
-// Fonction pour obtenir les nutriments en utilisant la période et le type de nutriment sélectionnés
 function getNutrimentData(startDate, endDate, selectedNutriment) {
     // Requête AJAX pour obtenir les données du nutriment spécifié avec la période sélectionnée
     $.ajax({
@@ -24,12 +22,13 @@ function getNutrimentData(startDate, endDate, selectedNutriment) {
                 // Arrondir le totalNutriment à deux chiffres après la virgule
                 const roundedTotal = parseFloat(totalNutriment).toFixed(2);
 
-                // Triez les dates chronologiquement
-                const sortedNutrimentData = data.dailyNutriments.sort((a, b) => new Date(a.jour) - new Date(b.jour));
+                // Affichez la valeur de KCAL_JOUR sur la page
+                const userKcal = data.userKcal;
+                document.getElementById('user-kcal-value').textContent = 'KCAL_JOUR: ' + userKcal;
 
                 $('#nutriments-info').html('Total de ' + selectedNutriment + ' du ' + startDate + ' au ' + endDate + ' : ' + roundedTotal);
                 // Appel à la fonction pour créer le graphe
-                createNutrimentChart(sortedNutrimentData, selectedNutriment);
+                createNutrimentChart(data.dailyNutriments, selectedNutriment, userKcal);
             } else {
                 $('#nutriments-info').html('Aucune donnée disponible');
                 // Supprimez le graphe s'il existe
@@ -43,9 +42,7 @@ function getNutrimentData(startDate, endDate, selectedNutriment) {
         }
     });
 }
-
-// Fonction pour créer le graphe avec Chart.js
-function createNutrimentChart(dailyNutriments, nutrimentType) {
+function createNutrimentChart(dailyNutriments, nutrimentType, userKcal) {
     // Supprimez le graphe s'il existe
     removeNutrimentChart();
 
@@ -57,32 +54,70 @@ function createNutrimentChart(dailyNutriments, nutrimentType) {
     $('#calories-section').append('<div id="nutriment-chart-container"><canvas id="nutriment-chart" width="300" height="150"></canvas></div>');
 
     var ctx = document.getElementById('nutriment-chart').getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: dates,
-            datasets: [{
-                label: nutrimentType,
-                data: values,
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1,
-                fill: false
-            }]
-        },
-        options: {
-            scales: {
-                x: {
-                    type: 'category',
-                    labels: dates,
-                    position: 'bottom'
-                },
-                y: {
-                    type: 'linear',
-                    position: 'left'
+    
+    if (nutrimentType === 'ENERGIE_100G') {
+        // Si le nutriment choisi est "Énergie (kcal)", tracez la ligne droite en rouge
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: dates,
+                datasets: [{
+                    label: nutrimentType,
+                    data: values,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    fill: false
+                }, {
+                    label: 'KCAL_JOUR',
+                    data: Array(dates.length).fill(userKcal), // Créez un tableau avec la valeur de l'utilisateur répétée
+                    borderColor: 'rgba(255, 0, 0, 1)', // Rouge
+                    borderWidth: 1,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'category',
+                        labels: dates,
+                        position: 'bottom'
+                    },
+                    y: {
+                        type: 'linear',
+                        position: 'left'
+                    }
                 }
             }
-        }
-    });
+        });
+    } else {
+        // Si le nutriment choisi n'est pas "Énergie (kcal)", tracez uniquement le graphique
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: dates,
+                datasets: [{
+                    label: nutrimentType,
+                    data: values,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'category',
+                        labels: dates,
+                        position: 'bottom'
+                    },
+                    y: {
+                        type: 'linear',
+                        position: 'left'
+                    }
+                }
+            }
+        });
+    }
 }
 
 // Écouteur d'événement pour la soumission du formulaire
