@@ -12,14 +12,12 @@ $(document).ready(function () {
         const alimentsInputs = document.querySelectorAll(".aliment-input");
         const quantiteInputs = document.querySelectorAll(".quantite-input");
 
-
         const aliments = [];
         for (let i = 0; i < alimentsInputs.length; i++) {
             const aliment = alimentsInputs[i].value;
             const quantite = quantiteInputs[i].value;
             aliments.push({ aliment, quantite });
         }
-
 
         // Créez un objet avec les données à envoyer
         const dataToSend = {
@@ -30,14 +28,22 @@ $(document).ready(function () {
 
         // Effectuez l'appel AJAX de type POST pour enregistrer le repas
         $.ajax({
-            url: apiUrlRepas, // Remplacez ceci par l'URL de votre API ou script de traitement PHP
+            url: apiUrlRepas,
             type: "POST",
             contentType: "application/json",
-            data: JSON.stringify(dataToSend), // Convertissez l'objet en chaîne JSON
+            data: JSON.stringify(dataToSend),
             success: function (response) {
                 // Traitez la réponse de l'API si nécessaire
                 console.log("Repas enregistré avec succès :", response);
-
+        
+                // Affichez le total des calories à l'utilisateur
+                const totalCaloriesElement = document.getElementById("total-calories");
+                totalCaloriesElement.innerText = response.totalCalories;
+        
+                // Affichez la section du total des calories
+                const totalCaloriesSection = document.getElementById("total-calories-section");
+                totalCaloriesSection.style.display = "block";
+        
                 // Affichez un message de succès à l'utilisateur
                 afficherMessageSucces("Repas enregistré avec succès !");
             },
@@ -50,6 +56,7 @@ $(document).ready(function () {
             }
         });
     });
+
 
     // Fonction pour afficher un message de succès
     function afficherMessageSucces(message) {
@@ -66,6 +73,4 @@ $(document).ready(function () {
         messageDiv.classList.add("alert", "alert-danger");
         messageDiv.style.display = "block";
     }
-
-
 });

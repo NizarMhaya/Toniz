@@ -10,7 +10,7 @@
 <body>
     <?php require_once('template_menu.php'); ?>
     <header class="bg-dark py-1">
-        <?php renderMenuToHTML('aliments'); ?>
+        <?php renderMenuToHTML('repas'); ?>
     </header>
 
     <main>
@@ -32,6 +32,7 @@
 
         <button type="submit" id="enregistrer-repas-button">Enregistrer le repas</button>
     </form>
+
 
     <script>
         const alimentsContainer = document.getElementById("aliments-container");
@@ -83,7 +84,13 @@
         let apiUrlRepas = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
                             echo _API_URL_NEW_REPAS; ?> "; // utilisation de la variable définie dans config
     </script>
-
+    <script>
+        let apiUrlNutriment = "<?php require_once 'config.php'; // j'utilise en chemin relatif vers config dont le but est de ne plus utiliser de lien en dur pour l'API...
+                        echo _API_URL_NUTRIMENT; ?> "; // utilisation de la variable définie dans config
+    </script>
+    <script src="JS/script_nutriment.js" defer></script>
+        
+    
     <footer class="py-4 bg-dark">
         <?php require_once('template_footer.php'); ?>
 

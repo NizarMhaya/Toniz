@@ -62,21 +62,10 @@ create table INGREDIENT_DE
 create table NUTRIMENT
 (
    ID_NUTRIMENT         INT NOT NULL AUTO_INCREMENT,
-   QUANTITE_100G        INT,
    NOM_NUTRIMENT        VARCHAR(256),
    PRIMARY KEY (ID_NUTRIMENT)
 );
 
-/*==============================================================*/
-/* Table : PRESENT_DANS                                         */
-/*==============================================================*/
-create table PRESENT_DANS
-(
-   CODE_BARRES          BIGINT NOT NULL,
-   ID_NUTRIMENT         INT NOT NULL,
-   QUANTITE_G           INT,
-   PRIMARY KEY (CODE_BARRES, ID_NUTRIMENT)
-);
 
 /*==============================================================*/
 /* Table : REPAS                                                */
@@ -88,6 +77,19 @@ create table REPAS
    NOM_REPAS            varchar(80)  comment '',
    DATE                 TIMESTAMP,
    PRIMARY KEY (ID_REPAS)
+);
+
+/*==============================================================*/
+/* Table : REPAS_NUTRIMENT                                          */
+/*==============================================================*/
+CREATE TABLE REPAS_NUTRIMENT
+(
+   ID_REPAS      INT NOT NULL,
+   ID_NUTRIMENT  INT NOT NULL,
+   QUANTITE_G    INT,
+   PRIMARY KEY (ID_REPAS, ID_NUTRIMENT),
+   FOREIGN KEY (ID_REPAS) REFERENCES REPAS (ID_REPAS) ON DELETE CASCADE ON UPDATE CASCADE,
+   FOREIGN KEY (ID_NUTRIMENT) REFERENCES NUTRIMENT (ID_NUTRIMENT) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 /*==============================================================*/
